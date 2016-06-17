@@ -70,6 +70,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
   const getStrokeWidth = (d) => (d.weight || 1);
   const getEdgeClass = (d) => 'link ' + (d.style == 'dashed' ? 'transfer' : 'rail');
   const getDashArray = (d) => d.style == 'dashed' ? '5,5' : 'solid';
+  const getStrokeColor = (d) => d3.rgb(d.color);
   
   const nodes = [];
   const nodeIndexes = {};
@@ -97,7 +98,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
     .data(edges)
     .enter().append('line')
     .attr('class', getEdgeClass)
-    .style('stroke', 'black')
+    .style('stroke', getStrokeColor)
     .style('stroke-dasharray', getDashArray)
     .style('stroke-width', getStrokeWidth);
 
