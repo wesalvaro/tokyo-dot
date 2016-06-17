@@ -5,6 +5,28 @@ digraph {
 
 
   // 駅：
+  
+  // 東京メトロ銀座線
+  node [color="#f39700"]
+  G01 [label="{{渋谷|Shibuya}|G01}"];
+  G02 [label="{{表参道|Omotesandō}|G02}"];
+  G03 [label="{{外苑前|Gaiemmae}|G03}"];
+  G04 [label="{{青山一丁目|Aoyama-Itchōme}|G04}"];
+  G05 [label="{{赤坂見附|Akasaka-Mitsuke}|G05}"];
+  G06 [label="{{溜池山王|Tameike-Sannō}|G06}"];
+  G07 [label="{{虎ノ門|Toranomon}|G07}"];
+  G08 [label="{{新橋|Shimbashi}|G08}"];
+  G09 [label="{{銀座|Ginza}|G09}"];
+  G10 [label="{{京橋|Kyōbashi}|G10}"];
+  G11 [label="{{日本橋|Nihombashi}|G11}"];
+  G12 [label="{{三越前|Mitsukoshimae}|G12}"];
+  G13 [label="{{神田|Kanda}|G13}"];
+  G14 [label="{{末広町|Suehirochō}|G14}"];
+  G15 [label="{{上野広小路|Ueno-Hirokōji}|G15}"];
+  G16 [label="{{上野|Ueno}|G16}"];
+  G17 [label="{{稲荷町|Inarichō}|G17}"];
+  G18 [label="{{田原町|Tawaramachi}|G18}"];
+  G19 [label="{{浅草|Asakusa}|G19}"];
 
   // 東京メト日比谷線：
   node [color="#b5b5ac"];
@@ -146,6 +168,15 @@ digraph {
   subgraph Transfers {
     edge [style="dashed", dir="forward"];
 
+    { G01 -> YT06; }
+    { G01 -> TY01; }
+    { G08 -> YT27; }
+    { rank=same; G09 -> H08; }
+    { G13 -> YT24; }
+    { rank=same; G15 -> H16; }
+    { rank=same; G16 -> H17; }
+    { G16 -> YT21; }
+
     {
       rank=same;
       H01 -> TY03 [label="ホーム", dir="both", len=0.0, weight=0];
@@ -176,13 +207,27 @@ digraph {
     { TY01 -> YT06 [len=0.7, weight=10]; }
   }
 
-  // JR山手線：
+  // 東京メトロ銀座線：
 
-  subgraph Yamanote {
-    YT01 -> YT02 -> YT03 -> YT04 -> YT05 -> YT06 -> YT07 -> YT08 -> YT09 -> YT10;
-    YT10 -> YT11 -> YT12 -> YT13 -> YT14 -> YT15 -> YT16 -> YT17 -> YT18 -> YT19;
-    YT19 -> YT20 -> YT21 -> YT22 -> YT23 -> YT24 -> YT25 -> YT26 -> YT27 -> YT28;
-    YT28 -> YT29 -> YT01;
+  subgraph Ginza {
+    G01 -> G02 [len=1.3];
+    G02 -> G03 [len=0.7];
+    G03 -> G04 [len=0.7];
+    G04 -> G05 [len=1.3];
+    G05 -> G06 [len=0.9];
+    G06 -> G07 [len=0.6];
+    G06 -> G08 [len=0.8];
+    G08 -> G09 [len=0.9];
+    G09 -> G10 [len=0.7];
+    G10 -> G11 [len=0.7];
+    G11 -> G12 [len=0.6];
+    G12 -> G13 [len=0.7];
+    G13 -> G14 [len=1.1];
+    G14 -> G15 [len=0.6];
+    G15 -> G16 [len=0.5];
+    G16 -> G17 [len=0.7];
+    G17 -> G18 [len=0.7];
+    G18 -> G19 [len=0.8];
   }
 
   // 東京メトロ日比谷線：
@@ -311,6 +356,15 @@ digraph {
     TY11 -> TY16 [len=8.0];
     TY16 -> TY21 [len=5.4];
     TY21 -> MM03;
+  }
+
+  // JR山手線：
+
+  subgraph Yamanote {
+    YT01 -> YT02 -> YT03 -> YT04 -> YT05 -> YT06 -> YT07 -> YT08 -> YT09 -> YT10;
+    YT10 -> YT11 -> YT12 -> YT13 -> YT14 -> YT15 -> YT16 -> YT17 -> YT18 -> YT19;
+    YT19 -> YT20 -> YT21 -> YT22 -> YT23 -> YT24 -> YT25 -> YT26 -> YT27 -> YT28;
+    YT28 -> YT29 -> YT01;
   }
 
 }
