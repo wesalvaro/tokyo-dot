@@ -133,7 +133,7 @@ digraph {
   YT07 [label="原宿|Harajuku"];
   YT08 [label="代々木|Yoyogi"];
   YT09 [label="新宿|Shinjuku"];
-  YT10 [label="新大阪|Shin-Okubo"];
+  YT10 [label="新大久保|Shin-Okubo"];
   YT11 [label="高田馬場|Takadanobaba"];
   YT12 [label="目白|Mejiro"];
   YT13 [label="池袋|Ikebukuro"];
