@@ -129,7 +129,7 @@ digraph {
   YT03 [label="五反田|Gotanda"];
   YT04 [label="目黒|Meguro"];
   YT05 [label="恵比寿|Ebisu"];
-  YT06 [label="品川|Shibuya"];
+  YT06 [label="渋谷|Shibuya"];
   YT07 [label="原宿|Harajuku"];
   YT08 [label="代々木|Yoyogi"];
   YT09 [label="新宿|Shinjuku"];
