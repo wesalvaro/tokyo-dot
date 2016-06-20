@@ -149,20 +149,20 @@ If a line does not have an official prefix, one is assigned in square brackets.
   * ⭕ (MM) Minatomirai 21
 * Monorails and light transit
   * Monorails
-    * Chiba Monorail
-    * Disney Resort
-    * Shōnan Monorail
-    * Tama Monorail
-    * Tokyo Monorail
+    * [MC] Chiba Monorail
+    * [DR] Disney Resort
+    * [MS] Shōnan Monorail
+    * [MT] Tama Monorail
+    * [MK] Tokyo Monorail
   * People movers
-    * New Shuttle
-    * Kanazawa Seaside
-    * Nippori-Toneri
+    * [PN] New Shuttle
+    * [PS] Kanazawa Seaside
+    * [PT] Nippori-Toneri
     * (SY) Seibu Yamaguchi
-    * Yūkarigaoka
-    * Yurikamome
+    * [PY] Yūkarigaoka
+    * (U) Yurikamome
   * Trams
-    * Enoden Tokyu
+    * (EN) Enoden Tokyu
     * (SG) Setagaya
     * Arakawa
 * Hinterland
