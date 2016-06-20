@@ -14,18 +14,15 @@ const width = parseInt(svg.style('width'));
 const height = parseInt(svg.style('height'));
 
 const voronoi = d3.geom.voronoi()
-  .x(function(d) { return d.x; })
-  .y(function(d) { return d.y; })
+  .x(d => d.x)
+  .y(d => d.y)
   .clipExtent([[-10, -10], [width+10, height+10]]);
 
 function recenterVoronoi(nodes) {
   const shapes = [];
   voronoi(nodes).forEach(function(d) {
     if ( !d.length ) return;
-    var n = [];
-    d.forEach(function(c){
-      n.push([ c[0] - d.point.x, c[1] - d.point.y ]);
-    });
+    var n = d.map(c => [c[0] - d.point.x, c[1] - d.point.y]);
     n.point = d.point;
     shapes.push(n);
   });
@@ -41,26 +38,26 @@ const force = d3.layout.force()
 let node, link;
 
 force.on('tick', function() {
-    node.attr('transform', function(d) { return 'translate('+d.x+','+d.y+')'; })
-        .attr('clip-path', function(d) { return 'url(#clip-'+d.index+')'; });
+    node.attr('transform', d => `translate(${d.x},${d.y})`)
+        .attr('clip-path', d => `url(#clip-${d.index})`);
 
     link
-      .attr('x1', function(d) { return d.source.x; })
-      .attr('y1', function(d) { return d.source.y; })
-      .attr('x2', function(d) { return d.target.x; })
-      .attr('y2', function(d) { return d.target.y; });
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
 
     var clip = svg.selectAll('.clip')
-        .data( recenterVoronoi(node.data()), function(d) { return d.point.index; } );
+        .data( recenterVoronoi(node.data()), d => d.point.index);
 
     clip.enter().append('clipPath')
-        .attr('id', function(d) { return 'clip-'+d.point.index; })
+        .attr('id', d => `clip-${d.point.index}`)
         .attr('class', 'clip');
     clip.exit().remove()
 
     clip.selectAll('path').remove();
     clip.append('path')
-        .attr('d', function(d) { return 'M'+d.join(',')+'Z'; });
+        .attr('d', d => `M${d.join(',')}Z`);
 });
 
 d3.text(GRAPH_FILE, function(e, dot) {
