@@ -13,7 +13,7 @@ If a line does not have an official prefix, one is assigned in square brackets.
   * Short-distance
     * ⭕ [YT] Yamanote
     * [KT] Keihin-Tōhoku - Negishi
-    * [CS] (Chūō-Sōbu) Local
+    * [CS] Chūō-Sōbu Local
   * Mid-distance
     * Utsunomiya (Tohoku Main) & Takasaki
     * Tōkaidō
