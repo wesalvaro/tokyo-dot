@@ -2,6 +2,8 @@
 
 Tokyo trains organized into a [GraphViz](http://www.graphviz.org) Dot file.
 
-[Preview the current graph with D3](http://htmlpreview.github.io/?https://github.com/wesalvaro/tokyo-dot/blob/master/render.html)
+## Preview the current graph
+- [D3](http://htmlpreview.github.io/?https://github.com/wesalvaro/tokyo-dot/blob/master/renders/d3-force.html)
+- [Sigma](http://htmlpreview.github.io/?https://github.com/wesalvaro/tokyo-dot/blob/master/renders/sigma.html)
 
 Contributions welcome!
