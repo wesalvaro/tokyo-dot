@@ -25,14 +25,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
     node.size = 1;
     const splits = node.label.split('|')[0].split('{{');
     node.label = splits[splits.length - 1];
-    const geocode = GEOCODE[id];
-    if (!geocode) {
-      console.log('geocode not found', id);
-      return;
-    }
-    node.y = Math.floor(-geocode.lat * LATLNG_MULT);
-    node.x = Math.floor(geocode.lng * LATLNG_MULT);
-    console.log(id, node.x, node.y);
+    [node.x, node.y] = getXY(id);
     nodes.push(node);
   });
 
@@ -46,7 +39,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
   });
 
   // Instantiate sigma:
-  s = new sigma({
+  const s = new sigma({
     graph: {nodes: nodes, edges: edges},
     container: 'graph'
   });
