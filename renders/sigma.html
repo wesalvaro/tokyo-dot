@@ -21,13 +21,12 @@ const stationColors = {};
 sigma.canvas.nodes.station = function(node, context, settings) {
   const prefix = settings('prefix') || '';
   const size = node[prefix + 'size'];
+  const x = node[prefix + 'x'];
+  const y = node[prefix + 'y'];
 
   let start = 0;
   stationColors[node.label].forEach(function(color, i, arr) {
     const end = ((i + 1) / arr.length) * 2 * Math.PI;
-    const x = node[prefix + 'x'];
-    const y = node[prefix + 'y']
-    //console.log()
     context.fillStyle = color || settings('defaultNodeColor');
     context.beginPath();
     context.moveTo(x, y);
