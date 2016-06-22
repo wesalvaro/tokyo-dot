@@ -22,23 +22,20 @@ sigma.canvas.nodes.station = function(node, context, settings) {
   const prefix = settings('prefix') || '';
   const size = node[prefix + 'size'];
 
-  const grd = context.createLinearGradient(
-      node[prefix + 'x'] - size, 0, node[prefix + 'x'] + size, 0);
+  let start = 0;
   stationColors[node.label].forEach(function(color, i, arr) {
-    const stop = arr.length > 1 ? parseFloat((i / (arr.length - 1)).toFixed(2)) : 1;
-    grd.addColorStop(stop, color);
+    const end = ((i + 1) / arr.length) * 2 * Math.PI;
+    const x = node[prefix + 'x'];
+    const y = node[prefix + 'y']
+    //console.log()
+    context.fillStyle = color || settings('defaultNodeColor');
+    context.beginPath();
+    context.moveTo(x, y);
+    context.arc(x, y, size, start, end);
+    context.lineTo(x, y);
+    context.fill();
+    start = end;
   });
-
-
-  context.fillStyle = grd || settings('defaultNodeColor');
-  context.beginPath();
-  context.arc(
-    node[prefix + 'x'],
-    node[prefix + 'y'],
-    size,
-    0,
-    2 * Math.PI);
-  context.fill();
 };
 
 const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
