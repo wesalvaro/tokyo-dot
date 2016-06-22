@@ -55,7 +55,10 @@ d3.text(GRAPH_FILE, function(e, dot) {
     },
   };
   network = new vis.Network(document.getElementById('graph'), data, options);
-  setTimeout(() => network.stopSimulation(), 5000);
+  network.on('startStabilizing', () => {
+    // Stop the drifting!
+    setTimeout(() => network.stopSimulation(), 7000);
+  });
 });
 
 }());
