@@ -8,6 +8,8 @@
 <script src="data/geocode.js"></script>
 <div id="graph"></div>
 <script>
+let network;
+
 (function() {
 const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
 
@@ -34,27 +36,26 @@ d3.text(GRAPH_FILE, function(e, dot) {
     edges.push(edge);
   });
 
-  const container = document.getElementById('graph');
   const data = {
-      nodes: nodes,
-      edges: edges
+    nodes: nodes,
+    edges: edges
   };
   const options = {
     nodes: {
       shape: 'box',
       size: 10,
       font: {
-        size: 32,
-        color: '#ffffff',
+        size: 22,
+        color: '#fff',
       },
       borderWidth: 2,
     },
-    physics: false,
     edges: {
       width: 2,
     },
   };
-  const network = new vis.Network(container, data, options);
+  network = new vis.Network(document.getElementById('graph'), data, options);
+  setTimeout(() => network.stopSimulation(), 5000);
 });
 
 }());
