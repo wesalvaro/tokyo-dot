@@ -2,7 +2,7 @@
 <body>
 <style>* {padding: 0; margin: 0}</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
-<script src="http://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js"></script>
+<script src="https://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js"></script>
 <script>
 (function() {
 const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
@@ -34,7 +34,7 @@ const force = d3.layout.force()
   .friction(0.3)
   .linkDistance(50)
   .size([width, height]);
-  
+
 let node, link;
 
 force.on('tick', function() {
@@ -69,7 +69,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
   const getEdgeClass = (d) => 'link ' + (d.style == 'dashed' ? 'transfer' : 'rail');
   const getDashArray = (d) => d.style == 'dashed' ? '5,5' : 'solid';
   const getStrokeColor = (d) => d3.rgb(d.color);
-  
+
   const nodes = [];
   const nodeIndexes = {};
   let nodeIndex = 0;
@@ -91,7 +91,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
     edge.target = nodeIndexes[target];
     edges.push(edge);
   });
-  
+
   link = svg.selectAll('.link')
     .data(edges)
     .enter().append('line')
@@ -114,7 +114,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
     .links(edges)
     .start();
 });
-  
+
 }());
 </script>
 </body>
