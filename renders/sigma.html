@@ -19,36 +19,23 @@ const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master
 d3.text(GRAPH_FILE, function(e, dot) {
   if (e) throw e;
   const graph = graphlibDot.parse(dot);
-  const getName = (d) => d.label;
-  const getColor = (d) => d3.rgb(d.color);
-  const getStrokeWidth = (d) => (d.weight || 1);
-  const getEdgeClass = (d) => 'link ' + (d.style == 'dashed' ? 'transfer' : 'rail');
-  const getDashArray = (d) => d.style == 'dashed' ? '5,5' : 'solid';
-  const getStrokeColor = (d) => d3.rgb(d.color);
 
   const nodes = [];
   const edges = [];
 
-  const nodeIndexes = {};
-  let nodeIndex = 0;
-
   graph.eachNode(function(id, node) {
     node.id = id;
     node.size = 1;
-    let splits = node.label.split('|')[0].split('{{');
+    const splits = node.label.split('|')[0].split('{{');
     node.label = splits[splits.length - 1];
-    let geocode = GEOCODE[id];
+    const geocode = GEOCODE[id];
     if (!geocode) {
-      geocode = {
-        lat: GEOCODE[nodes[nodeIndex - 1].id].lat,
-        lng: GEOCODE[nodes[nodeIndex - 1].id].lng,
-      };
-      console.log('not found', id);
+      console.log('geocode not found', id);
+      return;
     }
     node.y = Math.floor(-geocode.lat * LATLNG_MULT);
     node.x = Math.floor(geocode.lng * LATLNG_MULT);
     console.log(id, node.x, node.y);
-    nodeIndexes[id] = nodeIndex++;
     nodes.push(node);
   });
 

@@ -1,0 +1,60 @@
+<html>
+<body>
+<style>* {padding: 0; margin: 0}</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
+<script src="http://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js"></script>
+<div id="graph"></div>
+<script>
+(function() {
+const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
+
+d3.text(GRAPH_FILE, function(e, dot) {
+  if (e) throw e;
+  const graph = graphlibDot.parse(dot);
+
+  const nodes = [];
+  graph.eachNode(function(id, node) {
+    node.id = id;
+    const splits = node.label.split('|')[0].split('{{');
+    node.label = splits[splits.length - 1];
+    node.shape = 'box';
+    node.group = id.match(/^[A-Z]+/)[0];
+    nodes.push(node);
+  });
+
+  const edges = [];
+  graph.eachEdge(function(id, from, to, edge) {
+    edge.dashes = Boolean(edge.style == 'dashed');
+    edge.from = from;
+    edge.to = to;
+    edges.push(edge);
+  });
+
+  const container = document.getElementById('graph');
+  const data = {
+      nodes: nodes,
+      edges: edges
+  };
+  const options = {
+    nodes: {
+      shape: 'box',
+      size: 30,
+      font: {
+        size: 32,
+        color: '#ffffff',
+      },
+      borderWidth: 2,
+    },
+    edges: {
+      width: 2,
+    },
+  };
+  const network = new vis.Network(container, data, options);
+});
+
+}());
+</script>
+</body>
+</html>
