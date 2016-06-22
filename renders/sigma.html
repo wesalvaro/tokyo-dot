@@ -12,24 +12,57 @@
 <script src="https://cdn.bootcss.com/sigma.js/1.1.0/sigma.min.js"></script>
 <script src="data/geocode.js"></script>
 <script>
+let graph;
+
+(function() {
+
+const stationColors = {};
+
+sigma.canvas.nodes.station = function(node, context, settings) {
+  const prefix = settings('prefix') || '';
+  const size = node[prefix + 'size'];
+
+  const grd = context.createLinearGradient(
+      node[prefix + 'x'] - size, 0, node[prefix + 'x'] + size, 0);
+  stationColors[node.label].forEach(function(color, i, arr) {
+    const stop = arr.length > 1 ? parseFloat((i / (arr.length - 1)).toFixed(2)) : 1;
+    grd.addColorStop(stop, color);
+  });
+
+
+  context.fillStyle = grd || settings('defaultNodeColor');
+  context.beginPath();
+  context.arc(
+    node[prefix + 'x'],
+    node[prefix + 'y'],
+    size,
+    0,
+    2 * Math.PI);
+  context.fill();
+};
+
 const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
 d3.text(GRAPH_FILE, function(e, dot) {
   if (e) throw e;
-  const graph = graphlibDot.parse(dot);
+  const data = graphlibDot.parse(dot);
 
   const nodes = [];
   const edges = [];
 
-  graph.eachNode(function(id, node) {
+
+  data.eachNode(function(id, node) {
     node.id = id;
+    node.type = 'station';
     node.size = 1;
     const splits = node.label.split('|')[0].split('{{');
     node.label = splits[splits.length - 1];
+    stationColors[node.label] = stationColors[node.label] || [];
+    stationColors[node.label].push(node.color);
     [node.x, node.y] = getXY(id);
     nodes.push(node);
   });
 
-  graph.eachEdge(function(id, source, target, edge) {
+  data.eachEdge(function(id, source, target, edge) {
     edge.id = id;
     edge.size = 1;
     edge.color = d3.rgb(edge.color).toString();
@@ -38,11 +71,18 @@ d3.text(GRAPH_FILE, function(e, dot) {
     edges.push(edge);
   });
 
-  // Instantiate sigma:
-  const s = new sigma({
-    graph: {nodes: nodes, edges: edges},
-    container: 'graph'
+  graph = new sigma({
+    graph: {
+      nodes: nodes,
+      edges: edges,
+    },
+    renderer: {
+      container: document.getElementById('graph'),
+      type: 'canvas',
+    },
   });
 });
+
+}());
 </script>
 </body></html>
