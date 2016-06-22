@@ -32,7 +32,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
   graph.eachEdge(function(id, source, target, edge) {
     edge.id = id;
     edge.size = 1;
-    edge.color = edge.color;
+    edge.color = d3.rgb(edge.color).toString();
     edge.source = source;
     edge.target = target;
     edges.push(edge);
