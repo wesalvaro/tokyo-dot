@@ -1,6 +1,6 @@
 digraph {
   graph [splines="ortho", model="mds"];
-  node [shape="Mrecord", fontname="Noto", fontcolor="black"];
+  node [shape="Mrecord", fontname="Noto", fontcolor="black", color="#f00"];
   edge [dir="none"];
 
 
