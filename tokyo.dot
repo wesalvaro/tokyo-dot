@@ -232,6 +232,29 @@ digraph {
   subgraph Transfers {
     edge [style="dashed", dir="forward"];
 
+    DT01 -> F16;
+
+    E02 -> F12;
+
+    F01 -> TJ;
+    { rank=same; F01 -> Y01 [len=0]; }
+    F02 -> TJ;
+    { rank=same; F02 -> Y02 [len=0]; }
+    F03 -> TJ;
+    { rank=same; F03 -> Y03 [len=0]; }
+    { rank=same; F04 -> Y04 [len=0]; }
+    { rank=same; F05 -> Y05 [len=0]; }
+    F06 -> { SY; SI; }
+    { rank=same; F06 -> Y06 [len=0]; }
+    { rank=same; F07 -> Y07; }
+    { rank=same; F08 -> Y08; }
+    { rank=same; F09 -> Y09; }
+    F09 -> { M25; YT13; SY; SS; TJ; SI; }
+    F10 -> TA;
+    F13 -> { M09; S02; }
+    F15 -> { C03; YT07; }
+    F16 -> { G01; IN; SS; SY; TY01; Z01; }
+
     { G01 -> YT06; }
     { G01 -> TY01; }
     { G08 -> YT27; }
