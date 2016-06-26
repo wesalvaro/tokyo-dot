@@ -143,6 +143,35 @@ digraph {
   TY20 [label="{{反町|Tammachi}|TY20}"];
   TY21 [label="{{横浜|Yokohama}|TY21}"];
 
+  // 東京メト有楽町線：
+  subgraph YurakuchoStations {
+    node [color="#c1a470"];
+    Y01 [label="{{和光市|Wakōshi}|Y01}"];
+    Y02 [label="{{地下鉄成増|Chikatetsu-Narimasu}|Y02}"];
+    Y03 [label="{{地下鉄赤塚|Chikatetsu-Akatsuka}|Y03}"];
+    Y04 [label="{{平和台|Heiwadai}|Y04}"];
+    Y05 [label="{{氷川台|Hikawadai}|Y05}"];
+    Y06 [label="{{小竹向原|Kotake-Mukaihara}|Y06}"];
+    Y07 [label="{{千川|Senkawa}|Y07}"];
+    Y08 [label="{{要町|Kanamechō}|Y08}"];
+    Y09 [label="{{池袋|Ikebukuro}|Y09}"];
+    Y10 [label="{{東池袋|Higashi-Ikebukuro}|Y10}"];
+    Y11 [label="{{護国寺|Gokokuji}|Y11}"];
+    Y12 [label="{{江戸川橋|Edogawabashi}|Y12}"];
+    Y13 [label="{{飯田橋|Iidabashi}|Y13}"];
+    Y14 [label="{{市ヶ谷|Ichigaya}|Y14}"];
+    Y15 [label="{{麹町|Kōjimachi}|Y15}"];
+    Y16 [label="{{永田町|Nagatachō}|Y16}"];
+    Y17 [label="{{桜田門|Sakuradamon}|Y17}"];
+    Y18 [label="{{有楽町|Yūrakuchō}|Y18}"];
+    Y19 [label="{{銀座一丁目|Ginza-itchōme}|Y19}"];
+    Y20 [label="{{新富町|Shintomichō}|Y20}"];
+    Y21 [label="{{月島|Tsukishima}|Y21}"];
+    Y22 [label="{{豊洲|Toyosu}|Y22}"];
+    Y23 [label="{{辰巳|Tatsumi}|Y23}"];
+    Y24 [label="{{新木場|Shin-Kiba}|Y24}"];
+  }
+
   // JR山手線：
   node [color="#9acd32"];
   YT01 [label="品川|Shinagawa"];
