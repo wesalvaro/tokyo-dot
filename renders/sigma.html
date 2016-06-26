@@ -45,6 +45,7 @@ trainGraph.then((data) => {
 
 
   data.eachNode(function(id, node) {
+    if (!node.label) return;
     node.id = id;
     node.type = 'station';
     node.size = 1;

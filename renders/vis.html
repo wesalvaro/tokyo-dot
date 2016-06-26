@@ -16,6 +16,7 @@ let network;
 trainGraph.then((data) => {
   const nodes = [];
   data.eachNode(function(id, node) {
+    if (!node.label) return;
     node.id = id;
     const splits = node.label.split('|')[0].split('{{');
     node.label = splits[splits.length - 1];
