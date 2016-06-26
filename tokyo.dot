@@ -255,6 +255,46 @@ digraph {
     { rank=same; OM10 -> TY07; }
 
     { TY01 -> YT06 [len=0.7, weight=10]; }
+  // 東京メトロ副都心線：
+
+  subgraph FukutoshinLocal {
+    edge [color="blue"];
+    F01 -> F02 [len=2.2];
+    F02 -> F03 [len=1.4];
+    F03 -> F04 [len=1.8];
+    F04 -> F05 [len=1.4];
+    F05 -> F06 [len=1.5];
+    F06 -> F07 [len=1.1];
+    F07 -> F08 [len=1.0];
+    F08 -> F09 [len=0.9];
+    F09 -> F10 [len=1.8];
+    F10 -> F11 [len=1.5];
+    F11 -> F12 [len=0.9];
+    F12 -> F13 [len=1.1];
+    F13 -> F14 [len=1.4];
+    F14 -> F15 [len=1.2];
+    F15 -> F16 [len=1.0];
+  }
+
+  subgraph FukutoshinExp {
+    edge [color="red"];
+    F01 -> F06;
+    F06 -> F09;
+    F09 -> F13;
+    F13 -> F15;
+    F15 -> F16 [len=1.0];
+  }
+
+  subgraph FukutoshinCommExp {
+    edge [color="orange"];
+    F01 -> F02 [len=2.2];
+    F02 -> F03 [len=1.4];
+    F03 -> F04 [len=1.8];
+    F04 -> F05 [len=1.4];
+    F05 -> F06;
+    F06 -> F09;
+    F09 -> F13;
+    F13 -> F16;
   }
 
   // 東京メトロ銀座線：
