@@ -292,6 +292,38 @@ digraph {
     { rank=same; OM10 -> TY07; }
 
     { TY01 -> YT06 [len=0.7, weight=10]; }
+
+    TJ -> Y01;
+    TJ -> Y02;
+    TJ -> Y03;
+    SY -> Y06;
+    SI -> Y09;
+    SK -> Y09;
+    SS -> Y09;
+    TJ -> Y09;
+    Y09 -> YT13;
+    TA -> Y10;
+    CS -> Y13;
+    E06 -> Y13;
+    N10 -> Y13;
+    T06 -> Y13;
+    CS -> Y14;
+    N09 -> Y14;
+    S04 -> Y14;
+    G05 -> Y16;
+    M13 -> Y16;
+    N07 -> Y16;
+    Y16 -> Z04;
+    C09 -> Y18;
+    H07 -> Y18;
+    I08 -> Y18;
+    KT -> Y18;
+    Y18 -> YT26;
+    E16 -> Y21;
+    KY -> Y24;
+    RK -> Y24;
+  }
+
   // 東京メトロ副都心線：
 
   subgraph FukutoshinLocal {
