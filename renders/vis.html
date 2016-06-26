@@ -6,19 +6,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
 <script src="https://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js"></script>
 <script src="data/geocode.js"></script>
+<script src="utils/graph.js"></script>
 <div id="graph"></div>
 <script>
 let network;
 
 (function() {
-const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
 
-d3.text(GRAPH_FILE, function(e, dot) {
-  if (e) throw e;
-  const graph = graphlibDot.parse(dot);
-
+trainGraph.then((data) => {
   const nodes = [];
-  graph.eachNode(function(id, node) {
+  data.eachNode(function(id, node) {
     node.id = id;
     const splits = node.label.split('|')[0].split('{{');
     node.label = splits[splits.length - 1];
@@ -29,14 +26,14 @@ d3.text(GRAPH_FILE, function(e, dot) {
   });
 
   const edges = [];
-  graph.eachEdge(function(id, from, to, edge) {
+  data.eachEdge(function(id, from, to, edge) {
     edge.dashes = Boolean(edge.style == 'dashed');
     edge.from = from;
     edge.to = to;
     edges.push(edge);
   });
 
-  const data = {
+  const graph = {
     nodes: nodes,
     edges: edges
   };
@@ -54,7 +51,7 @@ d3.text(GRAPH_FILE, function(e, dot) {
       width: 2,
     },
   };
-  network = new vis.Network(document.getElementById('graph'), data, options);
+  network = new vis.Network(document.getElementById('graph'), graph, options);
   network.on('startStabilizing', () => {
     // Stop the drifting!
     setTimeout(() => network.stopSimulation(), 7000);

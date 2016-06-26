@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.1.0/sigma.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.1.0/plugins/sigma.renderers.parallelEdges.min.js"></script>
 <script src="data/geocode.js"></script>
+<script src="utils/graph.js"></script>
 <script>
 let graph;
 
@@ -38,11 +39,7 @@ sigma.canvas.nodes.station = function(node, context, settings) {
   });
 };
 
-const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
-d3.text(GRAPH_FILE, function(e, dot) {
-  if (e) throw e;
-  const data = graphlibDot.parse(dot);
-
+trainGraph.then((data) => {
   const nodes = [];
   const edges = [];
 
