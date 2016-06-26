@@ -406,7 +406,6 @@ digraph {
     TY18 -> TY19;
     TY19 -> TY20;
     TY20 -> TY21;
-    TY21 -> MM02;
   }
 
   // 急行：
@@ -422,7 +421,6 @@ digraph {
     TY13 -> TY14 [len=2.2];
     TY14 -> TY16 [len=3.0];
     TY16 -> TY21 [len=5.4];
-    TY21 -> MM03;
   }
 
   // 通勤特急：
@@ -434,7 +432,6 @@ digraph {
     TY11 -> TY13 [len=2.8];
     TY13 -> TY16 [len=5.2];
     TY16 -> TY21 [len=5.4];
-    TY21 -> MM03;
   }
 
   // 通勤特急：
@@ -445,7 +442,6 @@ digraph {
     TY07 -> TY11 [len=3.8];
     TY11 -> TY16 [len=8.0];
     TY16 -> TY21 [len=5.4];
-    TY21 -> MM03;
   }
 
   // 東京メト有楽町線：
