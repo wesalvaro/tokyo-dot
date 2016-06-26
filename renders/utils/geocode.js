@@ -12,18 +12,14 @@
 
 let geocode = function(apiKey) {
   const URL_GEOCODE = `https://maps.googleapis.com/maps/api/geocode/json?key=${apiKey}&address=`;
-  const GRAPH_FILE = 'https://raw.githubusercontent.com/wesalvaro/tokyo-dot/master/tokyo.dot';
   const notFound = {};
   const found = {};
   const locations = [];
 
-  d3.text(GRAPH_FILE, function(e, dot) {
-    if (e) throw e;
-
-    const graph = graphlibDot.parse(dot);
+  trainGraph.then((graph) => {
     graph.eachNode(function(id, node) {
-      let splits = node.label.split('|')[0].split('{{');
-      locations.push({id: id, name: splits[splits.length - 1]});
+      if (!node.label || node.label.match(/^\w/)) return;
+      locations.push({id: node.id, name: node.label});
     });
 
     locations.forEach(function(location) {
