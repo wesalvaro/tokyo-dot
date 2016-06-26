@@ -2,9 +2,9 @@ const GEOCODE = {"G01":{"lat":35.6595003,"lng":139.6995542},"G02":{"lat":35.6652
 const LATLNG_MULT = 1e4;
 
 const getXY = function(id) {
-  const geocode = GEOCODE[id];
+  let geocode = GEOCODE[id];
   if (!geocode) {
-    throw `geocode not found for ${id}`;
+    geocode = GEOCODE['G01'];
   }
   return [
     Math.floor(geocode.lng * LATLNG_MULT) - 139 * LATLNG_MULT,
