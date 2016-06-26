@@ -5,28 +5,6 @@ digraph {
 
 
   // 駅：
-  
-  // 東京メトロ銀座線
-  node [color="#f39700"]
-  G01 [label="{{渋谷|Shibuya}|G01}"];
-  G02 [label="{{表参道|Omotesandō}|G02}"];
-  G03 [label="{{外苑前|Gaiemmae}|G03}"];
-  G04 [label="{{青山一丁目|Aoyama-Itchōme}|G04}"];
-  G05 [label="{{赤坂見附|Akasaka-Mitsuke}|G05}"];
-  G06 [label="{{溜池山王|Tameike-Sannō}|G06}"];
-  G07 [label="{{虎ノ門|Toranomon}|G07}"];
-  G08 [label="{{新橋|Shimbashi}|G08}"];
-  G09 [label="{{銀座|Ginza}|G09}"];
-  G10 [label="{{京橋|Kyōbashi}|G10}"];
-  G11 [label="{{日本橋|Nihombashi}|G11}"];
-  G12 [label="{{三越前|Mitsukoshimae}|G12}"];
-  G13 [label="{{神田|Kanda}|G13}"];
-  G14 [label="{{末広町|Suehirochō}|G14}"];
-  G15 [label="{{上野広小路|Ueno-Hirokōji}|G15}"];
-  G16 [label="{{上野|Ueno}|G16}"];
-  G17 [label="{{稲荷町|Inarichō}|G17}"];
-  G18 [label="{{田原町|Tawaramachi}|G18}"];
-  G19 [label="{{浅草|Asakusa}|G19}"];
 
   // 東京メトロ副都心線：
   subgraph FukutoshinStations {
@@ -49,99 +27,133 @@ digraph {
     F16 [label="{{渋谷|Shibuya}|F16}"];
   }
 
+  // 東京メトロ銀座線：
+  subgraph GinzaStations {
+    node [color="#f39700"];
+    G01 [label="{{渋谷|Shibuya}|G01}"];
+    G02 [label="{{表参道|Omotesandō}|G02}"];
+    G03 [label="{{外苑前|Gaiemmae}|G03}"];
+    G04 [label="{{青山一丁目|Aoyama-Itchōme}|G04}"];
+    G05 [label="{{赤坂見附|Akasaka-Mitsuke}|G05}"];
+    G06 [label="{{溜池山王|Tameike-Sannō}|G06}"];
+    G07 [label="{{虎ノ門|Toranomon}|G07}"];
+    G08 [label="{{新橋|Shimbashi}|G08}"];
+    G09 [label="{{銀座|Ginza}|G09}"];
+    G10 [label="{{京橋|Kyōbashi}|G10}"];
+    G11 [label="{{日本橋|Nihombashi}|G11}"];
+    G12 [label="{{三越前|Mitsukoshimae}|G12}"];
+    G13 [label="{{神田|Kanda}|G13}"];
+    G14 [label="{{末広町|Suehirochō}|G14}"];
+    G15 [label="{{上野広小路|Ueno-Hirokōji}|G15}"];
+    G16 [label="{{上野|Ueno}|G16}"];
+    G17 [label="{{稲荷町|Inarichō}|G17}"];
+    G18 [label="{{田原町|Tawaramachi}|G18}"];
+    G19 [label="{{浅草|Asakusa}|G19}"];
+  }
+
   // 東京メト日比谷線：
-  node [color="#b5b5ac"];
-  H01 [label="{{中目黒|Nakameguro}|H01}"];
-  H02 [label="{{恵比寿|Ebisu}|H02}", href="http://www.tokyometro.jp/station/ebisu/index.html"];
-  H03 [label="{{広尾|Hiroo}|H03}"];
-  H04 [label="{{六本木|Roppongi}|H04}"];
-  H05 [label="{{神谷町|Kamiyacho}|H05}"];
-  H06 [label="{{霞ヶ関|Kasumigaseki}|H06}"];
-  H07 [label="{{日比谷|Hibiya}|H07}", href="http://www.tokyometro.jp/station/hibiya/index.html"];
-  H08 [label="{{銀座|Ginza}|H08}"];
-  H09 [label="{{東銀座|Higashi-Ginza}|H09}"];
-  H10 [label="{{築地|Tsukiji}|H10}"];
-  H11 [label="{{八丁堀|Hatchobori}|H11}"];
-  H12 [label="{{茅場町|Kayabacho}|H12}"];
-  H13 [label="{{人形町|Ningyocho}|H13}"];
-  H14 [label="{{小伝馬町|Kodemmacho}|H14}"];
-  H15 [label="{{秋葉原|Akihabara}|H15}"];
-  H16 [label="{{仲御徒町|Naka-Okachimachi}|H16}"];
-  H17 [label="{{上野|Ueno}|H17}"];
-  H18 [label="{{入谷|Iriya}|H18}"];
-  H19 [label="{{三ノ輪|Minowa}|H19}"];
-  H20 [label="{{南千住|Minami-Senju}|H20}"];
-  H21 [label="{{北千住|Kita-Senju}|H21}"];
+  subgraph HibiyaStations {
+    node [color="#b5b5ac"];
+    H01 [label="{{中目黒|Nakameguro}|H01}"];
+    H02 [label="{{恵比寿|Ebisu}|H02}", href="http://www.tokyometro.jp/station/ebisu/index.html"];
+    H03 [label="{{広尾|Hiroo}|H03}"];
+    H04 [label="{{六本木|Roppongi}|H04}"];
+    H05 [label="{{神谷町|Kamiyacho}|H05}"];
+    H06 [label="{{霞ヶ関|Kasumigaseki}|H06}"];
+    H07 [label="{{日比谷|Hibiya}|H07}", href="http://www.tokyometro.jp/station/hibiya/index.html"];
+    H08 [label="{{銀座|Ginza}|H08}"];
+    H09 [label="{{東銀座|Higashi-Ginza}|H09}"];
+    H10 [label="{{築地|Tsukiji}|H10}"];
+    H11 [label="{{八丁堀|Hatchobori}|H11}"];
+    H12 [label="{{茅場町|Kayabacho}|H12}"];
+    H13 [label="{{人形町|Ningyocho}|H13}"];
+    H14 [label="{{小伝馬町|Kodemmacho}|H14}"];
+    H15 [label="{{秋葉原|Akihabara}|H15}"];
+    H16 [label="{{仲御徒町|Naka-Okachimachi}|H16}"];
+    H17 [label="{{上野|Ueno}|H17}"];
+    H18 [label="{{入谷|Iriya}|H18}"];
+    H19 [label="{{三ノ輪|Minowa}|H19}"];
+    H20 [label="{{南千住|Minami-Senju}|H20}"];
+    H21 [label="{{北千住|Kita-Senju}|H21}"];
+  }
 
   // 東急目黒線：
-  node [color="#009bce"];
-  MG01 [label="{{目黒|Meguro}|MG01}"];
-  MG02 [label="{{不動前|Fudo-mae}|MG02}"];
-  MG03 [label="{{武蔵小山|Musashi-Koyama}|MG03}"];
-  MG04 [label="{{西小山|Nishi-Koyama}|MG04}"];
-  MG05 [label="{{洗足|Senzoku}|MG05}"];
-  MG06 [label="{{大岡山|Ookayama}|MG06}"];
-  MG07 [label="{{奥沢|Okusawa}|MG07}"];
-  MG08 [label="{{田園調布|Den-en-chofu}|MG08}"];
-  MG09 [label="{{多摩川|Tamagawa}|MG09}"];
-  MG10 [label="{{新丸子|Shin-Maruko}|MG10}"];
-  MG11 [label="{{武蔵小杉|Musashi-Kosugi}|MG11}"];
-  MG12 [label="{{元住吉|Motosumiyoshi}|MG12}"];
-  MG13 [label="{{日吉|Hiyoshi}|MG13}"];
+  subgraph MeguroStations {
+    node [color="#009bce"];
+    MG01 [label="{{目黒|Meguro}|MG01}"];
+    MG02 [label="{{不動前|Fudo-mae}|MG02}"];
+    MG03 [label="{{武蔵小山|Musashi-Koyama}|MG03}"];
+    MG04 [label="{{西小山|Nishi-Koyama}|MG04}"];
+    MG05 [label="{{洗足|Senzoku}|MG05}"];
+    MG06 [label="{{大岡山|Ookayama}|MG06}"];
+    MG07 [label="{{奥沢|Okusawa}|MG07}"];
+    MG08 [label="{{田園調布|Den-en-chofu}|MG08}"];
+    MG09 [label="{{多摩川|Tamagawa}|MG09}"];
+    MG10 [label="{{新丸子|Shin-Maruko}|MG10}"];
+    MG11 [label="{{武蔵小杉|Musashi-Kosugi}|MG11}"];
+    MG12 [label="{{元住吉|Motosumiyoshi}|MG12}"];
+    MG13 [label="{{日吉|Hiyoshi}|MG13}"];
+  }
 
   // ミナトミライ２１線：
-  node [color="#00008B"];
-  MM01 [label="{{横浜|Yokohama}|MM01}"];
-  MM02 [label="{{新高島|Shin-Takashima}|MM02}"];
-  MM03 [label="{{みなとみらい|Minatomirai}|MM03}"];
-  MM04 [label="{{馬車道|Bashamichi}|MM04}"];
-  MM05 [label="{{日本大通り|Nihon-odori}|MM05}"];
-  MM06 [label="{{元町・中華街|Motomachi-Chukagai}|MM06}"];
+  subgraph MinatomiraiStations {
+    node [color="#00008B"];
+    MM01 [label="{{横浜|Yokohama}|MM01}"];
+    MM02 [label="{{新高島|Shin-Takashima}|MM02}"];
+    MM03 [label="{{みなとみらい|Minatomirai}|MM03}"];
+    MM04 [label="{{馬車道|Bashamichi}|MM04}"];
+    MM05 [label="{{日本大通り|Nihon-odori}|MM05}"];
+    MM06 [label="{{元町・中華街|Motomachi-Chukagai}|MM06}"];
+  }
 
   // 東急大井町線：
-  node [color="#f68a4c"];
-  OM01 [label="{{大井町|Ōimachi}|OM01}"];
-  OM02 [label="{{下神明|Shimo-Shinmei}|OM02}"];
-  OM03 [label="{{戸越公園|Togoshi-kōen	}|OM03}"];
-  OM04 [label="{{中延|Nakanobu}|OM04}"];
-  OM05 [label="{{荏原町|Ebaramachi}|OM05}"];
-  OM06 [label="{{旗の台|Hatanodai}|OM06}"];
-  OM07 [label="{{北千束|Kita-Senzoku}|OM07}"];
-  OM08 [label="{{大岡山|Ōokayama}|OM08}"];
-  OM09 [label="{{緑が丘|Midorigaoka}|OM09}"];
-  OM10 [label="{{自由が丘|Jiyūgaoka	}|OM10}"];
-  OM11 [label="{{九品仏|Kuhombutsu}|OM11}"];
-  OM12 [label="{{尾山台|Oyamadai}|OM12}"];
-  OM13 [label="{{等々力|Todoroki}|OM13}"];
-  OM14 [label="{{上野毛|Kaminoge}|OM14}"];
-  OM15 [label="{{二子玉川|Futako-Tamagawa}|OM15}"];
-  OMB1 [label="二子新地|Futako-Shinchi"];
-  OMB2 [label="高津|Takatsu"]
-  OM16 [label="{{溝の口|Mizonokuchi}|OM16}"];
+  subgraph OimachiStations {
+    node [color="#f68a4c"];
+    OM01 [label="{{大井町|Ōimachi}|OM01}"];
+    OM02 [label="{{下神明|Shimo-Shinmei}|OM02}"];
+    OM03 [label="{{戸越公園|Togoshi-kōen	}|OM03}"];
+    OM04 [label="{{中延|Nakanobu}|OM04}"];
+    OM05 [label="{{荏原町|Ebaramachi}|OM05}"];
+    OM06 [label="{{旗の台|Hatanodai}|OM06}"];
+    OM07 [label="{{北千束|Kita-Senzoku}|OM07}"];
+    OM08 [label="{{大岡山|Ōokayama}|OM08}"];
+    OM09 [label="{{緑が丘|Midorigaoka}|OM09}"];
+    OM10 [label="{{自由が丘|Jiyūgaoka	}|OM10}"];
+    OM11 [label="{{九品仏|Kuhombutsu}|OM11}"];
+    OM12 [label="{{尾山台|Oyamadai}|OM12}"];
+    OM13 [label="{{等々力|Todoroki}|OM13}"];
+    OM14 [label="{{上野毛|Kaminoge}|OM14}"];
+    OM15 [label="{{二子玉川|Futako-Tamagawa}|OM15}"];
+    OMB1 [label="二子新地|Futako-Shinchi"];
+    OMB2 [label="高津|Takatsu"]
+    OM16 [label="{{溝の口|Mizonokuchi}|OM16}"];
+  }
 
   // 東急東横線：
-  node [color="#db0442"];
-  TY01 [label="{{渋谷|Shibuya}|TY01}"];
-  TY02 [label="{{代官山|Daikanyama}|TY02}"];
-  TY03 [label="{{中目黒|Nakameguro}|TY03}"];
-  TY04 [label="{{祐天寺|Yutenji}|TY04}"];
-  TY05 [label="{{学芸大学|Gakugeidaigaku}|TY05}"];
-  TY06 [label="{{都立大学|Toritsudaigaku}|TY06}"];
-  TY07 [label="{{自由が丘|Jiyugaoka}|TY07}"];
-  TY08 [label="{{田園調布|Den-en-chofu}|TY08}"];
-  TY09 [label="{{多摩川|Tamagawa}|TY09}"];
-  TY10 [label="{{新丸子|Shin-Maruko}|TY10}"];
-  TY11 [label="{{武蔵小杉|Musashi-Kosugi}|TY11}"];
-  TY12 [label="{{元住吉|Motosumiyoshi}|TY12}"];
-  TY13 [label="{{日吉|Hiyoshi}|TY13}"];
-  TY14 [label="{{綱島|Tsunashima}|TY14}"];
-  TY15 [label="{{大倉山|Okurayama}|TY15}"];
-  TY16 [label="{{菊名|Kikuna}|TY16}"];
-  TY17 [label="{{妙蓮寺|Myorenji}|TY17}"];
-  TY18 [label="{{白楽|Hakuraku}|TY18}"];
-  TY19 [label="{{東白楽|Higashi-Hakuraku}|TY19}"];
-  TY20 [label="{{反町|Tammachi}|TY20}"];
-  TY21 [label="{{横浜|Yokohama}|TY21}"];
+  subgraph ToyokoStations {
+    node [color="#db0442"];
+    TY01 [label="{{渋谷|Shibuya}|TY01}"];
+    TY02 [label="{{代官山|Daikanyama}|TY02}"];
+    TY03 [label="{{中目黒|Nakameguro}|TY03}"];
+    TY04 [label="{{祐天寺|Yutenji}|TY04}"];
+    TY05 [label="{{学芸大学|Gakugeidaigaku}|TY05}"];
+    TY06 [label="{{都立大学|Toritsudaigaku}|TY06}"];
+    TY07 [label="{{自由が丘|Jiyugaoka}|TY07}"];
+    TY08 [label="{{田園調布|Den-en-chofu}|TY08}"];
+    TY09 [label="{{多摩川|Tamagawa}|TY09}"];
+    TY10 [label="{{新丸子|Shin-Maruko}|TY10}"];
+    TY11 [label="{{武蔵小杉|Musashi-Kosugi}|TY11}"];
+    TY12 [label="{{元住吉|Motosumiyoshi}|TY12}"];
+    TY13 [label="{{日吉|Hiyoshi}|TY13}"];
+    TY14 [label="{{綱島|Tsunashima}|TY14}"];
+    TY15 [label="{{大倉山|Okurayama}|TY15}"];
+    TY16 [label="{{菊名|Kikuna}|TY16}"];
+    TY17 [label="{{妙蓮寺|Myorenji}|TY17}"];
+    TY18 [label="{{白楽|Hakuraku}|TY18}"];
+    TY19 [label="{{東白楽|Higashi-Hakuraku}|TY19}"];
+    TY20 [label="{{反町|Tammachi}|TY20}"];
+    TY21 [label="{{横浜|Yokohama}|TY21}"];
+  }
 
   // 東京メト有楽町線：
   subgraph YurakuchoStations {
@@ -173,36 +185,38 @@ digraph {
   }
 
   // JR山手線：
-  node [color="#9acd32"];
-  YT01 [label="品川|Shinagawa"];
-  YT02 [label="大崎|Osaki"];
-  YT03 [label="五反田|Gotanda"];
-  YT04 [label="目黒|Meguro"];
-  YT05 [label="恵比寿|Ebisu"];
-  YT06 [label="渋谷|Shibuya"];
-  YT07 [label="原宿|Harajuku"];
-  YT08 [label="代々木|Yoyogi"];
-  YT09 [label="新宿|Shinjuku"];
-  YT10 [label="新大久保|Shin-Okubo"];
-  YT11 [label="高田馬場|Takadanobaba"];
-  YT12 [label="目白|Mejiro"];
-  YT13 [label="池袋|Ikebukuro"];
-  YT14 [label="大塚|Otsuka"];
-  YT15 [label="巣鴨|Sugamo"];
-  YT16 [label="駒込|Komagome"];
-  YT17 [label="田端|Tabata"];
-  YT18 [label="西日暮里|Nishi-Nippori"];
-  YT19 [label="日暮里|Nippori"];
-  YT20 [label="鶯谷|Uguisudani"];
-  YT21 [label="上野|Ueno"];
-  YT22 [label="御徒町|Okachimachi"];
-  YT23 [label="秋葉原|Akihabara"];
-  YT24 [label="神田|Kanda"];
-  YT25 [label="東京|Tokyo"];
-  YT26 [label="有楽町|Yurakucho"];
-  YT27 [label="新橋|Shimbashi"];
-  YT28 [label="浜松町|Hamamatsucho"];
-  YT29 [label="田町|Tamachi"];
+  subgraph YamanoteStations {
+    node [color="#9acd32"];
+    YT01 [label="品川|Shinagawa"];
+    YT02 [label="大崎|Osaki"];
+    YT03 [label="五反田|Gotanda"];
+    YT04 [label="目黒|Meguro"];
+    YT05 [label="恵比寿|Ebisu"];
+    YT06 [label="渋谷|Shibuya"];
+    YT07 [label="原宿|Harajuku"];
+    YT08 [label="代々木|Yoyogi"];
+    YT09 [label="新宿|Shinjuku"];
+    YT10 [label="新大久保|Shin-Okubo"];
+    YT11 [label="高田馬場|Takadanobaba"];
+    YT12 [label="目白|Mejiro"];
+    YT13 [label="池袋|Ikebukuro"];
+    YT14 [label="大塚|Otsuka"];
+    YT15 [label="巣鴨|Sugamo"];
+    YT16 [label="駒込|Komagome"];
+    YT17 [label="田端|Tabata"];
+    YT18 [label="西日暮里|Nishi-Nippori"];
+    YT19 [label="日暮里|Nippori"];
+    YT20 [label="鶯谷|Uguisudani"];
+    YT21 [label="上野|Ueno"];
+    YT22 [label="御徒町|Okachimachi"];
+    YT23 [label="秋葉原|Akihabara"];
+    YT24 [label="神田|Kanda"];
+    YT25 [label="東京|Tokyo"];
+    YT26 [label="有楽町|Yurakucho"];
+    YT27 [label="新橋|Shimbashi"];
+    YT28 [label="浜松町|Hamamatsucho"];
+    YT29 [label="田町|Tamachi"];
+  }
 
 
   // EDGES ===================
