@@ -448,6 +448,34 @@ digraph {
     TY21 -> MM03;
   }
 
+  // 東京メト有楽町線：
+
+  subgraph Yurakucho {
+    Y01 -> Y02 [len=2.2];
+    Y02 -> Y03 [len=1.4];
+    Y03 -> Y04 [len=1.8];
+    Y04 -> Y05 [len=1.4];
+    Y05 -> Y06 [len=1.5];
+    Y06 -> Y07 [len=1.0];
+    Y07 -> Y08 [len=1.0];
+    Y08 -> Y09 [len=1.2];
+    Y09 -> Y10 [len=0.9];
+    Y10 -> Y11 [len=1.1];
+    Y11 -> Y12 [len=1.3];
+    Y12 -> Y13 [len=1.6];
+    Y13 -> Y14 [len=1.1];
+    Y14 -> Y15 [len=0.9];
+    Y15 -> Y16 [len=0.9];
+    Y16 -> Y17 [len=0.9];
+    Y17 -> Y18 [len=1.0];
+    Y18 -> Y19 [len=0.5];
+    Y19 -> Y20 [len=0.7];
+    Y20 -> Y21 [len=1.3];
+    Y21 -> Y22 [len=1.4];
+    Y22 -> Y23 [len=1.7];
+    Y23 -> Y24 [len=1.5];
+  }
+
   // JR山手線：
 
   subgraph Yamanote {
