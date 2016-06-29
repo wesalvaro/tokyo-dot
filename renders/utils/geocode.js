@@ -23,7 +23,9 @@ let geocode = function(apiKey) {
     });
 
     locations.forEach(function(location) {
-      d3.json(URL_GEOCODE + '' + location.name + '駅', function(e, loc) {
+      const query = `${location.name} `.replace(' ', '駅');
+      console.log(query);
+      d3.json(URL_GEOCODE + encodeURIComponent(query), function(e, loc) {
         if (e) {
           notFound[location.id] = JSON.parse(e.responseText).error_message;
           return;
