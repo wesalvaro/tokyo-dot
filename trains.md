@@ -26,18 +26,18 @@ If a line does not have an official prefix, one is assigned in square brackets.
     * Shōnan-Shinjuku
 * Tokyo Metro lines
   * (C) Chiyoda
-  * (F) Fukutoshin
+  * ⭕ (F) Fukutoshin
   * ⭕ (G) Ginza
   * ⭕ (H) Hibiya
   * (M) Marunouchi
-  * (N) Namboku
+  * ⭕ (N) Namboku
   * (T) Tōzai
-  * (Y) Yūrakuchō
+  * ⭕ (Y) Yūrakuchō
   * (Z) Hanzōmon
 * Toei subway lines
   * (A) Asakusa
   * (E) Ōedo
-  * (I) Mita
+  * ⭕ (I) Mita
   * (S) Shinjuku
 * Yokohama Municipal
   * (B) Blue
