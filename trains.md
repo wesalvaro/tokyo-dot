@@ -36,7 +36,7 @@ If a line does not have an official prefix, one is assigned in square brackets.
   * (Z) Hanzōmon
 * Toei subway lines
   * (A) Asakusa
-  * (E) Ōedo
+  * ⭕ (E) Ōedo
   * ⭕ (I) Mita
   * (S) Shinjuku
 * Yokohama Municipal

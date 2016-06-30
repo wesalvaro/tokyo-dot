@@ -6,6 +6,49 @@ digraph {
 
   // 駅：
 
+  // 都営大江戸線：
+  subgraph OedoStations {
+    node [color="#8B008B"];
+    E01 [label="{{新宿西口|Shinjuku-Nishiguchi}|E01}"];
+    E02 [label="{{東新宿|Higashi-Shinjuku}|E02}"];
+    E03 [label="{{若松河田|Wakamatsu-Kawada}|E03}"];
+    E04 [label="{{牛込柳町|Ushigome-Yanagichō}|E04}"];
+    E05 [label="{{牛込神楽坂|Ushigome-Kagurazaka}|E05}"];
+    E06 [label="{{飯田橋|Iidabashi}|E06}"];
+    E07 [label="{{春日|Kasuga}|E07}"];
+    E08 [label="{{本郷三丁目|Hongō-Sanchōme}|E08}"];
+    E09 [label="{{上野御徒町|Ueno-Okachimachi}|E09}"];
+    E10 [label="{{新御徒町|Shin-Okachimachi}|E10}"];
+    E11 [label="{{蔵前|Kuramae}|E11}"];
+    E12 [label="{{両国|Ryōgoku}|E12}"];
+    E13 [label="{{森下|Morishita}|E13}"];
+    E14 [label="{{清澄白河|Kiyosumi-shirakawa}|E14}"];
+    E15 [label="{{門前仲町|Monzen-Nakachō}|E15}"];
+    E16 [label="{{月島|Tsukishima}|E16}"];
+    E17 [label="{{勝どき|Kachidoki}|E17}"];
+    E18 [label="{{築地市場|Tsukijishijō}|E18}"];
+    E19 [label="{{汐留|Shiodome}|E19}"];
+    E20 [label="{{大門|Daimon}|E20}"];
+    E21 [label="{{赤羽橋|Akabanebashi}|E21}"];
+    E22 [label="{{麻布十番|Azabu-Jūban}|E22}"];
+    E23 [label="{{六本木|Roppongi}|E23}"];
+    E24 [label="{{青山一丁目|Aoyama-Itchōme}|E24}"];
+    E25 [label="{{国立競技場|Kokuritsu-Kyōgijō}|E25}"];
+    E26 [label="{{代々木|Yoyogi}|E26}"];
+    E27 [label="{{新宿|Shinjuku}|E27}"];
+    E28 [label="{{都庁前|Tochōmae}|E28}"];
+    E29 [label="{{西新宿五丁目|Nishi-Shinjuku-Gochōme}|E29}"];
+    E30 [label="{{中野坂上|Nakano-Sakaue}|E30}"];
+    E31 [label="{{東中野|Higashi-Nakano}|E31}"];
+    E32 [label="{{中井|Nakai}|E32}"];
+    E33 [label="{{落合南長崎|Ochiai-Minami-Nagasaki}|E33}"];
+    E34 [label="{{新江古田|Shin-Egota}|E34}"];
+    E35 [label="{{練馬|Nerima}|E35}"];
+    E36 [label="{{豊島園|Toshimaen}|E36}"];
+    E37 [label="{{練馬春日町|Nerima-Kasugachō}|E37}"];
+    E38 [label="{{光が丘|Hikarigaoka}|E38}"];
+  }
+
   // 東京メトロ副都心線：
   subgraph FukutoshinStations {
     node [color="#9c5e31"];
@@ -332,12 +375,22 @@ digraph {
     edge [style="dashed", dir="forward"];
 
     A08 -> I04;
+    A09 -> E20;
+    A17 -> E11;
     C07 -> N06;
     C09 -> I08;
     C09 -> Y18;
     C11 -> I09;
     CC -> TJ38;
     CH -> N08;
+    CH -> E01;
+    CH -> E27;
+    CS -> E06;
+    CS -> E12;
+    CS -> E25;
+    CS -> E26;
+    CS -> E27;
+    CS -> E31;
     CS -> I11;
     CS -> N08;
     CS -> N09;
@@ -346,13 +399,50 @@ digraph {
     CS -> Y14;
 
     DT01 -> F16;
+    E01 -> E28;
+    E01 -> KO;
+    E01 -> M08;
+    E01 -> OW;
+    E01 -> SJ;
+    E01 -> SK;
+    E01 -> SS;
+    E01 -> YT09;
     E02 -> F12;
     E06 -> N10;
+    E06 -> T06;
     E06 -> Y13;
     E07 -> I12;
+    E07 -> M22;
     E07 -> N11;
+    E08 -> M21;
+    E09 -> G15;
+    E09 -> H16;
+    E09 -> KT;
+    E09 -> YT22;
+    E10 -> TX02;
+    E13 -> S11;
+    E14 -> Z11;
+    E15 -> T12;
     E16 -> Y21;
+    E19 -> U02;
+    E20 -> MK;
+    E20 -> YT28;
     E22 -> N04;
+    E23 -> H04;
+    E24 -> G04;
+    E26 -> YT06;
+    E27 -> KO;
+    E27 -> OW;
+    E27 -> S01;
+    E27 -> SK;
+    E27 -> SS;
+    E27 -> YT09;
+    E30 -> M06;
+    E32 -> SJ;
+    E35 -> SI;
+    E35 -> ST;
+    E35 -> SY;
+    E36 -> ST;
 
     F01 -> TJ11;
     { rank=same; F01 -> Y01 [len=0]; }
@@ -431,6 +521,7 @@ digraph {
     KG -> TJ21;
     KT -> Y18;
     KT -> N16;
+    KT25 -> E20;
     KY -> Y24;
     M -> TJ01;
     M -> TJ03;
@@ -493,6 +584,48 @@ digraph {
     Y09 -> YT13;
     Y16 -> Z04;
     Y18 -> YT26;
+  }
+
+  // 都営大江戸線：
+
+  subgraph Oedo {
+    E01 -> E02 [len=1.4];
+    E02 -> E03 [len=1.0];
+    E03 -> E04 [len=0.6];
+    E04 -> E05 [len=1.0];
+    E05 -> E06 [len=1.0];
+    E06 -> E07 [len=1.0];
+    E07 -> E08 [len=0.8];
+    E08 -> E09 [len=1.1];
+    E09 -> E10 [len=0.8];
+    E10 -> E11 [len=1.0];
+    E11 -> E12 [len=1.2];
+    E12 -> E13 [len=1.0];
+    E13 -> E14 [len=0.6];
+    E14 -> E15 [len=1.2];
+    E15 -> E16 [len=1.4];
+    E16 -> E17 [len=0.8];
+    E17 -> E18 [len=1.5];
+    E18 -> E19 [len=0.9];
+    E19 -> E20 [len=0.9];
+    E20 -> E21 [len=1.3];
+    E21 -> E22 [len=0.8];
+    E22 -> E23 [len=1.1];
+    E23 -> E24 [len=1.3];
+    E24 -> E25 [len=1.2];
+    E25 -> E26 [len=1.5];
+    E26 -> E27 [len=0.6];
+    E27 -> E28 [len=0.8];
+    E28 -> E29 [len=0.8];
+    E29 -> E30 [len=1.2];
+    E30 -> E31 [len=1.0];
+    E31 -> E32 [len=0.8];
+    E32 -> E33 [len=1.3];
+    E33 -> E34 [len=1.6];
+    E34 -> E35 [len=1.6];
+    E35 -> E36 [len=0.9];
+    E36 -> E37 [len=1.5];
+    E37 -> E38 [len=1.4];
   }
 
   // 東京メトロ副都心線：
