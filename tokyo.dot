@@ -371,7 +371,7 @@ digraph {
     F10 -> TA;
     F13 -> { M09; S02; }
     F15 -> { C03; YT07; }
-    F16 -> { G01; IN; SS; SY; TY01; Z01; }
+    F16 -> { G01; IN; SS; SY; TY01; Z01; YT06; }
 
     { G01 -> TY01; }
     { G01 -> YT06; }
@@ -441,6 +441,7 @@ digraph {
     M22 -> N11;
 
     MG01 -> N01;
+    MG01 -> YT04;
 
     { rank=same; MG06 -> OM08; }
 
