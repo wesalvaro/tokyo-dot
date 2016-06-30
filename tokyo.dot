@@ -360,6 +360,24 @@ digraph {
     YT29 [label="田町|Tamachi"];
   }
 
+  subgraph HanzomonStations {
+    node [color="#9b7cb6"];
+    Z01 [label="{{渋谷|Shibuya}|Z01}"];
+    Z02 [label="{{表参道|Omotesandō}|Z02}"];
+    Z03 [label="{{青山一丁目|Aoyama-itchōme}|Z03}"];
+    Z04 [label="{{永田町|Nagatachō}|Z04}"];
+    Z05 [label="{{半蔵門|Hanzōmon}|Z05}"];
+    Z06 [label="{{九段下|Kudanshita}|Z06}"];
+    Z07 [label="{{神保町|Jimbōchō}|Z07}"];
+    Z08 [label="{{大手町|Ōtemachi}|Z08}"];
+    Z09 [label="{{三越前|Mitsukoshimae}|Z09}"];
+    Z10 [label="{{水天宮前|Suitengūmae}|Z10}"];
+    Z11 [label="{{清澄白河|Kiyosumi-shirakawa}|Z11}"];
+    Z12 [label="{{住吉 (東京都)|Sumiyoshi}|Z12}"];
+    Z13 [label="{{錦糸町|Kinshichō}|Z13}"];
+    Z14 [label="{{押上|Oshiage}|Z14}"];
+  }
+
 
   // EDGES ===================
   //
@@ -377,10 +395,13 @@ digraph {
     A08 -> I04;
     A09 -> E20;
     A17 -> E11;
+    A20 -> Z14;
+    C04 -> Z02;
     C07 -> N06;
     C09 -> I08;
     C09 -> Y18;
     C11 -> I09;
+    C11 -> Z08;
     CC -> TJ38;
     CH -> N08;
     CH -> E01;
@@ -397,8 +418,11 @@ digraph {
     CS -> N10;
     CS -> Y13;
     CS -> Y14;
+    CS -> Z13;
 
     DT01 -> F16;
+    DT01 -> Z01;
+
     E01 -> E28;
     E01 -> KO;
     E01 -> M08;
@@ -430,6 +454,7 @@ digraph {
     E22 -> N04;
     E23 -> H04;
     E24 -> G04;
+    E24 -> Z03;
     E26 -> YT06;
     E27 -> KO;
     E27 -> OW;
@@ -465,11 +490,16 @@ digraph {
 
     { G01 -> TY01; }
     { G01 -> YT06; }
-    G05 -> Y16;
+    G01 -> Z01;
+    G02 -> Z02;
+    G04 -> Z03;
     G05 -> N07;
+    G05 -> Y16;
+    G05 -> Z04;
     G06 -> N06;
     { G08 -> YT27; }
     { rank=same; G09 -> H08; }
+    G12 -> Z09;
     { G13 -> YT24; }
     { rank=same; G15 -> H16; }
     { rank=same; G16 -> H17; }
@@ -518,17 +548,24 @@ digraph {
     I17 -> SK;
     I17 -> TJ03;
 
+    IN01 -> Z01;
+    IS -> Z14;
+
     KG -> TJ21;
+    KO -> Z14;
     KT -> Y18;
     KT -> N16;
     KT25 -> E20;
     KY -> Y24;
+
     M -> TJ01;
     M -> TJ03;
     M12 -> N08;
     M13 -> N07;
     M13 -> Y16;
+    M13 -> Z04;
     M14 -> N06;
+    M18 -> Z08;
     M22 -> N11;
 
     MG01 -> N01;
@@ -560,30 +597,50 @@ digraph {
     { rank=same; OM10 -> TY07; }
 
     RK -> Y24;
+
     S04 -> Y14;
+    S05 -> Z06;
+    S06 -> Z07;
+    S13 -> Z12;
+
+    SB -> Z09;
+    SB -> Z13;
+
     SI -> TJ01;
     SI -> Y09;
     SK -> TJ01;
     SK -> TJ03;
     SK -> Y09;
+    SK -> Z01;
     SS -> TJ01;
     SS -> TJ22;
     SS -> Y09;
+    SS -> Z01;
+    ST -> Z14;
     SY -> Y06;
+
     T06 -> Y13;
+    T07 -> Z06;
+    T09 -> Z08;
+
     TA -> Y10;
     TJ01 -> Y09;
     TJ01 -> YT13;
     TJ09 -> Y03;
     TJ10 -> Y02;
     TJ11 -> Y01;
+
+    TN -> Z14;
     TO -> TJ26;
 
     { TY01 -> YT06 [len=0.7, weight=10]; }
+    TY01 -> Z01;
 
     Y09 -> YT13;
     Y16 -> Z04;
     Y18 -> YT26;
+
+    YT06 -> Z01;
   }
 
   // 都営大江戸線：
@@ -1082,6 +1139,24 @@ digraph {
     YT10 -> YT11 -> YT12 -> YT13 -> YT14 -> YT15 -> YT16 -> YT17 -> YT18 -> YT19;
     YT19 -> YT20 -> YT21 -> YT22 -> YT23 -> YT24 -> YT25 -> YT26 -> YT27 -> YT28;
     YT28 -> YT29 -> YT01;
+  }
+
+  // 東京メトロ半蔵門線：
+
+  subgraph Hanzomon {
+    Z01 -> Z02 [len=1.3];
+    Z02 -> Z03 [len=1.4];
+    Z03 -> Z04 [len=1.4];
+    Z04 -> Z05 [len=1.0];
+    Z05 -> Z06 [len=1.6];
+    Z06 -> Z07 [len=0.4];
+    Z07 -> Z08 [len=1.7];
+    Z08 -> Z09 [len=0.7];
+    Z09 -> Z10 [len=1.3];
+    Z10 -> Z11 [len=1.7];
+    Z11 -> Z12 [len=1.9];
+    Z12 -> Z13 [len=1.0];
+    Z13 -> Z14 [len=1.4];
   }
 
 }

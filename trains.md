@@ -33,7 +33,7 @@ If a line does not have an official prefix, one is assigned in square brackets.
   * ⭕ (N) Namboku
   * (T) Tōzai
   * ⭕ (Y) Yūrakuchō
-  * (Z) Hanzōmon
+  * ⭕ (Z) Hanzōmon
 * Toei subway lines
   * (A) Asakusa
   * ⭕ (E) Ōedo
