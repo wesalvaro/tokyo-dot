@@ -1,57 +1,53 @@
-(function loadScripts() {
-  const scripts = [
-    'https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js',
-    'https://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js',
-  ];
-  scripts.forEach(function(script) {
-    const e = document.createElement('script');
-    e.src = script;
-    document.body.appendChild(e);
+(() => {
+
+const GeoCodeController = function(geocode, latlng) {
+  this.results = geocode(this.address);
+  latlng(this.results).then((value) => {
+    this.latlng = value;
   });
-}());
-
-let geocode = function(apiKey) {
-  const URL_GEOCODE = `https://maps.googleapis.com/maps/api/geocode/json?key=${apiKey}&address=`;
-  const notFound = {};
-  const found = {};
-  const locations = [];
-
-  trainGraph.then((graph) => {
-    graph.eachNode(function(id, node) {
-      if (!node.label || node.label.match(/^\w/)) return;
-      locations.push({id: node.id, name: node.label});
-    });
-
-    locations.forEach(function(location) {
-      const query = `${location.name} `.replace(' ', '駅');
-      console.log(query);
-      d3.json(URL_GEOCODE + encodeURIComponent(query), function(e, loc) {
-        if (e) {
-          notFound[location.id] = JSON.parse(e.responseText).error_message;
-          return;
-        }
-        if (!loc.results.length) {
-          notFound[location.id] = loc.status;
-          return;
-        }
-        let latlon = loc.results[0].geometry.location;
-        found[location.id] = latlon;
-      });
-    });
-  });
-
-  return {
-    locations: locations,
-    found: found,
-    notFound: notFound,
-  };
 };
 
-let getGeocoder = function(apiKey) {
-  const result = geocode(apiKey);
-  return function() {
-    console.log(`${Object.keys(result.found).length}/${result.locations.length}`);
-    console.log(result.notFound);
-    return `const GEOCODE = ${JSON.stringify(result.found)};`;
-  };
-}
+angular.module('geocode', [])
+  .constant('mapsUrl', 'https://maps.googleapis.com/maps/api/')
+  .constant('gApiKey', undefined)
+  .factory('geocodeUrl', function(gApiKey, mapsUrl) {
+    return function(address, opt_apiKey) {
+      const apiKey = opt_apiKey || gApiKey;
+      address = encodeURIComponent(address);
+      return `${mapsUrl}geocode/json?key=${apiKey}&address=${address}`;
+    }
+  })
+  .factory('geocode', ($http, geocodeUrl) => {
+    return (address) => {
+      return $http.get(geocodeUrl(address)).then((response) => {
+        const results = response.data.results;
+        if (!results.length) {
+          throw response.data.status;
+        }
+        return results;
+      }).catch((error) => {
+        throw `"${address}": ${error}`;
+      });
+    };
+  })
+  .factory('geocodeMulti', ($q, geocode) => {
+    return (addresses) => {
+      return $q.all(addresses.map(geocode));
+    };
+  })
+  .factory('latlng', (geocode) => {
+    return (results, opt_index) => {
+      return results.then((data) => data[opt_index || 0].geometry.location);
+    }
+  })
+  .component('geocodeLatLng', {
+    template: `
+        {{ $ctrl.address }} Lat: {{ $ctrl.latlng.lat }} Lon: {{ $ctrl.latlng.lng }}
+    `,
+    controller: GeoCodeController,
+    bindings: {
+      'address': '<'
+    }
+  });
+
+})();

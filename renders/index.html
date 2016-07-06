@@ -1,0 +1,45 @@
+<html>
+<head>
+  <style>
+    html {
+      overflow: hidden;
+    }
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    tokyo-dot {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    sigma-graph {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css">
+</head>
+<body>
+  <div ng-app="app">
+    <tokyo-dot></tokyo-dot>
+  </div>
+
+  <script src="https://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.1.0/sigma.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.1.0/plugins/sigma.renderers.parallelEdges.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="data/geocode.js"></script>
+  <script src="utils/geocode.js"></script>
+  <script src="sigma.js"></script>
+  <script src="vis.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
