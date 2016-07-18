@@ -46,7 +46,7 @@ const visDotGrapher = () => {
       node.id = id;
       node.label = labelParser(node.label);
       node.shape = 'box';
-      node.group = id.match(/^[A-Z]+/)[0];
+      node.group = id.match(/^[mA-Z]+/)[0];
       if (opt_getXY) {
         [node.x, node.y] = opt_getXY(id);
       }

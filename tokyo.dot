@@ -152,6 +152,39 @@ digraph {
     I27 [label="{{西高島平|Nishi-Takashimadaira}|I27}"];
   }
 
+  // 東京メトロ丸ノ内線：
+  subgraph MarunouchiStations {
+    node [color="#e60012"]
+    M01 [label="{{荻窪|Ogikubo}|M01}"];
+    M02 [label="{{南阿佐ケ谷|Minami-Asagaya}|M02}"];
+    M03 [label="{{新高円寺|Shin-Kōenji}|M03}"];
+    M04 [label="{{東高円寺|Higashi-Kōenji}|M04}"];
+    M05 [label="{{新中野|Shin-Nakano}|M05}"];
+    M06 [label="{{中野坂上|Nakano-Sakaue}|M06}"];
+    m05 [label="{{中野新橋|Nakano-Shimbashi}|m05}"];
+    m04 [label="{{中野富士見町|Nakano-Fujimichō}|m04}"];
+    m03 [label="{{方南町|Hōnanchō}|m03}"];
+    M07 [label="{{西新宿|Nishi-Shinjuku}|M07}"];
+    M08 [label="{{新宿|Shinjuku}|M08}"];
+    M09 [label="{{新宿三丁目|Shinjuku-Sanchōme}|M09}"];
+    M10 [label="{{新宿御苑前|Shinjuku-Gyoemmae}|M10}"];
+    M11 [label="{{四谷三丁目|Yotsuya-Sanchōme}|M11}"];
+    M12 [label="{{四ツ谷|Yotsuya}|M12}"];
+    M13 [label="{{赤坂見附|Akasaka-Mitsuke}|M13}"];
+    M14 [label="{{国会議事堂前|Kokkai-Gijidō-mae}|M14}"];
+    M15 [label="{{霞ケ関|Kasumigaseki}|M15}"];
+    M16 [label="{{銀座|Ginza}|M16}"];
+    M17 [label="{{東京|Tokyo}|M17}"];
+    M18 [label="{{大手町|Ōtemachi}|M18}"];
+    M19 [label="{{淡路町|Awajichō}|M19}"];
+    M20 [label="{{御茶ノ水|Ochanomizu}|M20}"];
+    M21 [label="{{本郷三丁目|Hongō-Sanchōme}|M21}"];
+    M22 [label="{{後楽園|Kōrakuen}|M22}"];
+    M23 [label="{{茗荷谷|Myōgadani}|M23}"];
+    M24 [label="{{新大塚|Shin-Ōtsuka}|M24}"];
+    M25 [label="{{池袋|Ikebukuro}|M25}"];
+  }
+
   // 東急目黒線：
   subgraph MeguroStations {
     node [color="#009bce"];
@@ -397,11 +430,15 @@ digraph {
     A17 -> E11;
     A20 -> Z14;
     C04 -> Z02;
+    C07 -> M14;
     C07 -> N06;
+    C08 -> M15;
     C09 -> I08;
     C09 -> Y18;
     C11 -> I09;
+    C11 -> M18;
     C11 -> Z08;
+    C12 -> M19;
     CC -> TJ38;
     CH -> N08;
     CH -> E01;
@@ -457,6 +494,7 @@ digraph {
     E24 -> Z03;
     E26 -> YT06;
     E27 -> KO;
+    E27 -> M08;
     E27 -> OW;
     E27 -> S01;
     E27 -> SK;
@@ -493,12 +531,15 @@ digraph {
     G01 -> Z01;
     G02 -> Z02;
     G04 -> Z03;
+    G05 -> M13;
     G05 -> N07;
     G05 -> Y16;
     G05 -> Z04;
+    G06 -> M14;
     G06 -> N06;
     { G08 -> YT27; }
     { rank=same; G09 -> H08; }
+    G09 -> M16;
     G12 -> Z09;
     { G13 -> YT24; }
     { rank=same; G15 -> H16; }
@@ -515,10 +556,12 @@ digraph {
       YT05 -> H02 [label="西口"];
     }
 
+    H06 -> M15;
     H07 -> I08;
     H07 -> Y18;
 
     { H07 -> YT26; }
+    H08 -> M16;
     { H15 -> YT23; }
     { H17 -> YT21; }
 
@@ -558,15 +601,19 @@ digraph {
     KT25 -> E20;
     KY -> Y24;
 
-    M -> TJ01;
-    M -> TJ03;
+    M08 -> S01;
+    M09 -> S02;
     M12 -> N08;
     M13 -> N07;
     M13 -> Y16;
     M13 -> Z04;
     M14 -> N06;
+    M18 -> T09;
     M18 -> Z08;
+    M19 -> S07;
     M22 -> N11;
+    M25 -> TJ01;
+    M25 -> Y09;
 
     MG01 -> N01;
     MG01 -> YT04;
@@ -786,6 +833,59 @@ digraph {
     I24 -> I25 [len=1.0];
     I25 -> I26 [len=0.7];
     I26 -> I27 [len=0.8];
+  }
+
+  // 東京メトロ丸ノ内線：
+
+  subgraph Marunouchi {
+    M01 -> M02 [len=1.5];
+    M02 -> M03 [len=1.2];
+    M03 -> M04 [len=0.9];
+    M04 -> M05 [len=1.0];
+    M05 -> M06 [len=1.1];
+    M06 -> M07 [len=1.1];
+    M07 -> M08 [len=0.8];
+    M08 -> M09 [len=0.3];
+    M09 -> M10 [len=0.7];
+    M10 -> M11 [len=0.9];
+    M11 -> M12 [len=1.0];
+    M12 -> M13 [len=1.3];
+    M13 -> M14 [len=0.9];
+    M14 -> M15 [len=0.7];
+    M15 -> M16 [len=1.0];
+    M16 -> M17 [len=1.1];
+    M17 -> M18 [len=0.6];
+    M18 -> M19 [len=0.9];
+    M19 -> M20 [len=0.8];
+    M20 -> M21 [len=0.8];
+    M21 -> M22 [len=0.8];
+    M22 -> M23 [len=1.8];
+    M23 -> M24 [len=1.2];
+    M24 -> M25 [len=1.8];
+  }
+
+  subgraph MarunouchiBranch {
+    m03 -> m04 [len=1.3];
+    m04 -> m05 [len=0.6];
+    m05 -> M06 [len=1.3];
+    M07 -> M08 [len=0.8];
+    M08 -> M09 [len=0.3];
+    M09 -> M10 [len=0.7];
+    M10 -> M11 [len=0.9];
+    M11 -> M12 [len=1.0];
+    M12 -> M13 [len=1.3];
+    M13 -> M14 [len=0.9];
+    M14 -> M15 [len=0.7];
+    M15 -> M16 [len=1.0];
+    M16 -> M17 [len=1.1];
+    M17 -> M18 [len=0.6];
+    M18 -> M19 [len=0.9];
+    M19 -> M20 [len=0.8];
+    M20 -> M21 [len=0.8];
+    M21 -> M22 [len=0.8];
+    M22 -> M23 [len=1.8];
+    M23 -> M24 [len=1.2];
+    M24 -> M25 [len=1.8];
   }
 
   // 東急東横線：
