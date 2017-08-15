@@ -35,33 +35,36 @@ const sigmaGraph = () => {
 
 const sigmaDotGrapher = () => {
   return (data, opt_labelParser, opt_getXY) => {
-    const nodes = [];
-    const edges = [];
     const labelParser = opt_labelParser || ((x) => x);
 
-    data.eachNode(function(id, node) {
-      if (!node.label) return;
-      node.id = id;
-      node.type = 'station';
-      node.size = 1;
-      node.label = labelParser(node.label, node);
-      if (opt_getXY) {
-        [node.x, node.y] = opt_getXY(id, node);
-      }
-      nodes.push(node);
-    });
-
-    data.eachEdge(function(id, source, target, edge) {
-      edge.id = id;
-      edge.size = 1;
-      edge.color = d3.rgb(edge.color).toString();
-      edge.source = source;
-      edge.target = target;
-      edge.type = (edge.color == '#000000' || edge.color == '#0000ff') ? undefined : 'curve';
-      edges.push(edge);
-    });
-
-    return {nodes: nodes, edges: edges};
+    return {
+      nodes: data.nodes().map(id => {
+        const node = data.node(id);
+        if (!node.label) return;
+        const n = {
+          id: id,
+          type: 'station',
+          size: 1,
+          label: labelParser(node.label, node)
+        };
+        if (opt_getXY) {
+          [n.x, n.y] = opt_getXY(id, node);
+        }
+        return n;
+      }).filter(n => !!n),
+      edges: data.edges().map(e => {
+        const edge = data.edge(e);
+        const {v: source, w: target} = e;
+        return {
+          id: e.name || `${source}-${target}`,
+          size: 1,
+          color: d3.rgb(edge.color).toString(),
+          source: source,
+          target: target,
+          type: (edge.color == '#000000' || edge.color == '#0000ff') ? undefined : 'curve',
+        };
+      }),
+    };
   };
 };
 

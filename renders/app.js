@@ -1,20 +1,14 @@
 (() => {
 
 const tokyoDotController = function(
-    $scope, addStationColor, trainDotGraphJP, sigmaDotGrapher, visDotGrapher, $filter) {
+    $scope, addStationColor, trainDotGraphJP, sigmaDotGrapher, visDotGrapher) {
   this.sid = 'TY';
   $scope.$watchGroup(['$ctrl.sid', '$ctrl.sNodes', '$ctrl.sEdges'], (values) => {
     const [id, nodes, edges] = values;
     if (!nodes || !edges) return;
-    this.sigmaNodes = filter(nodes, {
-      id: id,
-    });
-    this.sigmaEdges = filter(edges, {
-      source: id,
-      target: id,
-    });
+    this.sigmaNodes = nodes.filter(n => n.id.startsWith(id));
+    this.sigmaEdges = edges.filter(e => e.source.startsWith(id) && e.target.startsWith(id));
   });
-  const filter = $filter('filter');
   this.graph = trainDotGraphJP;
   this.graph.then((g) => {
     let {nodes, edges} = sigmaDotGrapher(g, undefined, (id) => {
@@ -32,13 +26,12 @@ const tokyoDotController = function(
 
 angular.module('app', ['sigmaGraphs', 'visGraphs', 'geocode'])
   .constant('trainDotUrl', '../tokyo.dot')
-  .factory('dotParser', () => {
-    return graphlibDot.parse.bind(graphlibDot);
-  })
+  .constant('dotParser', (graphStr) => graphlibDot.read(graphStr))
   .factory('stationGeocodes', (geocodeMulti, latlng, trainDotGraphJP) => {
     return trainDotGraphJP.then((graph) => {
       const stations = [];
-      graph.eachNode((id, node) => {
+      graph.nodes().forEach(id => {
+        const node = graph.node(id);
         if (!node.label || node.label.match(/^\w/)) return;
         stations.push({id: id, name: node.label.replace(' ', '駅')});
       });
@@ -55,7 +48,8 @@ angular.module('app', ['sigmaGraphs', 'visGraphs', 'geocode'])
   })
   .factory('trainDotGraphJP', (trainDotGraph, addStationColor) => {
     return trainDotGraph.then((graph) => {
-      graph.eachNode((id, node) => {
+      graph.nodes().forEach(id => {
+        const node = graph.node(id);
         const label = node.label;
         if (!label) return;
         const splits = label.split('|')[0].split('{{');
@@ -73,14 +67,14 @@ angular.module('app', ['sigmaGraphs', 'visGraphs', 'geocode'])
   })
   .factory('addStationColor', () => {
     const stationColors = {};
-    sigma.canvas.nodes.station = function(node, context, settings) {
+    sigma.canvas.nodes.station = (node, context, settings) => {
       const prefix = settings('prefix') || '';
       const size = node[prefix + 'size'];
       const x = node[prefix + 'x'];
       const y = node[prefix + 'y'];
 
       let start = 0;
-      stationColors[node.label].forEach(function(color, i, arr) {
+      stationColors[node.label].forEach((color, i, arr) => {
         const end = ((i + 1) / arr.length) * 2 * Math.PI;
         context.fillStyle = color || settings('defaultNodeColor');
         context.beginPath();

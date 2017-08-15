@@ -422,9 +422,9 @@ digraph {
 
   // 乗り換え：
 
-  subgraph Transfers {
-    edge [style="dashed", dir="forward"];
+  edge [style="dashed", dir="forward"];
 
+  subgraph Transfers {
     A08 -> I04;
     A09 -> E20;
     A17 -> E11;
@@ -689,6 +689,8 @@ digraph {
 
     YT06 -> Z01;
   }
+
+  edge [style="solid", dir="none"];
 
   // 都営大江戸線：
 

@@ -40,28 +40,34 @@ const visGraph = () => {
 const visDotGrapher = () => {
   return (data, opt_labelParser, opt_getXY) => {
     const labelParser = opt_labelParser || ((x) => x);
-    const nodes = [];
-    data.eachNode(function(id, node) {
-      if (!node.label) return;
-      node.id = id;
-      node.label = labelParser(node.label);
-      node.shape = 'box';
-      node.group = id.match(/^[mA-Z]+/)[0];
-      if (opt_getXY) {
-        [node.x, node.y] = opt_getXY(id);
-      }
-      nodes.push(node);
-    });
 
-    const edges = [];
-    data.eachEdge(function(id, from, to, edge) {
-      edge.dashes = Boolean(edge.style == 'dashed');
-      edge.from = from;
-      edge.to = to;
-      edges.push(edge);
-    });
-
-    return {nodes: nodes, edges: edges};
+    return {
+      nodes: data.nodes().map(id => {
+        const node = data.node(id);
+        if (!node.label) return;
+        const n = {
+          id: id,
+          label: labelParser(node.label),
+          shape: 'box',
+          group: id.match(/^[mA-Z]+/)[0],
+          color: node.color,
+        };
+        if (opt_getXY) {
+          [n.x, n.y] = opt_getXY(id);
+        }
+        return n;
+      }).filter(n => !!n),
+      edges: data.edges().map(e => {
+        const edge = data.edge(e);
+        const {v: from, w: to} = e;
+        return {
+          dashes: Boolean(edge.style == 'dashed'),
+          from: from,
+          to: to,
+          color: edge.color,
+        };
+      }),
+    };
   };
 };
 
