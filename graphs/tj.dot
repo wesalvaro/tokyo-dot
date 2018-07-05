@@ -1,0 +1,224 @@
+// 東武東上線：
+subgraph TobuTojoStations {
+  node [color="#f68a4c"];
+  TJ01 [label="{{池袋|Ikebukuro}|TJ01}"];
+  TJ02 [label="{{北池袋|Kita-Ikebukuro}|TJ02}"];
+  TJ03 [label="{{下板橋|Shimo-Itabashi}|TJ03}"];
+  TJ04 [label="{{大山|Ōyama}|TJ04}"];
+  TJ05 [label="{{中板橋|Naka-Itabashi}|TJ05}"];
+  TJ06 [label="{{ときわ台|Tokiwadai}|TJ06}"];
+  TJ07 [label="{{上板橋|Kami-Itabashi}|TJ07}"];
+  TJ08 [label="{{東武練馬|Tōbu-Nerima}|TJ08}"];
+  TJ09 [label="{{下赤塚|Shimo-Akatsuka}|TJ09}"];
+  TJ10 [label="{{成増|Narimasu}|TJ10}"];
+  TJ11 [label="{{和光市|Wakōshi}|TJ11}"];
+  TJ12 [label="{{朝霞|Asaka}|TJ12}"];
+  TJ13 [label="{{朝霞台|Asakadai}|TJ13}"];
+  TJ14 [label="{{志木|Shiki}|TJ14}"];
+  TJ15 [label="{{柳瀬川|Yanasegawa}|TJ15}"];
+  TJ16 [label="{{みずほ台|Mizuhodai}|TJ16}"];
+  TJ17 [label="{{鶴瀬|Tsuruse}|TJ17}"];
+  TJ18 [label="{{ふじみ野|Fujimino}|TJ18}"];
+  TJ19 [label="{{上福岡|Kami-Fukuoka}|TJ19}"];
+  TJ20 [label="{{新河岸|Shingashi}|TJ20}"];
+  TJ21 [label="{{川越|Kawagoe}|TJ21}"];
+  TJ22 [label="{{川越市|Kawagoeshi}|TJ22}"];
+  TJ23 [label="{{霞ヶ関 (埼玉県)|Kasumigaseki}|TJ23}"];
+  TJ24 [label="{{鶴ヶ島|Tsurugashima}|TJ24}"];
+  TJ25 [label="{{若葉|Wakaba}|TJ25}"];
+  TJ26 [label="{{坂戸|Sakado}|TJ26}"];
+  TJ27 [label="{{北坂戸|Kita-Sakado}|TJ27}"];
+  TJ28 [label="{{高坂|Takasaka}|TJ28}"];
+  TJ29 [label="{{東松山|Higashi-Matsuyama}|TJ29}"];
+  TJ30 [label="{{森林公園|Shinrinkōen}|TJ30}"];
+  TJ31 [label="{{つきのわ|Tsukinowa}|TJ31}"];
+  TJ32 [label="{{武蔵嵐山|Musashi-Ranzan}|TJ32}"];
+  TJ33 [label="{{小川町|Ogawamachi}|TJ33}"];
+  TJ34 [label="{{東武竹沢|Tōbu-Takezawa}|TJ34}"];
+  TJ35 [label="{{男衾|Obusuma}|TJ35}"];
+  TJ36 [label="{{鉢形|Hachigata}|TJ36}"];
+  TJ37 [label="{{玉淀|Tamayodo}|TJ37}"];
+  TJ38 [label="{{寄居|Yorii}|TJ38}"];
+}
+
+// 普通：
+subgraph TojoLocal {
+  TJ01 -> TJ02 [len=1.2];
+  TJ02 -> TJ03 [len=0.8];
+  TJ03 -> TJ04 [len=1.0];
+  TJ04 -> TJ05 [len=1.0];
+  TJ05 -> TJ06 [len=0.7];
+  TJ06 -> TJ07 [len=1.3];
+  TJ07 -> TJ08 [len=1.4];
+  TJ08 -> TJ09 [len=1.5];
+  TJ09 -> TJ10 [len=1.5];
+  TJ10 -> TJ11 [len=2.1];
+  TJ11 -> TJ12 [len=1.5];
+  TJ12 -> TJ13 [len=2.4];
+  TJ13 -> TJ14 [len=1.4];
+  TJ14 -> TJ15 [len=1.5];
+  TJ15 -> TJ16 [len=1.3];
+  TJ16 -> TJ17 [len=1.4];
+  TJ17 -> TJ18 [len=2.2];
+  TJ18 -> TJ19 [len=1.7];
+  TJ19 -> TJ20 [len=2.4];
+  TJ20 -> TJ21 [len=2.2];
+  TJ21 -> TJ22 [len=0.9];
+  TJ22 -> TJ23 [len=3.4];
+  TJ23 -> TJ24 [len=2.2];
+  TJ24 -> TJ25 [len=1.9];
+  TJ25 -> TJ26 [len=1.7];
+  TJ26 -> TJ27 [len=2.1];
+  TJ27 -> TJ28 [len=3.5];
+  TJ28 -> TJ29 [len=3.7];
+  TJ29 -> TJ30 [len=2.7];
+  TJ30 -> TJ31 [len=2.8];
+  TJ31 -> TJ32 [len=1.7];
+  TJ32 -> TJ33 [len=7.0];
+  TJ33 -> TJ34 [len=3.0];
+  TJ34 -> TJ35 [len=3.7];
+  TJ35 -> TJ36 [len=2.7];
+  TJ36 -> TJ37 [len=0.9];
+  TJ37 -> TJ38 [len=0.6];
+}
+
+// 準急：
+subgraph TojoSemiExp {
+  edge [color="#009a74"];
+  TJ01 -> TJ10;
+  TJ10 -> TJ11;
+  TJ11 -> TJ12;
+  TJ12 -> TJ13;
+  TJ13 -> TJ14;
+  TJ14 -> TJ15;
+  TJ15 -> TJ16;
+  TJ16 -> TJ17;
+  TJ17 -> TJ18;
+  TJ18 -> TJ19;
+  TJ19 -> TJ20;
+  TJ20 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ23;
+  TJ23 -> TJ24;
+  TJ24 -> TJ25;
+  TJ25 -> TJ26;
+  TJ26 -> TJ27;
+  TJ27 -> TJ28;
+  TJ28 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+// 急行：
+subgraph TojoExp {
+  edge [color="#f52635"];
+  TJ01 -> TJ10;
+  TJ10 -> TJ11;
+  TJ11 -> TJ13;
+  TJ13 -> TJ14;
+  TJ14 -> TJ18;
+  TJ18 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ23;
+  TJ23 -> TJ24;
+  TJ24 -> TJ25;
+  TJ25 -> TJ26;
+  TJ26 -> TJ27;
+  TJ27 -> TJ28;
+  TJ28 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+// 快速：
+subgraph TojoRapid {
+  edge [color="#0081b9"];
+  TJ01 -> TJ10;
+  TJ10 -> TJ11;
+  TJ11 -> TJ13;
+  TJ13 -> TJ14;
+  TJ14 -> TJ18;
+  TJ18 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ25;
+  TJ25 -> TJ26;
+  TJ26 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+// 快速急行：
+subgraph TojoRapidExp {
+  edge [color="#005789"];
+  TJ01 -> TJ11;
+  TJ11 -> TJ14;
+  TJ14 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ26;
+  TJ26 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+// ＴＪライナー【下り】：
+subgraph TojoLinerDown {
+  edge [color="#ff710a"];
+  TJ01 -> TJ11;
+  TJ11 -> TJ14;
+  TJ14 -> TJ18;
+  TJ18 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ26;
+  TJ26 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+// ＴＪライナー【上り】：
+subgraph TojoLinerUp {
+  edge [color="#008cd6"];
+  TJ01 -> TJ11;
+  TJ11 -> TJ14;
+  TJ14 -> TJ18;
+  TJ18 -> TJ21;
+  TJ21 -> TJ26;
+  TJ26 -> TJ29;
+  TJ29 -> TJ30;
+}
+
+// Ｆライナー：
+subgraph TojoFLiner {
+  edge [color="#00a040"];
+  TJ11 -> TJ13;
+  TJ13 -> TJ14;
+  TJ14 -> TJ18;
+  TJ18 -> TJ21;
+  TJ21 -> TJ22;
+  TJ22 -> TJ23;
+  TJ23 -> TJ24;
+  TJ24 -> TJ25;
+  TJ25 -> TJ26;
+  TJ26 -> TJ29;
+  TJ29 -> TJ30;
+  TJ30 -> TJ31;
+  TJ31 -> TJ32;
+  TJ32 -> TJ33;
+}
+
+subgraph TojoTransfers {
+  TJ01 -> Y09;
+  TJ01 -> JY13;
+  TJ09 -> Y03;
+  TJ10 -> Y02;
+  TJ11 -> Y01;
+}

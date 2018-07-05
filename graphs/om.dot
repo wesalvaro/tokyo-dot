@@ -1,0 +1,40 @@
+// 東急大井町線：
+subgraph OimachiStations {
+  node [color="#f68a4c"];
+  OM01 [label="{{大井町|Ōimachi}|OM01}"];
+  OM02 [label="{{下神明|Shimo-Shinmei}|OM02}"];
+  OM03 [label="{{戸越公園|Togoshi-kōen	}|OM03}"];
+  OM04 [label="{{中延|Nakanobu}|OM04}"];
+  OM05 [label="{{荏原町|Ebaramachi}|OM05}"];
+  OM06 [label="{{旗の台|Hatanodai}|OM06}"];
+  OM07 [label="{{北千束|Kita-Senzoku}|OM07}"];
+  OM08 [label="{{大岡山|Ōokayama}|OM08}"];
+  OM09 [label="{{緑が丘|Midorigaoka}|OM09}"];
+  OM10 [label="{{自由が丘|Jiyūgaoka	}|OM10}"];
+  OM11 [label="{{九品仏|Kuhombutsu}|OM11}"];
+  OM12 [label="{{尾山台|Oyamadai}|OM12}"];
+  OM13 [label="{{等々力|Todoroki}|OM13}"];
+  OM14 [label="{{上野毛|Kaminoge}|OM14}"];
+  OM15 [label="{{二子玉川|Futako-Tamagawa}|OM15}"];
+  OMB1 [label="二子新地|Futako-Shinchi"];
+  OMB2 [label="高津|Takatsu"]
+  OM16 [label="{{溝の口|Mizonokuchi}|OM16}"];
+}
+
+subgraph OimachiLocalBlue {
+  edge [color="blue"];
+  OM01 -> OM02 -> OM03 -> OM04 -> OM05 -> OM06 -> OM07 -> OM08 -> OM09;
+  OM09 -> OM10 -> OM11 -> OM12 -> OM13 -> OM14 -> OM15 -> OMB1 -> OMB2;
+  OMB2 -> OM16;
+}
+
+subgraph OimachiLocalGreen {
+  edge [color="green"];
+  OM01 -> OM02 -> OM03 -> OM04 -> OM05 -> OM06 -> OM07 -> OM08 -> OM09;
+  OM09 -> OM10 -> OM11 -> OM12 -> OM13 -> OM14 -> OM15 -> OM16;
+}
+
+subgraph OimachiExp {
+  edge [color="red"];
+  OM01 -> OM06 -> OM08 -> OM10 -> OM15 -> OM16;
+}

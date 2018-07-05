@@ -1,0 +1,34 @@
+// ミナトミライ２１線：
+subgraph MinatomiraiStations {
+  node [color="#00008B"];
+  MM01 [label="{{横浜|Yokohama}|MM01}"];
+  MM02 [label="{{新高島|Shin-Takashima}|MM02}"];
+  MM03 [label="{{みなとみらい|Minatomirai}|MM03}"];
+  MM04 [label="{{馬車道|Bashamichi}|MM04}"];
+  MM05 [label="{{日本大通り|Nihon-odori}|MM05}"];
+  MM06 [label="{{元町・中華街|Motomachi-Chukagai}|MM06}"];
+}
+
+subgraph MinatomiraiLocal {
+  edge [color="blue"];
+  MM01 -> MM02 -> MM03 -> MM04 -> MM05 -> MM06;
+}
+
+subgraph MinatomiraiExp {
+  edge [color="red"];
+  MM01 -> MM03 -> MM04 -> MM05 -> MM06;
+}
+
+subgraph MinatomiraiCommExp {
+  edge [color="orange"];
+  MM01 -> MM03 -> MM04 -> MM05 -> MM06;
+}
+
+subgraph MinatomiraiLimExp {
+  edge [color="orange"];
+  MM01 -> MM03 -> MM06;
+}
+
+subgraph MinatomiraiTransfers {
+  { rank=same; MM01 -> TY21 [label="車内", dir="both", len=0.0, weight=0]; }
+}

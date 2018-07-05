@@ -1,0 +1,81 @@
+// 東京メトロ丸ノ内線：
+subgraph MarunouchiStations {
+  node [color="#e60012"]
+  M01 [label="{{荻窪|Ogikubo}|M01}"];
+  M02 [label="{{南阿佐ケ谷|Minami-Asagaya}|M02}"];
+  M03 [label="{{新高円寺|Shin-Kōenji}|M03}"];
+  M04 [label="{{東高円寺|Higashi-Kōenji}|M04}"];
+  M05 [label="{{新中野|Shin-Nakano}|M05}"];
+  M06 [label="{{中野坂上|Nakano-Sakaue}|M06}"];
+  m05 [label="{{中野新橋|Nakano-Shimbashi}|m05}"];
+  m04 [label="{{中野富士見町|Nakano-Fujimichō}|m04}"];
+  m03 [label="{{方南町|Hōnanchō}|m03}"];
+  M07 [label="{{西新宿|Nishi-Shinjuku}|M07}"];
+  M08 [label="{{新宿|Shinjuku}|M08}"];
+  M09 [label="{{新宿三丁目|Shinjuku-Sanchōme}|M09}"];
+  M10 [label="{{新宿御苑前|Shinjuku-Gyoemmae}|M10}"];
+  M11 [label="{{四谷三丁目|Yotsuya-Sanchōme}|M11}"];
+  M12 [label="{{四ツ谷|Yotsuya}|M12}"];
+  M13 [label="{{赤坂見附|Akasaka-Mitsuke}|M13}"];
+  M14 [label="{{国会議事堂前|Kokkai-Gijidō-mae}|M14}"];
+  M15 [label="{{霞ケ関|Kasumigaseki}|M15}"];
+  M16 [label="{{銀座|Ginza}|M16}"];
+  M17 [label="{{東京|Tokyo}|M17}"];
+  M18 [label="{{大手町|Ōtemachi}|M18}"];
+  M19 [label="{{淡路町|Awajichō}|M19}"];
+  M20 [label="{{御茶ノ水|Ochanomizu}|M20}"];
+  M21 [label="{{本郷三丁目|Hongō-Sanchōme}|M21}"];
+  M22 [label="{{後楽園|Kōrakuen}|M22}"];
+  M23 [label="{{茗荷谷|Myōgadani}|M23}"];
+  M24 [label="{{新大塚|Shin-Ōtsuka}|M24}"];
+  M25 [label="{{池袋|Ikebukuro}|M25}"];
+}
+
+subgraph MarunouchiLocal {
+  M01 -> M02 [len=3];
+  M02 -> M03 [len=2];
+  M03 -> M04 [len=2];
+  M04 -> M05 [len=2];
+  M05 -> M06 [len=2];
+  M06 -> M07 [len=2];
+  M07 -> M08 [len=2];
+  M08 -> M09 [len=1];
+  M09 -> M10 [len=2];
+  M10 -> M11 [len=2];
+  M11 -> M12 [len=2];
+  M12 -> M13 [len=3];
+  M13 -> M14 [len=2];
+  M14 -> M15 [len=2];
+  M15 -> M16 [len=2];
+  M16 -> M17 [len=3];
+  M17 -> M18 [len=2];
+  M18 -> M19 [len=2];
+  M19 -> M20 [len=2];
+  M20 -> M21 [len=2];
+  M21 -> M22 [len=2];
+  M22 -> M23 [len=2];
+  M23 -> M24 [len=2];
+  M24 -> M25 [len=3];
+}
+
+subgraph MarunouchiBranch {
+  m03 -> m04 [len=3];
+  m04 -> m05 [len=1];
+  m05 -> M06 [len=3];
+}
+
+subgraph MarunouchiTransfers {
+  M08 -> S01;
+  M09 -> S02;
+  M12 -> N08;
+  M13 -> N07;
+  M13 -> Y16;
+  M13 -> Z04;
+  M14 -> N06;
+  M18 -> T09;
+  M18 -> Z08;
+  M19 -> S07;
+  M22 -> N11;
+  M25 -> TJ01;
+  M25 -> Y09;
+}

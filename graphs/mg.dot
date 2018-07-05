@@ -1,0 +1,42 @@
+// 東急目黒線：
+subgraph MeguroStations {
+  node [color="#009bce"];
+  MG01 [label="{{目黒|Meguro}|MG01}"];
+  MG02 [label="{{不動前|Fudo-mae}|MG02}"];
+  MG03 [label="{{武蔵小山|Musashi-Koyama}|MG03}"];
+  MG04 [label="{{西小山|Nishi-Koyama}|MG04}"];
+  MG05 [label="{{洗足|Senzoku}|MG05}"];
+  MG06 [label="{{大岡山|Ookayama}|MG06}"];
+  MG07 [label="{{奥沢|Okusawa}|MG07}"];
+  MG08 [label="{{田園調布|Den-en-chofu}|MG08}"];
+  MG09 [label="{{多摩川|Tamagawa}|MG09}"];
+  MG10 [label="{{新丸子|Shin-Maruko}|MG10}"];
+  MG11 [label="{{武蔵小杉|Musashi-Kosugi}|MG11}"];
+  MG12 [label="{{元住吉|Motosumiyoshi}|MG12}"];
+  MG13 [label="{{日吉|Hiyoshi}|MG13}"];
+}
+
+subgraph MeguroLocal {
+  edge [color="blue"];
+  MG01 -> MG02 -> MG03 -> MG04 -> MG05 -> MG06 -> MG07 -> MG08 -> MG09;
+  MG09 -> MG10 -> MG11 -> MG12 -> MG13;
+}
+
+subgraph MeguroExp {
+  edge [color="red"];
+  MG01 -> MG03 -> MG06 -> MG08 -> MG09 -> MG11 -> MG13;
+}
+
+subgraph MeguroTransfers {
+  MG01 -> N01;
+  MG01 -> JY04;
+
+  { rank=same; MG06 -> OM08; }
+
+  { rank=same; MG08 -> TY08; }
+  { rank=same; MG09 -> TY09; }
+  { rank=same; MG10 -> TY10; }
+  { rank=same; MG11 -> TY11; }
+  { rank=same; MG12 -> TY12; }
+  { rank=same; MG13 -> TY13; }
+}
