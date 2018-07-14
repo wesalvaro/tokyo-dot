@@ -44,3 +44,14 @@ subgraph ChiyodaLocal {
   C18 -> C19 [len=3];
   C19 -> C20 [len=4];
 }
+
+subgraph ChiyodaTransfers {
+  {
+    C03 -> F15 [label="10" len=2]
+    C03 -> JY19 [label="2|2" len=4]
+  }
+  {
+    C04 -> G02 [label="5,8" len=3]
+    C04 -> Z02 [label="5,8" len=3]
+  }
+}

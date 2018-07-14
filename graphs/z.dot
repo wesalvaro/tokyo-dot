@@ -32,3 +32,10 @@ subgraph HanzomonLocal {
   Z12 -> Z13 [len=2];
   Z13 -> Z14 [len=2];
 }
+
+subgraph HanzomonTransfers {
+  {
+    Z02 -> C04 [label="5,8" len=3]
+    Z02 -> G02 [label="5,8" len=1]
+  }
+}

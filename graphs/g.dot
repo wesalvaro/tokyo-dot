@@ -44,10 +44,15 @@ subgraph GinzaLocal {
 }
 
 subgraph GinzaTransfers {
-  { G01 -> TY01; }
-  { G01 -> JY06; }
-  G01 -> Z01;
-  G02 -> Z02;
+  {
+    G01 -> TY01;
+    G01 -> JY06;
+    G01 -> Z01;
+  }
+  {
+    G02 -> C04 [label="1,6" len=3]
+    G02 -> Z02 [label="1,6" len=1]
+  }
   G04 -> Z03;
   G05 -> M13;
   G05 -> N07;
