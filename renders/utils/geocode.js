@@ -10,8 +10,8 @@ const GeoCodeController = function(geocode, latlng) {
 angular.module('geocode', [])
   .constant('mapsUrl', 'https://maps.googleapis.com/maps/api/')
   .constant('gApiKey', undefined)
-  .factory('geocodeUrl', function(gApiKey, mapsUrl) {
-    return function(address, opt_apiKey) {
+  .factory('geocodeUrl', (gApiKey, mapsUrl) => {
+    return (address, opt_apiKey) => {
       const apiKey = opt_apiKey || gApiKey;
       address = encodeURIComponent(address);
       return `${mapsUrl}geocode/json?key=${apiKey}&address=${address}`;
