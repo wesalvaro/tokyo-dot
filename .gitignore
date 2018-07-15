@@ -1,1 +1,2 @@
-graphs/*.png
+graphs/*.svg
+.DS_store
