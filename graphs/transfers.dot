@@ -53,14 +53,14 @@ subgraph ChiyodaTransfers {
     C09 -> Y18  [label="9,10" len=7]
   }
   {
-    C11 -> I09
-    C11 -> M18
-    C11 -> T09
-    C11 -> Z08
+    C11 -> I09 [label="1" len=2]
+    C11 -> M18 [label="7,9,10" len=4]
+    C11 -> T09 [label="1" len=3]
+    C11 -> Z08 [label="7,9,10" len=2]
   }
   {
-    C12 -> M19
-    C12 -> S07
+    C12 -> M19 [label="1" len=8]
+    C12 -> S07 [label="1" len=5]
   }
   {
     C18 -> H21
@@ -251,10 +251,10 @@ subgraph MitaTransfers {
     // I08 underground passage to (Higashi-)Ginza
   }
   {
-    I09 -> C11
-    I09 -> M18
-    I09 -> T09
-    I09 -> Z08
+    I09 -> C11 [label="1" len=2]
+    I09 -> M18 [label="1" len=6]
+    I09 -> T09 [label="1" len=3]
+    I09 -> Z08 [label="1" len=6]
   }
   {
     I10 -> S06
@@ -336,14 +336,14 @@ subgraph MarunouchiTransfers {
     M15 -> H06
   }
   {
-    M18 -> C11
-    M18 -> I09
-    M18 -> T09
-    M18 -> Z08
+    M18 -> C11 [label="2" len=4]
+    M18 -> I09 [label="2" len=6]
+    M18 -> T09 [label="1" len=4]
+    M18 -> Z08 [label="2" len=2]
   }
   {
-    M19 -> C12
-    M19 -> S07
+    M19 -> C12 [label="6" len=8]
+    M19 -> S07 [label="6" len=2]
   }
   {
     M22 -> E07 [label="3,4" len=5]
@@ -432,8 +432,8 @@ subgraph OimachiTransfers {
 
 subgraph ShinjukuTransfers {
   {
-    S07 -> C12
-    S07 -> M19
+    S07 -> C12 [label="3" len=5]
+    S07 -> M19 [label="5,8" len=2]
   }
   S09 -> A15
 }
@@ -445,10 +445,10 @@ subgraph TozaiTransfers {
     T06 -> Y13 [label="7,10" len=5]
   }
   {
-    T09 -> C11
-    T09 -> I09
-    T09 -> M18
-    T09 -> Z08
+    T09 -> C11 [label="10" len=3]
+    T09 -> I09 [label="10" len=3]
+    T09 -> M18 [label="6,8" len=4]
+    T09 -> Z08 [label="6,8" len=6]
   }
   {
     T10 -> A13
@@ -521,10 +521,10 @@ subgraph HanzomonTransfers {
     Z04 -> Y16 [label="1" len=5]
   }
   {
-    Z08 -> C11
-    Z08 -> I09
-    Z08 -> M18
-    Z08 -> T09
+    Z08 -> C11 [label="7" len=2]
+    Z08 -> I09 [label="9" len=6]
+    Z08 -> M18 [label="3,5" len=2]
+    Z08 -> T09 [label="3,5" len=6]
   }
   Z14 -> A20
 }
