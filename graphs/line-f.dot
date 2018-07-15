@@ -20,7 +20,7 @@ subgraph FukutoshinStations {
 }
 
 subgraph FukutoshinLocal {
-  edge [color="blue"]
+  edge [color=blue]
   F01 -> F02 [len=3]
   F02 -> F03 [len=2]
   F03 -> F04 [len=3]
@@ -39,7 +39,7 @@ subgraph FukutoshinLocal {
 }
 
 subgraph FukutoshinExp {
-  edge [color="red"]
+  edge [color=red]
   F01 -> F06 [len=9]
   F06 -> F09 [len=4]
   F09 -> F13 [len=6]
@@ -48,7 +48,7 @@ subgraph FukutoshinExp {
 }
 
 subgraph FukutoshinCommExp {
-  edge [color="orange"]
+  edge [color=orange]
   F01 -> F02 [len=3]
   F02 -> F03 [len=2]
   F03 -> F04 [len=3]

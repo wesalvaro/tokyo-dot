@@ -42,6 +42,7 @@ subgraph OedoStations {
 }
 
 subgraph OedoLocal {
+  edge [color=black]
   E28 -> E01 [len=2]
   E01 -> E02 [len=2]
   E02 -> E03 [len=2]

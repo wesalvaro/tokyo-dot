@@ -23,6 +23,7 @@ subgraph NambokuStations {
 }
 
 subgraph NambokuLocal {
+  edge [color=black]
   N01 -> N02 [len=2]
   N02 -> N03 [len=2]
   N03 -> N04 [len=3]

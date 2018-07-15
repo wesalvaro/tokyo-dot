@@ -24,7 +24,7 @@ subgraph AsakusaStations {
 }
 
 subgraph AsakusaLocal {
-  edge [color="black"]
+  edge [color=black]
   A01 -> A02 [len=2]
   A02 -> A03 [len=2]
   A03 -> A04 [len=2]
@@ -47,7 +47,7 @@ subgraph AsakusaLocal {
 }
 
 subgraph AsakusaAirportLimitedExpress {
-  edge [color="green"]
+  edge [color=green]
   A07 -> A08 [len=3]
   A08 -> A09 [len=2]
   A09 -> A10 [len=2]

@@ -32,6 +32,7 @@ subgraph MarunouchiStations {
 }
 
 subgraph MarunouchiLocal {
+  edge [color=black]
   M01 -> M02 [len=3]
   M02 -> M03 [len=2]
   M03 -> M04 [len=2]
@@ -59,6 +60,7 @@ subgraph MarunouchiLocal {
 }
 
 subgraph MarunouchiBranch {
+  edge [color=black]
   m03 -> m04 [len=3]
   m04 -> m05 [len=1]
   m05 -> M06 [len=3]

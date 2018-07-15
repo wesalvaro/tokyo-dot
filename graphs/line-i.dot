@@ -31,6 +31,7 @@ subgraph MitaStations {
 }
 
 subgraph MitaLocal {
+  edge [color=black]
   I01 -> I02 [len=2]
   I02 -> I03 [len=3]
   I03 -> I04 [len=3]

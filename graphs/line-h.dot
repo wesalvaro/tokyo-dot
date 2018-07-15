@@ -25,6 +25,7 @@ subgraph HibiyaStations {
 }
 
 subgraph HibiyaLocal {
+  edge [color=black]
   H01 -> H02 [len=2]
   H02 -> H03 [len=3]
   H03 -> H04 [len=3]

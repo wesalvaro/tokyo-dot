@@ -24,6 +24,7 @@ subgraph ChiyodaStations {
 }
 
 subgraph ChiyodaLocal {
+  edge [color=black]
   C01 -> C02 [len=2]
   C02 -> C03 [len=2]
   C03 -> C04 [len=1]

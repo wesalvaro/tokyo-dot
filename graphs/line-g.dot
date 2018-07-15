@@ -23,6 +23,7 @@ subgraph GinzaStations {
 }
 
 subgraph GinzaLocal {
+  edge [color=black]
   G01 -> G02 [len=2]
   G02 -> G03 [len=2]
   G03 -> G04 [len=1]

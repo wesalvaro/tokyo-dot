@@ -43,6 +43,7 @@ subgraph TobuTojoStations {
 
 // 普通：
 subgraph TojoLocal {
+  edge [color=black]
   TJ01 -> TJ02 [len=2]
   TJ02 -> TJ03 [len=2]
   TJ03 -> TJ04 [len=2]

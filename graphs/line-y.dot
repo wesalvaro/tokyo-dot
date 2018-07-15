@@ -28,6 +28,7 @@ subgraph YurakuchoStations {
 }
 
 subgraph YurakuchoLocal {
+  edge [color=black]
   Y01 -> Y02 [len=3]
   Y02 -> Y03 [len=2]
   Y03 -> Y04 [len=3]

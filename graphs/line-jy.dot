@@ -34,6 +34,7 @@ subgraph YamanoteStations {
 }
 
 subgraph YamanoteInner {
+  edge [color=black]
   JY01 -> JY02 [len=2]
   JY02 -> JY03 [len=2]
   JY03 -> JY04 [len=2]

@@ -27,6 +27,7 @@ subgraph TozaiStations {
 }
 
 subgraph TozaiLocal {
+  edge [color=black]
   T01 -> T02 [len=3]
   T02 -> T03 [len=3]
   T03 -> T04 [len=3]

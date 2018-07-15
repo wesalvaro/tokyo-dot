@@ -26,7 +26,7 @@ subgraph ToyokoStations {
 
 // 各駅停車：
 subgraph ToyokoLocal {
-  edge [color="blue"]
+  edge [color=blue]
   TY01 -> TY02 [len=2]
   TY02 -> TY03 [len=1]
   TY03 -> TY04 [len=3]
@@ -51,7 +51,7 @@ subgraph ToyokoLocal {
 
 // 急行：
 subgraph ToyokoExp {
-  edge [color="red"]
+  edge [color=red]
   TY01 -> TY03 [len=3]
   TY03 -> TY05 [len=3]
   TY05 -> TY07 [len=3]
@@ -66,7 +66,7 @@ subgraph ToyokoExp {
 
 // 通勤特急：
 subgraph ToyokoCommExp {
-  edge [color="orange"]
+  edge [color=orange]
   TY01 -> TY03 [len=2]
   TY03 -> TY07 [len=4]
   TY07 -> TY11 [len=2]
@@ -77,7 +77,7 @@ subgraph ToyokoCommExp {
 
 // 通勤特急：
 subgraph ToyokoLimExp {
-  edge [color="orange"]
+  edge [color=orange]
   TY01 -> TY03 [len=2]
   TY03 -> TY07 [len=4]
   TY07 -> TY11 [len=2]

@@ -18,6 +18,7 @@ subgraph HanzomonStations {
 }
 
 subgraph HanzomonLocal {
+  edge [color=black]
   Z01 -> Z02 [len=2]
   Z02 -> Z03 [len=2]
   Z03 -> Z04 [len=3]

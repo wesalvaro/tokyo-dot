@@ -10,7 +10,7 @@ subgraph MinatomiraiStations {
 }
 
 subgraph MinatomiraiLocal {
-  edge [color="blue"]
+  edge [color=blue]
   MM01 -> MM02 [len=2]
   MM02 -> MM03 [len=2]
   MM03 -> MM04 [len=2]
@@ -19,7 +19,7 @@ subgraph MinatomiraiLocal {
 }
 
 subgraph MinatomiraiExp {
-  edge [color="red"]
+  edge [color=red]
   MM01 -> MM03 [len=2]
   MM03 -> MM04 [len=2]
   MM04 -> MM05 [len=2]
@@ -27,7 +27,7 @@ subgraph MinatomiraiExp {
 }
 
 subgraph MinatomiraiCommExp {
-  edge [color="orange"]
+  edge [color=orange]
   MM01 -> MM03 [len=2]
   MM03 -> MM04 [len=2]
   MM04 -> MM05 [len=2]
@@ -35,7 +35,7 @@ subgraph MinatomiraiCommExp {
 }
 
 subgraph MinatomiraiLimExp {
-  edge [color="orange"]
+  edge [color=orange]
   MM01 -> MM03 [len=2]
   MM03 -> MM06 [len=2]
 }

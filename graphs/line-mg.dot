@@ -17,7 +17,7 @@ subgraph MeguroStations {
 }
 
 subgraph MeguroLocal {
-  edge [color="blue"]
+  edge [color=blue]
   MG01 -> MG02 [len=2]
   MG02 -> MG03 [len=2]
   MG03 -> MG04 [len=2]
@@ -33,7 +33,7 @@ subgraph MeguroLocal {
 }
 
 subgraph MeguroExp {
-  edge [color="red"]
+  edge [color=red]
   MG01 -> MG03 [len=2]
   MG03 -> MG06 [len=2]
   MG06 -> MG08 [len=2]

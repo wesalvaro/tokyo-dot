@@ -22,7 +22,7 @@ subgraph OimachiStations {
 }
 
 subgraph OimachiLocalBlue {
-  edge [color="blue"]
+  edge [color=blue]
   OM01 -> OM02
   OM02 -> OM03
   OM03 -> OM04
@@ -43,7 +43,7 @@ subgraph OimachiLocalBlue {
 }
 
 subgraph OimachiLocalGreen {
-  edge [color="green"]
+  edge [color=green]
   OM01 -> OM02
   OM02 -> OM03
   OM03 -> OM04
@@ -62,7 +62,7 @@ subgraph OimachiLocalGreen {
 }
 
 subgraph OimachiExp {
-  edge [color="red"]
+  edge [color=red]
   OM01 -> OM06
   OM06 -> OM08
   OM08 -> OM10
