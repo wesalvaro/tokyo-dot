@@ -1,3 +1,33 @@
+subgraph AsakusaTransfers {
+  A03 -> OM04
+  A05 -> JY23
+  A07 -> KK
+  {
+    A08 -> I04
+    A08 -> JY27
+  }
+  {
+    A09 -> E20
+    A09 -> JY28
+    A09 -> MO01
+  }
+  {
+    A10 -> G08
+    A10 -> JY29
+    A10 -> U01
+  }
+  A11 -> H09
+  {
+    A13 -> G11
+    A13 -> T10
+  }
+  A14 -> H13
+  A15 -> S09
+  A17 -> E11
+  A18 -> G19
+  A20 -> Z14
+}
+
 subgraph ChiyodaTransfers {
   {
     C03 -> F15 [label="10" len=2]
@@ -30,13 +60,18 @@ subgraph OedoTransfers {
   E09 -> H16
   E09 -> JY04
   E10 -> TX02
+  E11 -> A17
   E13 -> S11
   E14 -> Z11
   E15 -> T12
   E16 -> Y21
   E19 -> U02
   E20 -> MK
-  E20 -> JY28
+  {
+    E20 -> A09
+    E20 -> JY28
+    E20 -> MO01
+  }
   E22 -> N04
   E23 -> H04
   E24 -> G04
@@ -98,14 +133,23 @@ subgraph GinzaTransfers {
   G05 -> Z04
   G06 -> M14
   G06 -> N06
-  { G08 -> JY279}
+  {
+    G08 -> A10
+    G08 -> JY29
+    G08 -> U01
+  }
   { rank=same G09 -> H08 }
   G09 -> M16
+  {
+    G11 -> A13
+    G11 -> T10
+  }
   G12 -> Z09
   { G13 -> JY02 }
   { rank=same G15 -> H16 }
   { rank=same G16 -> H17 }
   { G16 -> JY05 }
+  G19 -> A18
 }
 
 subgraph HibiyaTransfers {
@@ -128,8 +172,16 @@ subgraph HibiyaTransfers {
     H08 -> G09 [label="1" len=2]
     H08 -> M16 [label="8" len=2]
   }
-  { H15 -> JY03 }
-  { H17 -> JY05 }
+  {
+    H09 -> A11
+  }
+  H13 -> A14
+  {
+    H15 -> JY03
+  }
+  {
+    H17 -> JY05
+  }
 }
 
 subgraph MitaTransfers {
@@ -163,6 +215,22 @@ subgraph YamanoteTransfers {
   {
     JY19 -> C03 [label="7,8,10|表参道口" len=2]
     JY19 -> F15 [label="7,8,10|表参道口" len=10]
+  }
+  {
+    JY23 -> A05
+  }
+  {
+    JY27 -> A08
+  }
+  {
+    JY28 -> A09
+    JY28 -> E20
+    JY28 -> MO01
+  }
+  {
+    JY29 -> A10
+    JY29 -> G08
+    JY29 -> U01
   }
 }
 
@@ -214,6 +282,14 @@ subgraph NambokuTransfers {
   N16 -> TA
 }
 
+subgraph OimachiTransfers {
+  OM04 -> A03
+}
+
+subgraph ShinjukuTransfers {
+  S09 -> A15
+}
+
 subgraph TojoTransfers {
   TJ01 -> Y09
   TJ01 -> JY13
@@ -234,6 +310,13 @@ subgraph ToyokoTransfers {
   }
 }
 
+subgraph TozaiTransfers {
+  {
+    T10 -> A13
+    T10 -> G11
+  }
+}
+
 subgraph YurakuchoTransfers {
   Y09 -> JY13
   Y16 -> Z04
@@ -250,4 +333,5 @@ subgraph HanzomonTransfers {
     Z02 -> C04 [label="5,8" len=3]
     Z02 -> G02 [label="5,8" len=1]
   }
+  Z14 -> A20
 }
