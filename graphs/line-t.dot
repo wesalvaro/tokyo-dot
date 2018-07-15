@@ -52,6 +52,7 @@ subgraph TozaiLocal {
 }
 
 subgraph TozaiCommRapid {
+  edge [color=green]
   T01 -> T02 [len=3]
   T02 -> T03 [len=3]
   T03 -> T04 [len=3]
@@ -73,6 +74,7 @@ subgraph TozaiCommRapid {
 }
 
 subgraph TozaiRapid {
+  edge [color=red]
   T01 -> T02 [len=3]
   T02 -> T03 [len=3]
   T03 -> T04 [len=3]
