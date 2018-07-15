@@ -94,7 +94,12 @@ func convertToTrainGraph(graph *ast.Graph) *trainGraph {
 		log.Fatal(err)
 	}
 	for _, e := range dst.Edges() {
+		// Make edges two-way unless specified individually:
 		if f := e.(*edge); !f.oneWay {
+			// Return edge already exists in graph:
+			if dst.HasEdgeFromTo(f.To().ID(), f.From().ID()) {
+				continue
+			}
 			r := dst.NewEdge(f.To(), f.From()).(*edge)
 			r.time = f.time
 			dst.SetEdge(r)
