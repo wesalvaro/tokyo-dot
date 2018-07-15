@@ -112,7 +112,7 @@ subgraph GinzaTransfers {
 subgraph HibiyaTransfers {
   H01 -> TY03 [len=0]
   {
-    H02 -> JY05 [label="3|1" len=7]
+    H02 -> JY21 [label="3|1" len=7]
   }
   H04 -> E23 [label="1"]
   {
@@ -123,7 +123,7 @@ subgraph HibiyaTransfers {
     H07 -> C09 [label="8" len=1]
     H07 -> I08 [label="7" len=3]
     H07 -> Y18 [label="7" len=5]
-    H07 -> JY01 [label="1" len=7]
+    H07 -> JY30 [label="1" len=7]
   }
   {
     H08 -> G09 [label="1" len=2]
@@ -134,17 +134,19 @@ subgraph HibiyaTransfers {
 }
 
 subgraph MitaTransfers {
-  I01 -> MG01
-  I01 -> N01
-  I01 -> JY22
+  {
+    I01 -> MG01
+    I01 -> N01
+    I01 -> JY22
+  }
   I02 -> N02
   I03 -> N03
   I04 -> JY27
-  I04 -> KT
-  I08 -> Y18
-  I08 -> JY30
-  I08 -> KT
-  // I08 underground passage to (Higashi-)Ginza
+  {
+    I08 -> Y18
+    I08 -> JY30
+    // I08 underground passage to (Higashi-)Ginza
+  }
   I09 -> M18
   I09 -> T09
   I09 -> Z08
