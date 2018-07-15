@@ -18,11 +18,26 @@ subgraph MeguroStations {
 
 subgraph MeguroLocal {
   edge [color="blue"];
-  MG01 -> MG02 -> MG03 -> MG04 -> MG05 -> MG06 -> MG07 -> MG08 -> MG09;
-  MG09 -> MG10 -> MG11 -> MG12 -> MG13;
+  MG01 -> MG02 [len=2]
+  MG02 -> MG03 [len=2]
+  MG03 -> MG04 [len=2]
+  MG04 -> MG05 [len=2]
+  MG05 -> MG06 [len=2]
+  MG06 -> MG07 [len=2]
+  MG07 -> MG08 [len=2]
+  MG08 -> MG09 [len=2]
+  MG09 -> MG10 [len=2]
+  MG10 -> MG11 [len=2]
+  MG11 -> MG12 [len=2]
+  MG12 -> MG13 [len=2]
 }
 
 subgraph MeguroExp {
   edge [color="red"];
-  MG01 -> MG03 -> MG06 -> MG08 -> MG09 -> MG11 -> MG13;
+  MG01 -> MG03 [len=2]
+  MG03 -> MG06 [len=2]
+  MG06 -> MG08 [len=2]
+  MG08 -> MG09 [len=2]
+  MG09 -> MG11 [len=2]
+  MG11 -> MG13 [len=2]
 }
