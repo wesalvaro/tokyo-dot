@@ -1,27 +1,27 @@
 // 東急東横線：
 subgraph ToyokoStations {
   node [color="#db0442"];
-  TY01 [label="{{渋谷|Shibuya}|TY01}"];
-  TY02 [label="{{代官山|Daikanyama}|TY02}"];
-  TY03 [label="{{中目黒|Nakameguro}|TY03}"];
-  TY04 [label="{{祐天寺|Yutenji}|TY04}"];
-  TY05 [label="{{学芸大学|Gakugeidaigaku}|TY05}"];
-  TY06 [label="{{都立大学|Toritsudaigaku}|TY06}"];
-  TY07 [label="{{自由が丘|Jiyugaoka}|TY07}"];
-  TY08 [label="{{田園調布|Den-en-chofu}|TY08}"];
-  TY09 [label="{{多摩川|Tamagawa}|TY09}"];
-  TY10 [label="{{新丸子|Shin-Maruko}|TY10}"];
-  TY11 [label="{{武蔵小杉|Musashi-Kosugi}|TY11}"];
-  TY12 [label="{{元住吉|Motosumiyoshi}|TY12}"];
-  TY13 [label="{{日吉|Hiyoshi}|TY13}"];
-  TY14 [label="{{綱島|Tsunashima}|TY14}"];
-  TY15 [label="{{大倉山|Okurayama}|TY15}"];
-  TY16 [label="{{菊名|Kikuna}|TY16}"];
-  TY17 [label="{{妙蓮寺|Myorenji}|TY17}"];
-  TY18 [label="{{白楽|Hakuraku}|TY18}"];
-  TY19 [label="{{東白楽|Higashi-Hakuraku}|TY19}"];
-  TY20 [label="{{反町|Tammachi}|TY20}"];
-  TY21 [label="{{横浜|Yokohama}|TY21}"];
+  TY01 [label="{渋谷|Shibuya}|{TY|1}"];
+  TY02 [label="{代官山|Daikanyama}|{TY|2}"];
+  TY03 [label="{中目黒|Nakameguro}|{TY|3}"];
+  TY04 [label="{祐天寺|Yutenji}|{TY|4}"];
+  TY05 [label="{学芸大学|Gakugeidaigaku}|{TY|5}"];
+  TY06 [label="{都立大学|Toritsudaigaku}|{TY|6}"];
+  TY07 [label="{自由が丘|Jiyugaoka}|{TY|7}"];
+  TY08 [label="{田園調布|Den-en-chofu}|{TY|8}"];
+  TY09 [label="{多摩川|Tamagawa}|{TY|9}"];
+  TY10 [label="{新丸子|Shin-Maruko}|{TY|10}"];
+  TY11 [label="{武蔵小杉|Musashi-Kosugi}|{TY|11}"];
+  TY12 [label="{元住吉|Motosumiyoshi}|{TY|12}"];
+  TY13 [label="{日吉|Hiyoshi}|{TY|13}"];
+  TY14 [label="{綱島|Tsunashima}|{TY|14}"];
+  TY15 [label="{大倉山|Okurayama}|{TY|15}"];
+  TY16 [label="{菊名|Kikuna}|{TY|16}"];
+  TY17 [label="{妙蓮寺|Myorenji}|{TY|17}"];
+  TY18 [label="{白楽|Hakuraku}|{TY|18}"];
+  TY19 [label="{東白楽|Higashi-Hakuraku}|{TY|19}"];
+  TY20 [label="{反町|Tammachi}|{TY|20}"];
+  TY21 [label="{横浜|Yokohama}|{TY|21}"];
 }
 
 // 各駅停車：

@@ -1,36 +1,36 @@
 // JR山手線：
 subgraph YamanoteStations {
   node [color="#9acd32"];
-  JY01 [label="東京|Tokyo"];
-  JY02 [label="神田|Kanda"];
-  JY03 [label="秋葉原|Akihabara"];
-  JY04 [label="御徒町|Okachimachi"];
-  JY05 [label="上野|Ueno"];
-  JY06 [label="鶯谷|Uguisudani"];
-  JY07 [label="日暮里|Nippori"];
-  JY08 [label="西日暮里|Nishi-Nippori"];
-  JY09 [label="田端|Tabata"];
-  JY10 [label="駒込|Komagome"];
-  JY11 [label="巣鴨|Sugamo"];
-  JY12 [label="大塚|Otsuka"];
-  JY13 [label="池袋|Ikebukuro"];
-  JY14 [label="目白|Mejiro"];
-  JY15 [label="高田馬場|Takadanobaba"];
-  JY16 [label="新大久保|Shin-Okubo"];
-  JY17 [label="新宿|Shinjuku"];
-  JY18 [label="代々木|Yoyogi"];
-  JY19 [label="原宿|Harajuku"];
-  JY20 [label="渋谷|Shibuya"];
-  JY21 [label="恵比寿|Ebisu"];
-  JY22 [label="目黒|Meguro"];
-  JY23 [label="五反田|Gotanda"];
-  JY24 [label="大崎|Osaki"];
-  JY25 [label="品川|Shinagawa"];
-  // JY26 [label="品川新|Shin-Shinagawa"];
-  JY27 [label="田町|Tamachi"];
-  JY28 [label="浜松町|Hamamatsucho"];
-  JY29 [label="橋|Shimbashi"];
-  JY30 [label="有楽町|Yurakucho"];
+  JY01 [label="{東京|Tokyo}|{JY|1}"];
+  JY02 [label="{神田|Kanda}|{JY|2}"];
+  JY03 [label="{秋葉原|Akihabara}|{JY|3}"];
+  JY04 [label="{御徒町|Okachimachi}|{JY|4}"];
+  JY05 [label="{上野|Ueno}|{JY|5}"];
+  JY06 [label="{鶯谷|Uguisudani}|{JY|6}"];
+  JY07 [label="{日暮里|Nippori}|{JY|7}"];
+  JY08 [label="{西日暮里|Nishi-Nippori}|{JY|8}"];
+  JY09 [label="{田端|Tabata}|{JY|9}"];
+  JY10 [label="{駒込|Komagome}|{JY|10}"];
+  JY11 [label="{巣鴨|Sugamo}|{JY|11}"];
+  JY12 [label="{大塚|Otsuka}|{JY|12}"];
+  JY13 [label="{池袋|Ikebukuro}|{JY|13}"];
+  JY14 [label="{目白|Mejiro}|{JY|14}"];
+  JY15 [label="{高田馬場|Takadanobaba}|{JY|15}"];
+  JY16 [label="{新大久保|Shin-Okubo}|{JY|16}"];
+  JY17 [label="{新宿|Shinjuku}|{JY|17}"];
+  JY18 [label="{代々木|Yoyogi}|{JY|18}"];
+  JY19 [label="{原宿|Harajuku}|{JY|19}"];
+  JY20 [label="{渋谷|Shibuya}|{JY|20}"];
+  JY21 [label="{恵比寿|Ebisu}|{JY|21}"];
+  JY22 [label="{目黒|Meguro}|{JY|22}"];
+  JY23 [label="{五反田|Gotanda}|{JY|23}"];
+  JY24 [label="{大崎|Osaki}|{JY|24}"];
+  JY25 [label="{品川|Shinagawa}|{JY|25}"];
+  // JY26 [label="{品川新|Shin-Shinagawa}|{JY|26}"];
+  JY27 [label="{田町|Tamachi}|{JY|27}"];
+  JY28 [label="{浜松町|Hamamatsucho}|{JY|28}"];
+  JY29 [label="{橋|Shimbashi}|{JY|29}"];
+  JY30 [label="{有楽町|Yurakucho}|{JY|30}"];
 }
 
 subgraph YamanoteInner {

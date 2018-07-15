@@ -1,25 +1,25 @@
 // 東京メトロ銀座線：
 subgraph GinzaStations {
   node [color="#f39700"];
-  G01 [label="{{渋谷|Shibuya}|G01}"];
-  G02 [label="{{表参道|Omotesandō}|G02}"];
-  G03 [label="{{外苑前|Gaiemmae}|G03}"];
-  G04 [label="{{青山一丁目|Aoyama-Itchōme}|G04}"];
-  G05 [label="{{赤坂見附|Akasaka-Mitsuke}|G05}"];
-  G06 [label="{{溜池山王|Tameike-Sannō}|G06}"];
-  G07 [label="{{虎ノ門|Toranomon}|G07}"];
-  G08 [label="{{新橋|Shimbashi}|G08}"];
-  G09 [label="{{銀座|Ginza}|G09}"];
-  G10 [label="{{京橋|Kyōbashi}|G10}"];
-  G11 [label="{{日本橋|Nihombashi}|G11}"];
-  G12 [label="{{三越前|Mitsukoshimae}|G12}"];
-  G13 [label="{{神田|Kanda}|G13}"];
-  G14 [label="{{末広町|Suehirochō}|G14}"];
-  G15 [label="{{上野広小路|Ueno-Hirokōji}|G15}"];
-  G16 [label="{{上野|Ueno}|G16}"];
-  G17 [label="{{稲荷町|Inarichō}|G17}"];
-  G18 [label="{{田原町|Tawaramachi}|G18}"];
-  G19 [label="{{浅草|Asakusa}|G19}"];
+  G01 [label="{渋谷|Shibuya}|{G|1}"];
+  G02 [label="{表参道|Omotesandō}|{G|2}"];
+  G03 [label="{外苑前|Gaiemmae}|{G|3}"];
+  G04 [label="{青山一丁目|Aoyama-Itchōme}|{G|4}"];
+  G05 [label="{赤坂見附|Akasaka-Mitsuke}|{G|5}"];
+  G06 [label="{溜池山王|Tameike-Sannō}|{G|6}"];
+  G07 [label="{虎ノ門|Toranomon}|{G|7}"];
+  G08 [label="{新橋|Shimbashi}|{G|8}"];
+  G09 [label="{銀座|Ginza}|{G|9}"];
+  G10 [label="{京橋|Kyōbashi}|{G|10}"];
+  G11 [label="{日本橋|Nihombashi}|{G|11}"];
+  G12 [label="{三越前|Mitsukoshimae}|{G|12}"];
+  G13 [label="{神田|Kanda}|{G|13}"];
+  G14 [label="{末広町|Suehirochō}|{G|14}"];
+  G15 [label="{上野広小路|Ueno-Hirokōji}|{G|15}"];
+  G16 [label="{上野|Ueno}|{G|16}"];
+  G17 [label="{稲荷町|Inarichō}|{G|17}"];
+  G18 [label="{田原町|Tawaramachi}|{G|18}"];
+  G19 [label="{浅草|Asakusa}|{G|19}"];
 }
 
 subgraph GinzaLocal {

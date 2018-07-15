@@ -1,22 +1,22 @@
 // 東京メトロ副都心線：
 subgraph FukutoshinStations {
   node [color="#9c5e31"];
-  F01 [label="{{和光市|Wakōshi}|F01}"];
-  F02 [label="{{地下鉄成増|Chikatetsu-Narimasu}|F02}"];
-  F03 [label="{{地下鉄赤塚|Chikatetsu-Akatsuka}|F03}"];
-  F04 [label="{{平和台|Heiwadai}|F04}"];
-  F05 [label="{{氷川台|Hikawadai}|F05}"];
-  F06 [label="{{小竹向原|Kotake-Mukaihara}|F06}"];
-  F07 [label="{{千川|Senkawa}|F07}"];
-  F08 [label="{{要町|Kanamechō}|F08}"];
-  F09 [label="{{池袋|Ikebukuro}|F09}"];
-  F10 [label="{{雑司が谷|Zōshigaya}|F10}"];
-  F11 [label="{{西早稲田|Nishi-Waseda}|F11}"];
-  F12 [label="{{東新宿|Higashi-Shinjuku}|F12}"];
-  F13 [label="{{新宿三丁目|Shinjuku-Sanchōme}|F13}"];
-  F14 [label="{{北参道|Kitasandō}|F14}"];
-  F15 [label="{{明治神宮前|Meiji-Jingūmae}|F15}"];
-  F16 [label="{{渋谷|Shibuya}|F16}"];
+  F01 [label="{和光市|Wakōshi}|{F|1}"];
+  F02 [label="{地下鉄成増|Chikatetsu-Narimasu}|{F|2}"];
+  F03 [label="{地下鉄赤塚|Chikatetsu-Akatsuka}|{F|3}"];
+  F04 [label="{平和台|Heiwadai}|{F|4}"];
+  F05 [label="{氷川台|Hikawadai}|{F|5}"];
+  F06 [label="{小竹向原|Kotake-Mukaihara}|{F|6}"];
+  F07 [label="{千川|Senkawa}|{F|7}"];
+  F08 [label="{要町|Kanamechō}|{F|8}"];
+  F09 [label="{池袋|Ikebukuro}|{F|9}"];
+  F10 [label="{雑司が谷|Zōshigaya}|{F|10}"];
+  F11 [label="{西早稲田|Nishi-Waseda}|{F|11}"];
+  F12 [label="{東新宿|Higashi-Shinjuku}|{F|12}"];
+  F13 [label="{新宿三丁目|Shinjuku-Sanchōme}|{F|13}"];
+  F14 [label="{北参道|Kitasandō}|{F|14}"];
+  F15 [label="{明治神宮前|Meiji-Jingūmae}|{F|15}"];
+  F16 [label="{渋谷|Shibuya}|{F|16}"];
 }
 
 subgraph FukutoshinLocal {

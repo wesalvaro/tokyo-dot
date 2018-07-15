@@ -1,19 +1,19 @@
 // 東急目黒線：
 subgraph MeguroStations {
   node [color="#009bce"];
-  MG01 [label="{{目黒|Meguro}|MG01}"];
-  MG02 [label="{{不動前|Fudo-mae}|MG02}"];
-  MG03 [label="{{武蔵小山|Musashi-Koyama}|MG03}"];
-  MG04 [label="{{西小山|Nishi-Koyama}|MG04}"];
-  MG05 [label="{{洗足|Senzoku}|MG05}"];
-  MG06 [label="{{大岡山|Ookayama}|MG06}"];
-  MG07 [label="{{奥沢|Okusawa}|MG07}"];
-  MG08 [label="{{田園調布|Den-en-chofu}|MG08}"];
-  MG09 [label="{{多摩川|Tamagawa}|MG09}"];
-  MG10 [label="{{新丸子|Shin-Maruko}|MG10}"];
-  MG11 [label="{{武蔵小杉|Musashi-Kosugi}|MG11}"];
-  MG12 [label="{{元住吉|Motosumiyoshi}|MG12}"];
-  MG13 [label="{{日吉|Hiyoshi}|MG13}"];
+  MG01 [label="{目黒|Meguro}|{MG|1}"];
+  MG02 [label="{不動前|Fudo-mae}|{MG|2}"];
+  MG03 [label="{武蔵小山|Musashi-Koyama}|{MG|3}"];
+  MG04 [label="{西小山|Nishi-Koyama}|{MG|4}"];
+  MG05 [label="{洗足|Senzoku}|{MG|5}"];
+  MG06 [label="{大岡山|Ookayama}|{MG|6}"];
+  MG07 [label="{奥沢|Okusawa}|{MG|7}"];
+  MG08 [label="{田園調布|Den-en-chofu}|{MG|8}"];
+  MG09 [label="{多摩川|Tamagawa}|{MG|9}"];
+  MG10 [label="{新丸子|Shin-Maruko}|{MG|10}"];
+  MG11 [label="{武蔵小杉|Musashi-Kosugi}|{MG|11}"];
+  MG12 [label="{元住吉|Motosumiyoshi}|{MG|12}"];
+  MG13 [label="{日吉|Hiyoshi}|{MG|13}"];
 }
 
 subgraph MeguroLocal {

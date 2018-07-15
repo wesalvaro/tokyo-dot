@@ -1,26 +1,26 @@
 // 東京メトロ千代田線：
 subgraph ChiyodaStations {
   node [color="#00bb85"];
-  C01 [label="{{代々木上原|Yoyogi-uehara}|C01}"];
-  C02 [label="{{代々木公園|Yoyogi-koen}|C02}"];
-  C03 [label="{{(Harajuku) 明治神宮前|Meiji-jingumae}|C03}"];
-  C04 [label="{{表参道|Omote-sando}|C04}"];
-  C05 [label="{{乃木坂|Nogizaka}|C05}"];
-  C06 [label="{{赤坂|Akasaka}|C06}"];
-  C07 [label="{{国会議事堂前|Kokkai-gijidomae}|C07}"];
-  C08 [label="{{霞ケ関|Kasumigaseki}|C08}"];
-  C09 [label="{{日比谷|Hibiya}|C09}"];
-  C10 [label="{{二重橋前|Nijubashimae}|C10}"];
-  C11 [label="{{大手町|Otemachi}|C11}"];
-  C12 [label="{{新御茶ノ水|Shin-ochanomizu}|C12}"];
-  C13 [label="{{湯島|Yushima}|C13}"];
-  C14 [label="{{根津|Nezu}|C14}"];
-  C15 [label="{{千駄木|Sendagi}|C15}"];
-  C16 [label="{{西日暮里|Nishi-nippori}|C16}"];
-  C17 [label="{{町屋|Machiya}|C17}"];
-  C18 [label="{{北千住|Kita-senju}|C18}"];
-  C19 [label="{{綾瀬|Ayase}|C19}"];
-  C20 [label="{{北綾瀬|Kita-Ayase}|C20}"]
+  C01 [label="{代々木上原|Yoyogi-uehara}|{C|1}"];
+  C02 [label="{代々木公園|Yoyogi-koen}|{C|2}"];
+  C03 [label="{(Harajuku) 明治神宮前|Meiji-jingumae}|{C|3}"];
+  C04 [label="{表参道|Omote-sando}|{C|4}"];
+  C05 [label="{乃木坂|Nogizaka}|{C|5}"];
+  C06 [label="{赤坂|Akasaka}|{C|6}"];
+  C07 [label="{国会議事堂前|Kokkai-gijidomae}|{C|7}"];
+  C08 [label="{霞ケ関|Kasumigaseki}|{C|8}"];
+  C09 [label="{日比谷|Hibiya}|{C|9}"];
+  C10 [label="{二重橋前|Nijubashimae}|{C|10}"];
+  C11 [label="{大手町|Otemachi}|{C|11}"];
+  C12 [label="{新御茶ノ水|Shin-ochanomizu}|{C|12}"];
+  C13 [label="{湯島|Yushima}|{C|13}"];
+  C14 [label="{根津|Nezu}|{C|14}"];
+  C15 [label="{千駄木|Sendagi}|{C|15}"];
+  C16 [label="{西日暮里|Nishi-nippori}|{C|16}"];
+  C17 [label="{町屋|Machiya}|{C|17}"];
+  C18 [label="{北千住|Kita-senju}|{C|18}"];
+  C19 [label="{綾瀬|Ayase}|{C|19}"];
+  C20 [label="{北綾瀬|Kita-Ayase}|{C|20}"]
 }
 
 subgraph ChiyodaLocal {
