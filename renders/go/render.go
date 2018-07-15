@@ -22,7 +22,7 @@ func render(graph *trainGraph, route []*station, time float64) {
 		if len(edge.cars) > 0 {
 			fmt.Print("号車")
 		}
-		fmt.Printf("\n%5s ➜ %s ➜ %-5s", s, string(circleNums[int(edge.time)]), d)
+		fmt.Printf("\n%40s ➜ %s ➜ %-40s", s, string(circleNums[int(edge.time)]), d)
 	}
 	fmt.Printf("\nTotal time: %.0f\n", time)
 }

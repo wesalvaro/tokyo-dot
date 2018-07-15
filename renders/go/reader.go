@@ -89,10 +89,13 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 type station struct {
 	graph.Node
 	stationID string
+	nameEn    string
+	nameJp    string
+	line      string
 }
 
 func (s *station) String() string {
-	return s.stationID
+	return s.stationID + " " + s.nameEn
 }
 
 func (s *station) StationID() string {
@@ -101,6 +104,16 @@ func (s *station) StationID() string {
 
 func (s *station) SetDOTID(id string) {
 	s.stationID = id
+}
+
+func (s *station) SetAttribute(attr encoding.Attribute) error {
+	if attr.Key == "label" {
+		re := regexp.MustCompile(`"{(?P<jp>.*?)\|(?P<en>.*?)}\|{(?P<line>.*?)\|.*?}"`)
+		s.nameEn = re.ReplaceAllString(attr.Value, "${en}")
+		s.nameJp = re.ReplaceAllString(attr.Value, "${jp}")
+		s.line = re.ReplaceAllString(attr.Value, "${line}")
+	}
+	return nil
 }
 
 func convertToTrainGraph(graph *ast.Graph) *trainGraph {
