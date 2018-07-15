@@ -310,6 +310,12 @@ subgraph YamanoteTransfers {
   }
 }
 
+subgraph KeikyuTransfers {
+  KK15 -> MO07
+  KK16 -> MO08
+  KK17 -> { MO10 MO11 }
+}
+
 subgraph MarunouchiTransfers {
   M08 -> S01
   M09 -> S02
@@ -373,6 +379,16 @@ subgraph MinatomiraiTransfers {
   {
     MM01 -> TY21 [label="車内" len=0]
   }
+}
+
+subgraph TokyoMonorailTransfers {
+  MO01 -> A09
+  MO01 -> E20
+  MO01 -> JY28
+  MO07 -> KK15
+  MO08 -> KK16
+  MO10 -> KK17
+  MO11 -> KK17
 }
 
 subgraph NambokuTransfers {

@@ -1,0 +1,53 @@
+subgraph KeikyuStations {
+  KK01 [label="{品川|Shinagawa}{KK|1}"]
+  KK11 [label="{京急蒲田|Keikyū Kamata}|{KK|11}"]
+  KK12 [label="{糀谷|Kōjiya}|{KK|12}"]
+  KK13 [label="{大鳥居|Ōtorii}|{KK|13}"]
+  KK14 [label="{穴守稲荷|Anamori-inari}|{KK|14}"]
+  KK15 [label="{天空橋|Tenkūbashi}|{KK|15}"]
+  KK16 [label="{羽田空港国際線ターミナル|Haneda Airport International Terminal}|{KK|16}"]
+  KK17 [label="{羽田空港国内線ターミナル|Haneda Airport Domestic Terminal}|{KK|17}"]
+}
+
+subgraph KeikyuAirportLocal {
+  edge [color=black]
+  KK11 -> KK12
+  KK12 -> KK13
+  KK13 -> KK14
+  KK14 -> KK15
+  KK15 -> KK16
+  KK16 -> KK17
+}
+
+subgraph KeikyuAirportExpress {
+  edge [color="#1a85af"]
+  KK11 -> KK12
+  KK12 -> KK13
+  KK13 -> KK14
+  KK14 -> KK15
+  KK15 -> KK16
+  KK16 -> KK17
+}
+
+subgraph KeikyuLimitedExpress {
+  edge [color="#ea0104"]
+  KK11 -> KK12
+  KK12 -> KK13
+  KK13 -> KK14
+  KK14 -> KK15
+  KK15 -> KK16
+  KK16 -> KK17
+}
+
+subgraph KeikyuRapid {
+  edge [color="#379412"]
+  KK01 -> KK11
+  KK11 -> KK16
+  KK16 -> KK17
+}
+
+subgraph KeikyuAirportRapid {
+  edge [color="#fa9715"]
+  KK01 -> KK16
+  KK16 -> KK17
+}
