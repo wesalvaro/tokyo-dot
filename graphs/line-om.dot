@@ -23,49 +23,49 @@ subgraph OimachiStations {
 
 subgraph OimachiLocalBlue {
   edge [color=blue]
-  OM01 -> OM02
-  OM02 -> OM03
-  OM03 -> OM04
-  OM04 -> OM05
-  OM05 -> OM06
-  OM06 -> OM07
-  OM07 -> OM08
-  OM08 -> OM09
-  OM09 -> OM10
-  OM10 -> OM11
-  OM11 -> OM12
-  OM12 -> OM13
-  OM13 -> OM14
-  OM14 -> OM15
-  OM15 -> OMB1
-  OMB1 -> OMB2
-  OMB2 -> OM16
+  OM01 -> OM02 [len=1]
+  OM02 -> OM03 [len=2]
+  OM03 -> OM04 [len=1]
+  OM04 -> OM05 [len=1]
+  OM05 -> OM06 [len=2]
+  OM06 -> OM07 [len=1]
+  OM07 -> OM08 [len=2]
+  OM08 -> OM09 [len=1]
+  OM09 -> OM10 [len=3]
+  OM10 -> OM11 [len=1]
+  OM11 -> OM12 [len=2]
+  OM12 -> OM13 [len=1]
+  OM13 -> OM14 [len=2]
+  OM14 -> OM15 [len=3]
+  OM15 -> OMB1 [len=1]
+  OMB1 -> OMB2 [len=1]
+  OMB2 -> OM16 [len=2]
 }
 
 subgraph OimachiLocalGreen {
   edge [color=green]
-  OM01 -> OM02
-  OM02 -> OM03
-  OM03 -> OM04
-  OM04 -> OM05
-  OM05 -> OM06
-  OM06 -> OM07
-  OM07 -> OM08
-  OM08 -> OM09
-  OM09 -> OM10
-  OM10 -> OM11
-  OM11 -> OM12
-  OM12 -> OM13
-  OM13 -> OM14
-  OM14 -> OM15
-  OM15 -> OM16
+  OM01 -> OM02 [len=1]
+  OM02 -> OM03 [len=2]
+  OM03 -> OM04 [len=1]
+  OM04 -> OM05 [len=1]
+  OM05 -> OM06 [len=2]
+  OM06 -> OM07 [len=1]
+  OM07 -> OM08 [len=2]
+  OM08 -> OM09 [len=1]
+  OM09 -> OM10 [len=3]
+  OM10 -> OM11 [len=1]
+  OM11 -> OM12 [len=2]
+  OM12 -> OM13 [len=1]
+  OM13 -> OM14 [len=2]
+  OM14 -> OM15 [len=3]
+  OM15 -> OM16 [len=2]
 }
 
 subgraph OimachiExp {
   edge [color=red]
-  OM01 -> OM06
-  OM06 -> OM08
-  OM08 -> OM10
-  OM10 -> OM15
-  OM15 -> OM16
+  OM01 -> OM06 [len=4]
+  OM06 -> OM08 [len=3]
+  OM08 -> OM10 [len=4]
+  OM10 -> OM15 [len=6]
+  OM15 -> OM16 [len=3]
 }
