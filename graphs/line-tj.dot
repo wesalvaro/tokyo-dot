@@ -214,11 +214,3 @@ subgraph TojoFLiner {
   TJ31 -> TJ32;
   TJ32 -> TJ33;
 }
-
-subgraph TojoTransfers {
-  TJ01 -> Y09;
-  TJ01 -> JY13;
-  TJ09 -> Y03;
-  TJ10 -> Y02;
-  TJ11 -> Y01;
-}

@@ -42,15 +42,3 @@ subgraph NambokuLocal {
   N17 -> N18 [len=2];
   N18 -> N19 [len=2];
 }
-
-subgraph NambokuTransfers {
-  N01 -> JY04;
-  N07 -> Y16;
-  N07 -> Z04;
-  N09 -> S04;
-  N09 -> Y14;
-  N10 -> T06;
-  N10 -> Y13;
-  N14 -> JY16;
-  N16 -> TA;
-}

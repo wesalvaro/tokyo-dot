@@ -42,30 +42,3 @@ subgraph GinzaLocal {
   G17 -> G18 [len=2];
   G18 -> G19 [len=1];
 }
-
-subgraph GinzaTransfers {
-  {
-    G01 -> TY01;
-    G01 -> JY06;
-    G01 -> Z01;
-  }
-  {
-    G02 -> C04 [label="1,6" len=3]
-    G02 -> Z02 [label="1,6" len=1]
-  }
-  G04 -> Z03;
-  G05 -> M13;
-  G05 -> N07;
-  G05 -> Y16;
-  G05 -> Z04;
-  G06 -> M14;
-  G06 -> N06;
-  { G08 -> JY27; }
-  { rank=same; G09 -> H08; }
-  G09 -> M16;
-  G12 -> Z09;
-  { G13 -> JY24; }
-  { rank=same; G15 -> H16; }
-  { rank=same; G16 -> H17; }
-  { G16 -> JY21; }
-}

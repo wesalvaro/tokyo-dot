@@ -84,8 +84,3 @@ subgraph ToyokoLimExp {
   TY11 -> TY16;
   TY16 -> TY21;
 }
-
-subgraph ToyokoTransfers {
-  { TY01 -> JY06 [weight=10]; }
-  TY01 -> Z01;
-}

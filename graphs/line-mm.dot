@@ -28,9 +28,3 @@ subgraph MinatomiraiLimExp {
   edge [color="orange"];
   MM01 -> MM03 -> MM06;
 }
-
-subgraph MinatomiraiTransfers {
-  {
-    MM01 -> TY21 [label="車内" len=0]
-  }
-}

@@ -64,10 +64,3 @@ subgraph YamanoteInner {
   JY29 -> JY30 [len=2];
   JY30 -> JY01 [len=2];
 }
-
-subgraph YamanoteTransfers {
-  {
-    JY19 -> C03 [label="7,8,10|表参道口" len=2]
-    JY19 -> F15 [label="7,8,10|表参道口" len=10]
-  }
-}

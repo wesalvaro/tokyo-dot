@@ -58,28 +58,3 @@ subgraph MitaLocal {
   I25 -> I26 [len=1];
   I26 -> I27 [len=2];
 }
-
-subgraph MitaTransfers {
-  I01 -> MG01;
-  I01 -> N01;
-  I01 -> JY04;
-  I02 -> N02;
-  I03 -> N03;
-  I04 -> JY29;
-  I04 -> KT;
-  I08 -> Y18;
-  I08 -> JY26;
-  I08 -> KT;
-  // I08 underground passage to (Higashi-)Ginza
-  I09 -> M18;
-  I09 -> T09;
-  I09 -> Z08;
-  I10 -> S06;
-  I10 -> Z07;
-  I12 -> M22;
-  I12 -> N11;
-  I15 -> JY15;
-  I16 -> TA;
-  I17 -> SK;
-  I17 -> TJ03;
-}

@@ -58,27 +58,3 @@ subgraph FukutoshinCommExp {
   F09 -> F13;
   F13 -> F16;
 }
-
-subgraph FukutoshinTransfers {
-  F01 -> TJ11;
-  { rank=same; F01 -> Y01 [len=0]; }
-  F02 -> TJ10;
-  { rank=same; F02 -> Y02 [len=0]; }
-  F03 -> TJ09;
-  { rank=same; F03 -> Y03 [len=0]; }
-  { rank=same; F04 -> Y04 [len=0]; }
-  { rank=same; F05 -> Y05 [len=0]; }
-  F06 -> { SY; SI; }
-  { rank=same; F06 -> Y06 [len=0]; }
-  { rank=same; F07 -> Y07; }
-  { rank=same; F08 -> Y08; }
-  { rank=same; F09 -> Y09; }
-  F09 -> { M25; JY13; SY; SS; TJ01; SI; }
-  F10 -> TA;
-  F13 -> { M09; S02; }
-  {
-    F15 -> C03 [label="4,9" len=2]
-    F15 -> JY19 [label="4,9|2" len=10]
-  }
-  F16 -> { G01; IN; SS; SY; TY01; Z01; JY06; }
-}

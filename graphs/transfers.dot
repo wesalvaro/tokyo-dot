@@ -1,0 +1,240 @@
+subgraph ChiyodaTransfers {
+  {
+    C03 -> F15 [label="10" len=2]
+    C03 -> JY19 [label="2|2" len=4]
+  }
+  {
+    C04 -> G02 [label="5,8" len=3]
+    C04 -> Z02 [label="5,8" len=3]
+  }
+}
+
+subgraph OedoTransfers {
+  E01 -> E28;
+  E01 -> KO;
+  E01 -> M08;
+  E01 -> OW;
+  E01 -> SJ;
+  E01 -> SK;
+  E01 -> SS;
+  E01 -> JY09;
+  E02 -> F12;
+  E06 -> N10;
+  E06 -> T06;
+  E06 -> Y13;
+  E07 -> I12;
+  E07 -> M22;
+  E07 -> N11;
+  E08 -> M21;
+  E09 -> G15;
+  E09 -> H16;
+  E09 -> KT;
+  E09 -> JY22;
+  E10 -> TX02;
+  E13 -> S11;
+  E14 -> Z11;
+  E15 -> T12;
+  E16 -> Y21;
+  E19 -> U02;
+  E20 -> MK;
+  E20 -> JY28;
+  E22 -> N04;
+  E23 -> H04;
+  E24 -> G04;
+  E24 -> Z03;
+  E26 -> JY06;
+  E27 -> KO;
+  E27 -> M08;
+  E27 -> OW;
+  E27 -> S01;
+  E27 -> SK;
+  E27 -> SS;
+  E27 -> JY09;
+  E30 -> M06;
+  E32 -> SJ;
+  E35 -> SI;
+  E35 -> ST;
+  E35 -> SY;
+  E36 -> ST;
+}
+
+subgraph FukutoshinTransfers {
+  F01 -> TJ11;
+  { rank=same; F01 -> Y01 [len=0]; }
+  F02 -> TJ10;
+  { rank=same; F02 -> Y02 [len=0]; }
+  F03 -> TJ09;
+  { rank=same; F03 -> Y03 [len=0]; }
+  { rank=same; F04 -> Y04 [len=0]; }
+  { rank=same; F05 -> Y05 [len=0]; }
+  F06 -> { SY; SI; }
+  { rank=same; F06 -> Y06 [len=0]; }
+  { rank=same; F07 -> Y07; }
+  { rank=same; F08 -> Y08; }
+  { rank=same; F09 -> Y09; }
+  F09 -> { M25; JY13; SY; SS; TJ01; SI; }
+  F10 -> TA;
+  F13 -> { M09; S02; }
+  {
+    F15 -> C03 [label="4,9" len=2]
+    F15 -> JY19 [label="4,9|2" len=10]
+  }
+  F16 -> { G01; IN; SS; SY; TY01; Z01; JY06; }
+}
+
+subgraph GinzaTransfers {
+  {
+    G01 -> TY01;
+    G01 -> JY06;
+    G01 -> Z01;
+  }
+  {
+    G02 -> C04 [label="1,6" len=3]
+    G02 -> Z02 [label="1,6" len=1]
+  }
+  G04 -> Z03;
+  G05 -> M13;
+  G05 -> N07;
+  G05 -> Y16;
+  G05 -> Z04;
+  G06 -> M14;
+  G06 -> N06;
+  { G08 -> JY27; }
+  { rank=same; G09 -> H08; }
+  G09 -> M16;
+  G12 -> Z09;
+  { G13 -> JY24; }
+  { rank=same; G15 -> H16; }
+  { rank=same; G16 -> H17; }
+  { G16 -> JY21; }
+}
+
+subgraph HibiyaTransfers {
+  H01 -> TY03 [len=0];
+  {
+    H02 -> JY05 [label="3|1" len=7];
+  }
+  H04 -> E23 [label="1"]
+  {
+    H06 -> C08 [label="8" len=3];
+    H06 -> M15 [label="1" len=2];
+  }
+  {
+    H07 -> C09 [label="8" len=1];
+    H07 -> I08 [label="7" len=3];
+    H07 -> Y18 [label="7" len=5];
+    H07 -> JY01 [label="1" len=7];
+  }
+  {
+    H08 -> G09 [label="1" len=2];
+    H08 -> M16 [label="8" len=2];
+  }
+  { H15 -> JY23; }
+  { H17 -> JY21; }
+}
+
+subgraph MitaTransfers {
+  I01 -> MG01;
+  I01 -> N01;
+  I01 -> JY04;
+  I02 -> N02;
+  I03 -> N03;
+  I04 -> JY29;
+  I04 -> KT;
+  I08 -> Y18;
+  I08 -> JY26;
+  I08 -> KT;
+  // I08 underground passage to (Higashi-)Ginza
+  I09 -> M18;
+  I09 -> T09;
+  I09 -> Z08;
+  I10 -> S06;
+  I10 -> Z07;
+  I12 -> M22;
+  I12 -> N11;
+  I15 -> JY15;
+  I16 -> TA;
+  I17 -> SK;
+  I17 -> TJ03;
+}
+
+subgraph YamanoteTransfers {
+  {
+    JY19 -> C03 [label="7,8,10|表参道口" len=2]
+    JY19 -> F15 [label="7,8,10|表参道口" len=10]
+  }
+}
+
+subgraph MarunouchiTransfers {
+  M08 -> S01;
+  M09 -> S02;
+  M12 -> N08;
+  M13 -> N07;
+  M13 -> Y16;
+  M13 -> Z04;
+  M14 -> N06;
+  M18 -> T09;
+  M18 -> Z08;
+  M19 -> S07;
+  M22 -> N11;
+  M25 -> TJ01;
+  M25 -> Y09;
+}
+
+subgraph MeguroTransfers {
+  MG01 -> N01;
+  MG01 -> JY04;
+
+  { rank=same; MG06 -> OM08; }
+
+  { rank=same; MG08 -> TY08; }
+  { rank=same; MG09 -> TY09; }
+  { rank=same; MG10 -> TY10; }
+  { rank=same; MG11 -> TY11; }
+  { rank=same; MG12 -> TY12; }
+  { rank=same; MG13 -> TY13; }
+}
+
+subgraph MinatomiraiTransfers {
+  {
+    MM01 -> TY21 [label="車内" len=0]
+  }
+}
+
+subgraph NambokuTransfers {
+  N01 -> JY04;
+  N07 -> Y16;
+  N07 -> Z04;
+  N09 -> S04;
+  N09 -> Y14;
+  N10 -> T06;
+  N10 -> Y13;
+  N14 -> JY16;
+  N16 -> TA;
+}
+
+subgraph TojoTransfers {
+  TJ01 -> Y09;
+  TJ01 -> JY13;
+  TJ09 -> Y03;
+  TJ10 -> Y02;
+  TJ11 -> Y01;
+}
+
+subgraph ToyokoTransfers {
+  { TY01 -> JY06 [weight=10]; }
+  TY01 -> Z01;
+}
+
+subgraph YurakuchoTransfers {
+  Y09 -> JY13;
+  Y16 -> Z04;
+  Y18 -> JY26;
+}
+
+subgraph HanzomonTransfers {
+  {
+    Z02 -> C04 [label="5,8" len=3]
+    Z02 -> G02 [label="5,8" len=1]
+  }
+}

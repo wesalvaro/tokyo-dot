@@ -63,19 +63,3 @@ subgraph MarunouchiBranch {
   m04 -> m05 [len=1];
   m05 -> M06 [len=3];
 }
-
-subgraph MarunouchiTransfers {
-  M08 -> S01;
-  M09 -> S02;
-  M12 -> N08;
-  M13 -> N07;
-  M13 -> Y16;
-  M13 -> Z04;
-  M14 -> N06;
-  M18 -> T09;
-  M18 -> Z08;
-  M19 -> S07;
-  M22 -> N11;
-  M25 -> TJ01;
-  M25 -> Y09;
-}

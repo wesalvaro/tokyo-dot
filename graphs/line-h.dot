@@ -46,27 +46,3 @@ subgraph HibiyaLocal {
   H19 -> H20 [len=2];
   H20 -> H21 [len=3];
 }
-
-subgraph HibiyaTransfers {
-  H01 -> TY03 [len=0];
-  {
-    H02 -> JY05 [label="3|1" len=7];
-  }
-  H04 -> E23 [label="1"]
-  {
-    H06 -> C08 [label="8" len=3];
-    H06 -> M15 [label="1" len=2];
-  }
-  {
-    H07 -> C09 [label="8" len=1];
-    H07 -> I08 [label="7" len=3];
-    H07 -> Y18 [label="7" len=5];
-    H07 -> JY01 [label="1" len=7];
-  }
-  {
-    H08 -> G09 [label="1" len=2];
-    H08 -> M16 [label="8" len=2];
-  }
-  { H15 -> JY23; }
-  { H17 -> JY21; }
-}
