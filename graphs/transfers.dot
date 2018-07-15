@@ -28,7 +28,6 @@ subgraph OedoTransfers {
   E08 -> M21
   E09 -> G15
   E09 -> H16
-  E09 -> KT
   E09 -> JY04
   E10 -> TX02
   E13 -> S11
