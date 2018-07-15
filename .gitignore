@@ -1,2 +1,4 @@
 graphs/*.svg
+renders/go/go
+renders/go/graph.dot
 .DS_store
