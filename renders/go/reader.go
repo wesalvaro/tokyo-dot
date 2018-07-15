@@ -54,8 +54,8 @@ func (g *trainGraph) String() string {
 
 type edge struct {
 	graph.Edge
-	time float64
-	both bool
+	time   float64
+	oneWay bool
 }
 
 func (e *edge) SetAttribute(attr encoding.Attribute) error {
@@ -65,8 +65,8 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 			return err
 		}
 		e.time = time
-	} else if attr.Key == "dir" && attr.Value == "both" {
-		e.both = true
+	} else if attr.Key == "return" && attr.Value == "no" {
+		e.oneWay = true
 	}
 	return nil
 }
@@ -94,7 +94,7 @@ func convertToTrainGraph(graph *ast.Graph) *trainGraph {
 		log.Fatal(err)
 	}
 	for _, e := range dst.Edges() {
-		if f := e.(*edge); f.both {
+		if f := e.(*edge); !f.oneWay {
 			r := dst.NewEdge(f.To(), f.From()).(*edge)
 			r.time = f.time
 			dst.SetEdge(r)
