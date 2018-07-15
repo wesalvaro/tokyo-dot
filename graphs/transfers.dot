@@ -223,8 +223,10 @@ subgraph TojoTransfers {
 
 subgraph ToyokoTransfers {
   {
-    TY01 -> JY06 [len=10]
-    TY01 -> Z01
+    TY01 -> F16  [len=0]
+    TY01 -> G01  [len=8]
+    TY01 -> JY06 [len=6]
+    TY01 -> Z01  [len=6]
   }
   {
     TY03 -> H01 [label="-" len=0]
