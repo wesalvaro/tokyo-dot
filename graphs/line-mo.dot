@@ -1,0 +1,44 @@
+subgraph TokyoMonorailStations {
+  MO01 [label="{モノレール浜松町|Monorail Hamamatsuchō}|{MO|1}"]
+  MO02 [label="{天王洲アイル|Tennōzu Isle}|{MO|2}"]
+  MO03 [label="{大井競馬場前|Ōi Keibajō-mae}|{MO|3}"]
+  MO04 [label="{流通センター|Ryūtsū Center}|{MO|4}"]
+  MO05 [label="{昭和島|Shōwajima}|{MO|5}"]
+  MO06 [label="{整備場|Seibijō}|{MO|6}"]
+  MO07 [label="{天空橋|Tenkūbashi}|{MO|7}"]
+  MO08 [label="{羽田空港国際線ビル|Haneda Airport International Terminal}|{MO|8}"]
+  MO09 [label="{新整備場|Shin-Seibijō}|{MO|9}"]
+  MO10 [label="{羽田空港第１ビル|Haneda Airport Terminal 1}|{MO|10}"]
+  MO11 [label="{羽田空港第２ビル|Haneda Airport Terminal 2}|{MO|11}"]
+}
+
+subgraph TokyoMonorailLocal {
+  edge [color=black]
+  MO01 -> MO02 [len=6]
+  MO02 -> MO03 [len=3]
+  MO03 -> MO04 [len=2]
+  MO04 -> MO05 [len=2]
+  MO05 -> MO06 [len=2]
+  MO06 -> MO07 [len=2]
+  MO07 -> MO08 [len=2]
+  MO08 -> MO09 [len=3]
+  MO09 -> MO10 [len=1]
+  MO10 -> MO11 [len=2]
+}
+
+subgraph TokyoMonorailRapid {
+  edge [color=green]
+  MO01 -> MO02 [len=2]
+  MO02 -> MO03 [len=2]
+  MO03 -> MO04 [len=2]
+  MO04 -> MO08 [len=6]
+  MO08 -> MO10 [len=3]
+  MO10 -> MO11 [len=2]
+}
+
+subgraph TokyoMonorailHanedaExpress {
+  edge [color=red]
+  MO01 -> MO08 [len=13]
+  MO08 -> MO10 [len=3]
+  MO10 -> MO11 [len=2]
+}
