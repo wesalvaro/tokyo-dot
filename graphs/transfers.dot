@@ -70,12 +70,7 @@ subgraph ChiyodaTransfers {
 subgraph OedoTransfers {
   {
     E01 -> E28
-    E01 -> KO
     E01 -> M08
-    E01 -> OW
-    E01 -> SJ
-    E01 -> SK
-    E01 -> SS
     E01 -> JY17
   }
   E02 -> F12 [label="2,7" len=3]
@@ -102,7 +97,6 @@ subgraph OedoTransfers {
   E15 -> T12
   E16 -> Y21
   E19 -> U02
-  E20 -> MK
   {
     E20 -> A09
     E20 -> JY28
@@ -115,19 +109,10 @@ subgraph OedoTransfers {
     E24 -> Z03 [label="3,6" len=2]
   }
   E26 -> JY18
-  E27 -> KO
   E27 -> M08
-  E27 -> OW
   E27 -> S01
-  E27 -> SK
-  E27 -> SS
   E27 -> JY17
   E30 -> M06
-  E32 -> SJ
-  E35 -> SI
-  E35 -> ST
-  E35 -> SY
-  E36 -> ST
 }
 
 subgraph FukutoshinTransfers {
@@ -422,7 +407,6 @@ subgraph NambokuTransfers {
     N11 -> M22 [len=5]
   }
   N14 -> JY10
-  N16 -> TA
 }
 
 subgraph OimachiTransfers {
