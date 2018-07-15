@@ -30,5 +30,7 @@ subgraph MinatomiraiLimExp {
 }
 
 subgraph MinatomiraiTransfers {
-  { rank=same; MM01 -> TY21 [label="車内", dir="both", len=0.0, weight=0]; }
+  {
+    MM01 -> TY21 [label="車内" len=0]
+  }
 }
