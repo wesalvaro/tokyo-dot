@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"regexp"
 	"strconv"
+	"strings"
 
 	"gonum.org/v1/gonum/graph"
 	"gonum.org/v1/gonum/graph/encoding"
@@ -52,10 +54,13 @@ func (g *trainGraph) String() string {
 	return fmt.Sprintf("%d platforms", len(g.Nodes()))
 }
 
+var quotedLabel = regexp.MustCompile(`"(?P<content>.*?)"`)
+
 type edge struct {
 	graph.Edge
 	time   float64
 	oneWay bool
+	cars   []string
 }
 
 func (e *edge) SetAttribute(attr encoding.Attribute) error {
@@ -67,6 +72,16 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 		e.time = time
 	} else if attr.Key == "return" && attr.Value == "no" {
 		e.oneWay = true
+	} else if attr.Key == "label" {
+		value := quotedLabel.ReplaceAllString(attr.Value, "${content}")
+		if value != "-" && value != "車内" {
+			transfer := strings.SplitN(value, "|", 2)
+			dir := strings.SplitN(transfer[0], ";", 2)
+			if len(dir) == 2 {
+				fmt.Println("transfer car by direction")
+			}
+			e.cars = strings.Split(dir[0], ",")
+		}
 	}
 	return nil
 }
