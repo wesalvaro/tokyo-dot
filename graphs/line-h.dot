@@ -1,48 +1,48 @@
 // 東京メト日比谷線：
 subgraph HibiyaStations {
-  node [color="#b5b5ac"];
-  H01 [label="{中目黒|Nakameguro}|{H|1}"];
-  H02 [label="{恵比寿|Ebisu}|{H|2}", href="http://www.tokyometro.jp/station/ebisu/index.html"];
-  H03 [label="{広尾|Hiroo}|{H|3}"];
-  H04 [label="{六本木|Roppongi}|{H|4}"];
-  H05 [label="{神谷町|Kamiyacho}|{H|5}"];
-  H06 [label="{霞ヶ関|Kasumigaseki}|{H|6}"];
-  H07 [label="{日比谷|Hibiya}|{H|7}", href="http://www.tokyometro.jp/station/hibiya/index.html"];
-  H08 [label="{銀座|Ginza}|{H|8}"];
-  H09 [label="{東銀座|Higashi-Ginza}|{H|9}"];
-  H10 [label="{築地|Tsukiji}|{H|10}"];
-  H11 [label="{八丁堀|Hatchobori}|{H|11}"];
-  H12 [label="{茅場町|Kayabacho}|{H|12}"];
-  H13 [label="{人形町|Ningyocho}|{H|13}"];
-  H14 [label="{小伝馬町|Kodemmacho}|{H|14}"];
-  H15 [label="{秋葉原|Akihabara}|{H|15}"];
-  H16 [label="{仲御徒町|Naka-Okachimachi}|{H|16}"];
-  H17 [label="{上野|Ueno}|{H|17}"];
-  H18 [label="{入谷|Iriya}|{H|18}"];
-  H19 [label="{三ノ輪|Minowa}|{H|19}"];
-  H20 [label="{南千住|Minami-Senju}|{H|20}"];
-  H21 [label="{北千住|Kita-Senju}|{H|21}"];
+  node [color="#b5b5ac"]
+  H01 [label="{中目黒|Nakameguro}|{H|1}"]
+  H02 [label="{恵比寿|Ebisu}|{H|2}", href="http://www.tokyometro.jp/station/ebisu/index.html"]
+  H03 [label="{広尾|Hiroo}|{H|3}"]
+  H04 [label="{六本木|Roppongi}|{H|4}"]
+  H05 [label="{神谷町|Kamiyacho}|{H|5}"]
+  H06 [label="{霞ヶ関|Kasumigaseki}|{H|6}"]
+  H07 [label="{日比谷|Hibiya}|{H|7}", href="http://www.tokyometro.jp/station/hibiya/index.html"]
+  H08 [label="{銀座|Ginza}|{H|8}"]
+  H09 [label="{東銀座|Higashi-Ginza}|{H|9}"]
+  H10 [label="{築地|Tsukiji}|{H|10}"]
+  H11 [label="{八丁堀|Hatchobori}|{H|11}"]
+  H12 [label="{茅場町|Kayabacho}|{H|12}"]
+  H13 [label="{人形町|Ningyocho}|{H|13}"]
+  H14 [label="{小伝馬町|Kodemmacho}|{H|14}"]
+  H15 [label="{秋葉原|Akihabara}|{H|15}"]
+  H16 [label="{仲御徒町|Naka-Okachimachi}|{H|16}"]
+  H17 [label="{上野|Ueno}|{H|17}"]
+  H18 [label="{入谷|Iriya}|{H|18}"]
+  H19 [label="{三ノ輪|Minowa}|{H|19}"]
+  H20 [label="{南千住|Minami-Senju}|{H|20}"]
+  H21 [label="{北千住|Kita-Senju}|{H|21}"]
 }
 
 subgraph HibiyaLocal {
-  H01 -> H02 [len=2];
-  H02 -> H03 [len=3];
-  H03 -> H04 [len=3];
-  H04 -> H05 [len=4];
-  H05 -> H06 [len=2];
-  H06 -> H07 [len=2];
-  H07 -> H08 [len=2];
-  H08 -> H09 [len=1];
-  H09 -> H10 [len=2];
-  H10 -> H11 [len=2];
-  H11 -> H12 [len=2];
-  H12 -> H13 [len=2];
-  H13 -> H14 [len=2];
-  H14 -> H15 [len=2];
-  H15 -> H16 [len=1];
-  H16 -> H17 [len=2];
-  H17 -> H18 [len=2];
-  H18 -> H19 [len=2];
-  H19 -> H20 [len=2];
-  H20 -> H21 [len=3];
+  H01 -> H02 [len=2]
+  H02 -> H03 [len=3]
+  H03 -> H04 [len=3]
+  H04 -> H05 [len=4]
+  H05 -> H06 [len=2]
+  H06 -> H07 [len=2]
+  H07 -> H08 [len=2]
+  H08 -> H09 [len=1]
+  H09 -> H10 [len=2]
+  H10 -> H11 [len=2]
+  H11 -> H12 [len=2]
+  H12 -> H13 [len=2]
+  H13 -> H14 [len=2]
+  H14 -> H15 [len=2]
+  H15 -> H16 [len=1]
+  H16 -> H17 [len=2]
+  H17 -> H18 [len=2]
+  H18 -> H19 [len=2]
+  H19 -> H20 [len=2]
+  H20 -> H21 [len=3]
 }
