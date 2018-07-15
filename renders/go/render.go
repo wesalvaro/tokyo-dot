@@ -8,7 +8,6 @@ var circleNums = []rune{
 }
 
 func render(graph *trainGraph, route []*station, time float64) {
-	fmt.Println(route)
 	for i := 0; i < len(route)-1; i++ {
 		s := route[i]
 		d := route[i+1]
