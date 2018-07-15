@@ -52,8 +52,11 @@ angular.module('app', ['sigmaGraphs', 'visGraphs', 'geocode'])
         const node = graph.node(id);
         const label = node.label;
         if (!label) return;
-        const splits = label.split('|')[0].split('{{');
-        node.label = splits[splits.length - 1];
+        const match = label.match(/\{(.*?)\|(.*?)\}\|\{\w+\|\w+\}/);
+        if (!match) {
+          console.log(label)
+        }
+        node.label = match[1];
         node.type = 'station';
         addStationColor(node.label, node.color);
       });
