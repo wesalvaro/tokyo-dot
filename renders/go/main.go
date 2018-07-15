@@ -13,5 +13,5 @@ func main() {
 	}
 	g := readGraph(f)
 	fmt.Println(g)
-	fmt.Println(findPath(g, "TY07", "H04"))
+	fmt.Println(findPath(g, os.Args[1], os.Args[2]))
 }
