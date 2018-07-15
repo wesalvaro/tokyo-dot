@@ -1,86 +1,86 @@
 // 東急東横線：
 subgraph ToyokoStations {
-  node [color="#db0442"];
-  TY01 [label="{渋谷|Shibuya}|{TY|1}"];
-  TY02 [label="{代官山|Daikanyama}|{TY|2}"];
-  TY03 [label="{中目黒|Nakameguro}|{TY|3}"];
-  TY04 [label="{祐天寺|Yutenji}|{TY|4}"];
-  TY05 [label="{学芸大学|Gakugeidaigaku}|{TY|5}"];
-  TY06 [label="{都立大学|Toritsudaigaku}|{TY|6}"];
-  TY07 [label="{自由が丘|Jiyugaoka}|{TY|7}"];
-  TY08 [label="{田園調布|Den-en-chofu}|{TY|8}"];
-  TY09 [label="{多摩川|Tamagawa}|{TY|9}"];
-  TY10 [label="{新丸子|Shin-Maruko}|{TY|10}"];
-  TY11 [label="{武蔵小杉|Musashi-Kosugi}|{TY|11}"];
-  TY12 [label="{元住吉|Motosumiyoshi}|{TY|12}"];
-  TY13 [label="{日吉|Hiyoshi}|{TY|13}"];
-  TY14 [label="{綱島|Tsunashima}|{TY|14}"];
-  TY15 [label="{大倉山|Okurayama}|{TY|15}"];
-  TY16 [label="{菊名|Kikuna}|{TY|16}"];
-  TY17 [label="{妙蓮寺|Myorenji}|{TY|17}"];
-  TY18 [label="{白楽|Hakuraku}|{TY|18}"];
-  TY19 [label="{東白楽|Higashi-Hakuraku}|{TY|19}"];
-  TY20 [label="{反町|Tammachi}|{TY|20}"];
-  TY21 [label="{横浜|Yokohama}|{TY|21}"];
+  node [color="#db0442"]
+  TY01 [label="{渋谷|Shibuya}|{TY|1}"]
+  TY02 [label="{代官山|Daikanyama}|{TY|2}"]
+  TY03 [label="{中目黒|Nakameguro}|{TY|3}"]
+  TY04 [label="{祐天寺|Yutenji}|{TY|4}"]
+  TY05 [label="{学芸大学|Gakugeidaigaku}|{TY|5}"]
+  TY06 [label="{都立大学|Toritsudaigaku}|{TY|6}"]
+  TY07 [label="{自由が丘|Jiyugaoka}|{TY|7}"]
+  TY08 [label="{田園調布|Den-en-chofu}|{TY|8}"]
+  TY09 [label="{多摩川|Tamagawa}|{TY|9}"]
+  TY10 [label="{新丸子|Shin-Maruko}|{TY|10}"]
+  TY11 [label="{武蔵小杉|Musashi-Kosugi}|{TY|11}"]
+  TY12 [label="{元住吉|Motosumiyoshi}|{TY|12}"]
+  TY13 [label="{日吉|Hiyoshi}|{TY|13}"]
+  TY14 [label="{綱島|Tsunashima}|{TY|14}"]
+  TY15 [label="{大倉山|Okurayama}|{TY|15}"]
+  TY16 [label="{菊名|Kikuna}|{TY|16}"]
+  TY17 [label="{妙蓮寺|Myorenji}|{TY|17}"]
+  TY18 [label="{白楽|Hakuraku}|{TY|18}"]
+  TY19 [label="{東白楽|Higashi-Hakuraku}|{TY|19}"]
+  TY20 [label="{反町|Tammachi}|{TY|20}"]
+  TY21 [label="{横浜|Yokohama}|{TY|21}"]
 }
 
 // 各駅停車：
 subgraph ToyokoLocal {
-  edge [color="blue"];
-  TY01 -> TY02 [len=2];
-  TY02 -> TY03 [len=1];
-  TY03 -> TY04 [len=3];
-  TY04 -> TY05;
-  TY05 -> TY06;
-  TY06 -> TY07;
-  TY07 -> TY08;
-  TY08 -> TY09;
-  TY09 -> TY10;
-  TY10 -> TY11;
-  TY11 -> TY12;
-  TY12 -> TY13;
-  TY13 -> TY14;
-  TY14 -> TY15;
-  TY15 -> TY16;
-  TY16 -> TY17;
-  TY17 -> TY18;
-  TY18 -> TY19;
-  TY19 -> TY20;
-  TY20 -> TY21;
+  edge [color="blue"]
+  TY01 -> TY02 [len=2 dir=both]
+  TY02 -> TY03 [len=1 dir=both]
+  TY03 -> TY04 [len=3 dir=both]
+  TY04 -> TY05 [len=2 dir=both]
+  TY05 -> TY06 [len=2 dir=both]
+  TY06 -> TY07 [len=2 dir=both]
+  TY07 -> TY08 [len=2 dir=both]
+  TY08 -> TY09 [len=2 dir=both]
+  TY09 -> TY10 [len=2 dir=both]
+  TY10 -> TY11 [len=2 dir=both]
+  TY11 -> TY12 [len=2 dir=both]
+  TY12 -> TY13 [len=2 dir=both]
+  TY13 -> TY14 [len=2 dir=both]
+  TY14 -> TY15 [len=2 dir=both]
+  TY15 -> TY16 [len=2 dir=both]
+  TY16 -> TY17 [len=2 dir=both]
+  TY17 -> TY18 [len=2 dir=both]
+  TY18 -> TY19 [len=2 dir=both]
+  TY19 -> TY20 [len=2 dir=both]
+  TY20 -> TY21 [len=2 dir=both]
 }
 
 // 急行：
 subgraph ToyokoExp {
-  edge [color="red"];
-  TY01 -> TY03 [len=3];
-  TY03 -> TY05 [len=3];
-  TY05 -> TY07 [len=3];
-  TY07 -> TY08;
-  TY08 -> TY09;
-  TY09 -> TY11;
-  TY11 -> TY13;
-  TY13 -> TY14;
-  TY14 -> TY16;
-  TY16 -> TY21;
+  edge [color="red"]
+  TY01 -> TY03 [len=3 dir=both]
+  TY03 -> TY05 [len=3 dir=both]
+  TY05 -> TY07 [len=3 dir=both]
+  TY07 -> TY08 [len=2 dir=both]
+  TY08 -> TY09 [len=2 dir=both]
+  TY09 -> TY11 [len=2 dir=both]
+  TY11 -> TY13 [len=2 dir=both]
+  TY13 -> TY14 [len=2 dir=both]
+  TY14 -> TY16 [len=2 dir=both]
+  TY16 -> TY21 [len=2 dir=both]
 }
 
 // 通勤特急：
 subgraph ToyokoCommExp {
-  edge [color="orange"];
-  TY01 -> TY03;
-  TY03 -> TY07 [len=4];
-  TY07 -> TY11;
-  TY11 -> TY13;
-  TY13 -> TY16;
-  TY16 -> TY21;
+  edge [color="orange"]
+  TY01 -> TY03 [len=2 dir=both]
+  TY03 -> TY07 [len=4 dir=both]
+  TY07 -> TY11 [len=2 dir=both]
+  TY11 -> TY13 [len=2 dir=both]
+  TY13 -> TY16 [len=2 dir=both]
+  TY16 -> TY21 [len=2 dir=both]
 }
 
 // 通勤特急：
 subgraph ToyokoLimExp {
-  edge [color="orange"];
-  TY01 -> TY03;
-  TY03 -> TY07 [len=4];
-  TY07 -> TY11;
-  TY11 -> TY16;
-  TY16 -> TY21;
+  edge [color="orange"]
+  TY01 -> TY03 [len=2 dir=both]
+  TY03 -> TY07 [len=4 dir=both]
+  TY07 -> TY11 [len=2 dir=both]
+  TY11 -> TY16 [len=2 dir=both]
+  TY16 -> TY21 [len=2 dir=both]
 }
