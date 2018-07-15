@@ -10,7 +10,7 @@ subgraph OimachiStations {
   OM07 [label="{北千束|Kita-Senzoku}|{OM|7}"]
   OM08 [label="{大岡山|Ōokayama}|{OM|8}"]
   OM09 [label="{緑が丘|Midorigaoka}|{OM|9}"]
-  OM10 [label="{自由が丘|Jiyūgaoka	}|{OM|10}"]
+  OM10 [label="{自由が丘|Jiyūgaoka}|{OM|10}"]
   OM11 [label="{九品仏|Kuhombutsu}|{OM|11}"]
   OM12 [label="{尾山台|Oyamadai}|{OM|12}"]
   OM13 [label="{等々力|Todoroki}|{OM|13}"]
