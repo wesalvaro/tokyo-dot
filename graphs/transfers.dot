@@ -1,7 +1,7 @@
 subgraph AsakusaTransfers {
   A03 -> OM04
   A05 -> JY23
-  A07 -> KK
+  A07 -> KK01 [label="車内" len=2]
   {
     A08 -> I04 [label="8" len=2]
     A08 -> JY27 [label="3|A4" len=5]
@@ -311,9 +311,17 @@ subgraph YamanoteTransfers {
 }
 
 subgraph KeikyuTransfers {
+  {
+    KK01 -> A07 [label="車内" len=2]
+    KK01 -> JY25
+  }
   KK15 -> MO07
   KK16 -> MO08
   KK17 -> { MO10 MO11 }
+  {
+    KK37 -> MM01
+    KK37 -> TY21
+  }
 }
 
 subgraph MarunouchiTransfers {
@@ -321,7 +329,7 @@ subgraph MarunouchiTransfers {
   M09 -> S02
   M12 -> N08
   {
-    M13 -> G05 [label="1,2;2," len=3]
+    M13 -> G05 [label="1,2;2" len=3]
     M13 -> N07 [label="1" len=10]
     M13 -> Y16 [label="1" len=10]
     M13 -> Z04 [label="1" len=5]
