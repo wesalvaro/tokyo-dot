@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strconv"
+
+	"google.golang.org/appengine"
 )
 
 func checkErr(err error) {
@@ -14,6 +17,15 @@ func checkErr(err error) {
 }
 
 func main() {
+	http.HandleFunc("/", handle)
+	appengine.Main()
+}
+
+func handle(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello, world!")
+}
+
+func cli() {
 	f, err := os.Open("graph.dot")
 	checkErr(err)
 	tokyo := readGraph(f)
