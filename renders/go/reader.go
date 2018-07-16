@@ -34,6 +34,17 @@ func (g *trainGraph) StationNode(sid string) *station {
 	return nil
 }
 
+func (g *trainGraph) Stations() chan *station {
+	ch := make(chan *station)
+	go func() {
+		for _, n := range g.Nodes() {
+			ch <- n.(*station)
+		}
+		close(ch)
+	}()
+	return ch
+}
+
 func (g *trainGraph) Weight(s, d int64) (float64, bool) {
 	if !g.HasEdgeBetween(s, d) {
 		return 0, false
