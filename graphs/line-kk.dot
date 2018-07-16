@@ -1,12 +1,139 @@
+// 京急線:
 subgraph KeikyuStations {
-  KK01 [label="{品川|Shinagawa}{KK|1}"]
+  node [color="#039bda"]
+  // Main Line:
+  KK01 [label="{品川|Shinagawa}|{KK|1}"]
+  KK02 [label="{北品川|Kitashinagawa}|{KK|2}"]
+  KK03 [label="{新馬場|Shimbamba}|{KK|3}"]
+  KK04 [label="{青物横丁|Aomono-yokochō}|{KK|4}"]
+  KK05 [label="{鮫洲|Samezu}|{KK|5}"]
+  KK06 [label="{立会川|Tachiaigawa}|{KK|6}"]
+  KK07 [label="{大森海岸|Ōmorikaigan}|{KK|7}"]
+  KK08 [label="{平和島|Heiwajima}|{KK|8}"]
+  KK09 [label="{大森町|Ōmorimachi}|{KK|9}"]
+  KK10 [label="{梅屋敷|Umeyashiki}|{KK|10}"]
   KK11 [label="{京急蒲田|Keikyū Kamata}|{KK|11}"]
+  // Airport Line:
   KK12 [label="{糀谷|Kōjiya}|{KK|12}"]
   KK13 [label="{大鳥居|Ōtorii}|{KK|13}"]
   KK14 [label="{穴守稲荷|Anamori-inari}|{KK|14}"]
   KK15 [label="{天空橋|Tenkūbashi}|{KK|15}"]
   KK16 [label="{羽田空港国際線ターミナル|Haneda Airport International Terminal}|{KK|16}"]
   KK17 [label="{羽田空港国内線ターミナル|Haneda Airport Domestic Terminal}|{KK|17}"]
+  // Main Line:
+  KK18 [label="{雑色|Zōshiki}|{KK|18}"]
+  KK19 [label="{六郷土手|Rokugōdote}|{KK|19}"]
+  KK20 [label="{京急川崎|Keikyū Kawasaki}|{KK|20}"]
+  // Daishi Line:
+  KK21 [label="{港町|Minatochō}|{KK|21}"]
+  KK22 [label="{鈴木町|Suzukichō}|{KK|22}"]
+  KK23 [label="{川崎大師|Kawasaki-Daishi}|{KK|23}"]
+  KK24 [label="{東門前|Higashi-Monzen}|{KK|24}"]
+  KK25 [label="{産業道路|Sangyō-Dōro}|{KK|25}"]
+  KK26 [label="{小島新田|Kojimashinden}|{KK|26}"]
+  // Main Line:
+  KK27 [label="{八丁畷|Hatchō-nawate}|{KK|27}"]
+  KK28 [label="{鶴見市場|Tsurumi-ichiba}|{KK|28}"]
+  KK29 [label="{京急鶴見|Keikyū Tsurumi}|{KK|29}"]
+  KK30 [label="{花月園前|Kagetsuen-mae}|{KK|30}"]
+  KK31 [label="{生麦|Namamugi}|{KK|31}"]
+  KK32 [label="{京急新子安|Keikyū Shinkoyasu}|{KK|32}"]
+  KK33 [label="{子安|Koyasu}|{KK|33}"]
+  KK34 [label="{神奈川新町|Kanagawa-shimmachi}|{KK|34}"]
+  KK35 [label="{仲木戸|Nakakido}|{KK|35}"]
+  KK36 [label="{神奈川|Kanagawa}|{KK|36}"]
+  KK37 [label="{横浜|Yokohama}|{KK|37}"]
+  KK38 [label="{戸部|Tobe}|{KK|38}"]
+  KK39 [label="{日ノ出町|Hinodechō}|{KK|39}"]
+  KK40 [label="{黄金町|Koganechō}|{KK|40}"]
+  KK41 [label="{南太田|Minamiōta}|{KK|41}"]
+  KK42 [label="{井土ヶ谷|Idogaya}|{KK|42}"]
+  KK43 [label="{弘明寺|Gumyōji}|{KK|43}"]
+  KK44 [label="{上大岡|Kamiōoka}|{KK|44}"]
+  KK45 [label="{屏風浦|Byōbugaura}|{KK|45}"]
+  KK46 [label="{杉田|Sugita}|{KK|46}"]
+  KK47 [label="{京急富岡|Keikyū Tomioka}|{KK|47}"]
+  KK48 [label="{能見台|Nōkendai}|{KK|48}"]
+  KK49 [label="{金沢文庫|Kanazawa-bunko}|{KK|49}"]
+  KK50 [label="{金沢八景|Kanazawa-hakkei}|{KK|50}"]
+  // Zushi Line:
+  KK50 [label="{金沢八景|Kanazawa-hakkei}|{KK|50}"]
+  KK51 [label="{六浦|Mutsuura}|{KK|51}"]
+  KK52 [label="{神武寺|Jimmuji}|{KK|52}"]
+  KK53 [label="{新逗子|Shinzushi}|{KK|53}"]
+  // Main Line:
+  KK54 [label="{追浜|Oppama}|{KK|54}"]
+  KK55 [label="{京急田浦|Keikyū Taura}|{KK|55}"]
+  KK56 [label="{安針塚|Anjinzuka}|{KK|56}"]
+  KK57 [label="{逸見|Hemi}|{KK|57}"]
+  KK58 [label="{汐入|Shioiri}|{KK|58}"]
+  KK59 [label="{横須賀中央|Yokosuka-chūō}|{KK|59}"]
+  KK60 [label="{県立大学|Kenritsudaigaku}|{KK|60}"]
+  KK61 [label="{堀ノ内|Horinouchi}|{KK|61}"]
+  KK62 [label="{京急大津|Keikyū Ōtsu}|{KK|62}"]
+  KK63 [label="{馬堀海岸|Maborikaigan}|{KK|63}"]
+  KK64 [label="{浦賀|Uraga}|{KK|64}"]
+  // Kurihama Line:
+  KK65 [label="{新大津|Shin-ōtsu}|{KK|65}"]
+  KK66 [label="{北久里浜|Kitakurihama}|{KK|66}"]
+  KK67 [label="{京急久里浜|Keikyū Kurihama}|{KK|67}"]
+  KK68 [label="{YRP野比|YRP Nobi}|{KK|68}"]
+  KK69 [label="{京急長沢|Keikyū Nagasawa}|{KK|69}"]
+  KK70 [label="{津久井浜|Tsukuihama}|{KK|70}"]
+  KK71 [label="{三浦海岸|Miurakaigan}|{KK|71}"]
+  KK72 [label="{三崎口|Misakiguchi}|{KK|72}"]
+}
+
+subgraph KeikyuMainLocal {
+  edge [color=black]
+  KK01 -> KK02 [len=2]
+  KK02 -> KK03 [len=1]
+  KK03 -> KK04 [len=1]
+  KK04 -> KK05 [len=2]
+  KK05 -> KK06 [len=3]
+  KK06 -> KK07 [len=2]
+  KK07 -> KK08 [len=3]
+  KK08 -> KK09 [len=2]
+  KK09 -> KK10 [len=1]
+  KK10 -> KK11 [len=4]
+  KK11 -> KK18 [len=2]
+  KK18 -> KK19 [len=2]
+  KK19 -> KK20 [len=8]
+  KK20 -> KK27 [len=1]
+  KK27 -> KK28 [len=1]
+  KK28 -> KK29 [len=2]
+  KK29 -> KK30 [len=2]
+  KK30 -> KK31 [len=5]
+  KK31 -> KK32 [len=2]
+  KK32 -> KK33 [len=1]
+  KK33 -> KK34 [len=8]
+  KK34 -> KK35 [len=2]
+  KK35 -> KK36 [len=1]
+  KK36 -> KK37 [len=2]
+  KK37 -> KK38 [len=2]
+  KK38 -> KK39 [len=2]
+  KK39 -> KK40 [len=1]
+  KK40 -> KK41 [len=9]
+  KK41 -> KK42 [len=2]
+  KK42 -> KK43 [len=2]
+  KK43 -> KK44 [len=2]
+  KK44 -> KK45 [len=3]
+  KK45 -> KK46 [len=1]
+  KK46 -> KK47 [len=3]
+  KK47 -> KK48 [len=1]
+  KK48 -> KK49 [len=3]
+  KK49 -> KK50 [len=5]
+  KK50 -> KK54 [len=2]
+  KK54 -> KK55 [len=2]
+  KK55 -> KK56 [len=3]
+  KK56 -> KK57 [len=2]
+  KK57 -> KK58 [len=2]
+  KK58 -> KK59 [len=1]
+  KK59 -> KK60 [len=2]
+  KK60 -> KK61 [len=5]
+  KK61 -> KK62 [len=2]
+  KK62 -> KK63 [len=1]
+  KK63 -> KK64 [len=3]
 }
 
 subgraph KeikyuAirportLocal {
@@ -21,33 +148,159 @@ subgraph KeikyuAirportLocal {
 
 subgraph KeikyuAirportExpress {
   edge [color="#1a85af"]
+  KK01 -> KK04
+  KK04 -> KK06
+  KK06 -> KK08
+  KK08 -> KK11
+  // Airport Branch:
   KK11 -> KK12
   KK12 -> KK13
   KK13 -> KK14
   KK14 -> KK15
   KK15 -> KK16
   KK16 -> KK17
+  // Main Line:
+  KK11 <- KK20 [return=no]
+  KK20 <- KK29 [return=no]
+  KK29 <- KK34 [return=no]
+  KK34 <- KK35 [return=no]
+  KK35 <- KK37 [return=no]
+  KK37 <- KK39 [return=no]
+  KK39 <- KK42 [return=no]
+  KK42 <- KK43 [return=no]
+  KK43 <- KK44 [return=no]
+  KK44 <- KK46 [return=no]
+  KK46 <- KK48 [return=no]
+  KK48 <- KK49 [return=no]
+  KK49 <- KK50 [return=no]
+  // Zushi Branch:
+  KK50 <- KK51 [return=no]
+  KK51 <- KK52 [return=no]
+  KK52 <- KK53 [return=no]
 }
 
 subgraph KeikyuLimitedExpress {
   edge [color="#ea0104"]
+  KK01 -> KK04
+  KK04 -> KK08
+  KK08 -> KK11
+  // Airport Branch:
   KK11 -> KK12
   KK12 -> KK13
   KK13 -> KK14
   KK14 -> KK15
   KK15 -> KK16
   KK16 -> KK17
+  // Main Line:
+  KK11 -> KK20
+  KK20 -> KK34
+  KK34 -> KK37
+  KK37 -> KK44
+  KK44 -> KK49
+  KK49 -> KK50
+  // Zushi Branch:
+  KK50 -> KK51
+  KK51 -> KK52
+  KK52 -> KK53
+  // Main Line:
+  KK50 -> KK54
+  KK54 -> KK58
+  KK58 -> KK59
+  KK59 -> KK61
+  // Kurihama Branch:
+  KK61 -> KK65 [len=2]
+  KK65 -> KK66 [len=2]
+  KK66 -> KK67 [len=3]
+  KK67 -> KK68 [len=5]
+  KK68 -> KK69 [len=3]
+  KK69 -> KK70 [len=2]
+  KK70 -> KK71 [len=2]
+  KK71 -> KK72 [len=3]
 }
 
 subgraph KeikyuRapid {
   edge [color="#379412"]
   KK01 -> KK11
+  // Airport Branch:
   KK11 -> KK16
   KK16 -> KK17
+  // Main Line:
+  KK11 -> KK20
+  KK20 -> KK37
+  KK37 -> KK44
+  KK44 -> KK49
+  KK49 -> KK50
+  KK50 -> KK59
+  KK59 -> KK61
+  // Kurihama Branch:
+  KK61 -> KK65 [len=2]
+  KK65 -> KK66 [len=2]
+  KK66 -> KK67 [len=3]
+  KK67 -> KK68 [len=5]
+  KK68 -> KK69 [len=3]
+  KK69 -> KK70 [len=2]
+  KK70 -> KK71 [len=2]
+  KK71 -> KK72 [len=3]
 }
 
 subgraph KeikyuAirportRapid {
   edge [color="#fa9715"]
   KK01 -> KK16
   KK16 -> KK17
+}
+
+subgraph KeikyuDaishiLocal {
+  edge [color=black]
+  KK20 -> KK21
+  KK21 -> KK22
+  KK22 -> KK23
+  KK23 -> KK24
+  KK24 -> KK25
+  KK25 -> KK26
+}
+
+subgraph KeikyuZushiLocal {
+  edge [color=black]
+  KK50 -> KK51
+  KK51 -> KK52
+  KK52 -> KK53
+}
+
+subgraph KeikyuKurihamaLocal {
+  edge [color=black]
+  KK61 -> KK65 [len=2]
+  KK65 -> KK66 [len=2]
+  KK66 -> KK67 [len=3]
+  KK67 -> KK68 [len=5]
+  KK68 -> KK69 [len=3]
+  KK69 -> KK70 [len=2]
+  KK70 -> KK71 [len=2]
+  KK71 -> KK72 [len=3]
+}
+
+// モーニング・ウィング号
+subgraph KeikyuMorningWing {
+  edge [color="#01a884"]
+  KK71 -> KK59 [return=no reserved=yes len=20]
+  KK59 -> KK49 [return=no reserved=yes len=17]
+  KK49 -> KK44 [return=no reserved=yes len=9]
+  KK44 -> KK01 [return=no reserved=yes len=36]
+}
+
+// ウィング号：
+subgraph KeikyuWing {
+  edge [color="#01a884"]
+  KK01 -> KK44 [return=no reserved=yes len=34]
+  KK44 -> KK49 [return=no reserved=yes len=9]
+  KK49 -> KK50 [return=no reserved=yes len=3]
+  KK50 -> KK59 [return=no reserved=yes len=8]
+  KK59 -> KK61 [return=no reserved=yes len=4]
+  KK61 -> KK65 [return=no reserved=yes len=2]
+  KK65 -> KK66 [return=no reserved=yes len=2]
+  KK66 -> KK67 [return=no reserved=yes len=3]
+  KK67 -> KK68 [return=no reserved=yes len=5]
+  KK68 -> KK69 [return=no reserved=yes len=3]
+  KK69 -> KK70 [return=no reserved=yes len=2]
+  KK70 -> KK71 [return=no reserved=yes len=2]
+  KK71 -> KK72 [return=no reserved=yes len=3]
 }
