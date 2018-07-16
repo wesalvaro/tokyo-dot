@@ -160,23 +160,23 @@ subgraph KeikyuAirportExpress {
   KK15 -> KK16
   KK16 -> KK17
   // Main Line:
-  KK11 <- KK20 [return=no]
-  KK20 <- KK29 [return=no]
-  KK29 <- KK34 [return=no]
-  KK34 <- KK35 [return=no]
-  KK35 <- KK37 [return=no]
-  KK37 <- KK39 [return=no]
-  KK39 <- KK42 [return=no]
-  KK42 <- KK43 [return=no]
-  KK43 <- KK44 [return=no]
-  KK44 <- KK46 [return=no]
-  KK46 <- KK48 [return=no]
-  KK48 <- KK49 [return=no]
-  KK49 <- KK50 [return=no]
+  KK20 -> KK11 [return=no]
+  KK29 -> KK20 [return=no]
+  KK34 -> KK29 [return=no]
+  KK35 -> KK34 [return=no]
+  KK37 -> KK35 [return=no]
+  KK39 -> KK37 [return=no]
+  KK42 -> KK39 [return=no]
+  KK43 -> KK42 [return=no]
+  KK44 -> KK43 [return=no]
+  KK46 -> KK44 [return=no]
+  KK48 -> KK46 [return=no]
+  KK49 -> KK48 [return=no]
+  KK50 -> KK49 [return=no]
   // Zushi Branch:
-  KK50 <- KK51 [return=no]
-  KK51 <- KK52 [return=no]
-  KK52 <- KK53 [return=no]
+  KK51 -> KK50 [return=no]
+  KK52 -> KK51 [return=no]
+  KK53 -> KK52 [return=no]
 }
 
 subgraph KeikyuLimitedExpress {
