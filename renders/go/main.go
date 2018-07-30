@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -8,7 +9,9 @@ import (
 	"strconv"
 	"strings"
 
+	"cloud.google.com/go/storage"
 	"google.golang.org/appengine"
+	"google.golang.org/appengine/file"
 )
 
 func checkErr(err error) {
@@ -17,17 +20,29 @@ func checkErr(err error) {
 	}
 }
 
-var tokyo *trainGraph
-
 func main() {
-	f, err := os.Open("graph.dot")
-	checkErr(err)
-	tokyo = readGraph(f)
 	http.HandleFunc("/route/", handle)
 	appengine.Main()
 }
 
+func loadGraphFromGs(ctx context.Context) *trainGraph {
+	// `dev_appserver.py --default_gcs_bucket_name GCS_BUCKET_NAME`
+	bucketName, err := file.DefaultBucketName(ctx)
+	checkErr(err)
+	client, err := storage.NewClient(ctx)
+	checkErr(err)
+	defer client.Close()
+	bucket := client.Bucket(bucketName)
+	f, err := bucket.Object("graph.dot").NewReader(ctx)
+	checkErr(err)
+	defer f.Close()
+	checkErr(err)
+	return readGraph(f)
+}
+
 func handle(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
+	tokyo := loadGraphFromGs(ctx)
 	w.Header().Set("Content-Type", "text/html")
 	parts := strings.Split(r.URL.String()[1:], "/")
 	numParts := len(parts)

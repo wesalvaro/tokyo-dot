@@ -89,7 +89,6 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 			transfer := strings.SplitN(value, "|", 2)
 			dir := strings.SplitN(transfer[0], ";", 2)
 			if len(dir) == 2 {
-				fmt.Println("transfer car by direction")
 				log.Println("transfer car by direction")
 			}
 			e.cars = strings.Split(dir[0], ",")
