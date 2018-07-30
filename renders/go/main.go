@@ -3,20 +3,22 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
+
+	"google.golang.org/appengine/log"
 
 	"cloud.google.com/go/storage"
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/file"
 )
 
-func checkErr(err error) {
+func checkErr(ctx context.Context, err error) {
 	if err != nil {
-		log.Fatal(err)
+		log.Errorf(ctx, "%v", err)
+		panic(err.Error())
 	}
 }
 
@@ -28,25 +30,26 @@ func main() {
 func loadGraphFromGs(ctx context.Context) *trainGraph {
 	// `dev_appserver.py --default_gcs_bucket_name GCS_BUCKET_NAME`
 	bucketName, err := file.DefaultBucketName(ctx)
-	checkErr(err)
+	log.Debugf(ctx, "BUCKET: %s", bucketName)
+	checkErr(ctx, err)
 	client, err := storage.NewClient(ctx)
-	checkErr(err)
+	checkErr(ctx, err)
 	defer client.Close()
 	bucket := client.Bucket(bucketName)
 	f, err := bucket.Object("graph.dot").NewReader(ctx)
-	checkErr(err)
+	checkErr(ctx, err)
 	defer f.Close()
-	checkErr(err)
+	checkErr(ctx, err)
 	return readGraph(f)
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
-	tokyo := loadGraphFromGs(ctx)
 	w.Header().Set("Content-Type", "text/html")
-	parts := strings.Split(r.URL.String()[1:], "/")
+	parts := strings.Split(r.URL.Path[1:], "/")
 	numParts := len(parts)
 	fmt.Fprintln(w, `<!DOCTYPE html><meta charset="UTF-8"><h1>Routing</h1>`)
+	log.Debugf(ctx, "PARTS: %s", parts)
 	if numParts == 0 {
 		fmt.Fprintf(w, "try a command")
 		return
@@ -55,6 +58,8 @@ func handle(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "you need at least two stations")
 			return
 		}
+		tokyo := loadGraphFromGs(ctx)
+		log.Debugf(ctx, "STATIONS: %d", len(tokyo.Nodes()))
 		route := findMultiRoute(tokyo, parts[1:]...)
 		for _, d := range parts[1 : len(parts)-1] {
 			fmt.Fprintf(w, "%s to ", d)
@@ -68,22 +73,33 @@ func handle(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "<li>%s -> %s</li>", f.nameEn, t.nameEn)
 		}
 		fmt.Fprintf(w, "</ol>")
+	} else {
+		fmt.Fprintf(w, "Bad command")
 	}
 	fmt.Fprintln(w)
 }
 
 func cli() {
 	f, err := os.Open("graph.dot")
-	checkErr(err)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	tokyo := readGraph(f)
 	fmt.Println(tokyo)
 	if os.Args[1] == "route" {
 		cliRoute(tokyo, os.Args[2:]...)
 	} else if os.Args[1] == "explore" {
 		min, err := strconv.Atoi(os.Args[3])
-		checkErr(err)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 		limit, err := strconv.Atoi(os.Args[4])
-		checkErr(err)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 		cliExplore(tokyo, os.Args[2], float64(min), float64(limit))
 	}
 }
