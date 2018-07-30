@@ -27,6 +27,22 @@ func findRoute(g *trainGraph, s, d string) route {
 	return makeRoute(shortest.To(dest.ID()))
 }
 
+func findMultiRoute(g *trainGraph, stations ...string) route {
+	var fullRoute route
+	for i := 0; i < len(stations)-1; i++ {
+		route := findRoute(g, stations[i], stations[i+1])
+		var stations []*station
+		if i > 0 {
+			stations = route.stations[1:]
+		} else {
+			stations = route.stations
+		}
+		fullRoute.stations = append(fullRoute.stations, stations...)
+		fullRoute.time += route.time
+	}
+	return fullRoute
+}
+
 func exploreFrom(g *trainGraph, s string, min, lim float64) map[string]route {
 	shortest := path.DijkstraFrom(g.StationNode(s), g)
 	routes := make(map[string]route)
