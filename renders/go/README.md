@@ -1,4 +1,4 @@
 ```shell
-$ go get gonum.org/v1/gonum/graph
-$ go get golang.org/x/exp/rand
+$ dev_appserver.py \
+    --default_gcs_bucket_name train-lines.appspot.com .
 ```
