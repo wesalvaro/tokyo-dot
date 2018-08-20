@@ -103,11 +103,12 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 
 type station struct {
 	graph.Node `json:"-"`
-	StationID  string `json:"i"`
-	NameEn     string `json:"e"`
-	NameJp     string `json:"n"`
-	Line       string `json:"b"`
-	Lat, Lng   float64
+	StationID  string  `json:"i"`
+	NameEn     string  `json:"e"`
+	NameJp     string  `json:"n"`
+	Line       string  `json:"b"`
+	Lat        float64 `json:"-"`
+	Lng        float64 `json:"-"`
 	g          *trainGraph
 }
 
