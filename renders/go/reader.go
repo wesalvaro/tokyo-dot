@@ -17,11 +17,15 @@ import (
 )
 
 func newTrainGraph() *trainGraph {
-	return &trainGraph{DirectedGraph: simple.NewDirectedGraph()}
+	return &trainGraph{
+		DirectedGraph: simple.NewDirectedGraph(),
+		Lines:         make(map[string][]*station),
+	}
 }
 
 type trainGraph struct {
 	*simple.DirectedGraph
+	Lines map[string][]*station
 }
 
 func (g *trainGraph) StationNode(sid string) *station {
@@ -54,7 +58,7 @@ func (g *trainGraph) Weight(s, d int64) (float64, bool) {
 }
 
 func (g *trainGraph) NewNode() graph.Node {
-	return &station{Node: g.DirectedGraph.NewNode()}
+	return &station{Node: g.DirectedGraph.NewNode(), g: g}
 }
 
 func (g *trainGraph) NewEdge(from, to graph.Node) graph.Edge {
@@ -103,6 +107,7 @@ type station struct {
 	NameEn     string `json:"e"`
 	NameJp     string `json:"n"`
 	Line       string `json:"b"`
+	g          *trainGraph
 }
 
 func (s *station) String() string {
@@ -119,6 +124,7 @@ func (s *station) SetAttribute(attr encoding.Attribute) error {
 		s.NameEn = re.ReplaceAllString(attr.Value, "${en}")
 		s.NameJp = re.ReplaceAllString(attr.Value, "${jp}")
 		s.Line = re.ReplaceAllString(attr.Value, "${line}")
+		s.g.Lines[s.Line] = append(s.g.Lines[s.Line], s)
 	}
 	return nil
 }

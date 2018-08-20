@@ -25,6 +25,7 @@ func checkErr(ctx context.Context, err error) {
 
 func main() {
 	http.HandleFunc("/route/", handle)
+	http.HandleFunc("/explore/", handle)
 	appengine.Main()
 }
 
@@ -50,30 +51,55 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	parts := strings.Split(r.URL.Path[1:], "/")
 	numParts := len(parts)
 	log.Debugf(ctx, "PARTS: %s", parts)
-	if numParts == 0 {
+	switch {
+	case numParts == 0:
 		fmt.Fprintf(w, "try a command")
-		return
-	} else if parts[0] == "route" {
-		if numParts < 3 {
-			fmt.Fprintf(w, "you need at least two stations")
-			return
-		}
-		tokyo := loadGraphFromGs(ctx)
-		log.Debugf(ctx, "STATIONS: %d", len(tokyo.Nodes()))
-		route := findMultiRoute(tokyo, parts[1:]...)
-		w.Header().Add("Content-Type", "application/json")
-		output, err := json.Marshal(route)
-		if err != nil {
-			log.Criticalf(ctx, "Could not marshal route: %s", err)
-			w.WriteHeader(500)
-			return
-		}
-		w.WriteHeader(200)
-		w.Write(output)
-	} else {
+	case parts[0] == "route":
+		handleRoute(ctx, w, parts[1:])
+	case parts[0] == "explore":
+		handleExplore(ctx, w, parts[1])
+	default:
 		fmt.Fprintf(w, "Bad command")
 	}
-	fmt.Fprintln(w)
+}
+
+func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
+	w.Header().Add("Content-Type", "application/json")
+	tokyo := loadGraphFromGs(ctx)
+	stations := tokyo.Lines[line]
+	if stations == nil {
+		w.WriteHeader(404)
+		fmt.Fprintf(w, "line not found")
+		return
+	}
+	output, err := json.Marshal(stations)
+	if err != nil {
+		log.Criticalf(ctx, "Could not marshal line: %s", err)
+		w.WriteHeader(500)
+		return
+	}
+	w.WriteHeader(200)
+	w.Write(output)
+}
+
+func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
+	w.Header().Add("Content-Type", "application/json")
+	if len(ss) < 2 {
+		w.WriteHeader(400)
+		fmt.Fprintf(w, "you need at least two stations")
+		return
+	}
+	tokyo := loadGraphFromGs(ctx)
+	log.Debugf(ctx, "STATIONS: %d", len(tokyo.Nodes()))
+	route := findMultiRoute(tokyo, ss...)
+	output, err := json.Marshal(route)
+	if err != nil {
+		log.Criticalf(ctx, "Could not marshal route: %s", err)
+		w.WriteHeader(500)
+		return
+	}
+	w.WriteHeader(200)
+	w.Write(output)
 }
 
 func cli() {
