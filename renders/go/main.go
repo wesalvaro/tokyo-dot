@@ -26,6 +26,7 @@ func checkErr(ctx context.Context, err error) {
 func main() {
 	http.HandleFunc("/route/", handle)
 	http.HandleFunc("/explore/", handle)
+	http.HandleFunc("/near/", handle)
 	appengine.Main()
 }
 
@@ -58,9 +59,40 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		handleRoute(ctx, w, parts[1:])
 	case parts[0] == "explore":
 		handleExplore(ctx, w, parts[1])
+	case parts[0] == "near":
+		handlerNear(ctx, w, parts[1], parts[2])
 	default:
 		fmt.Fprintf(w, "Bad command")
 	}
+}
+
+func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart string) {
+	lat, err := strconv.ParseFloat(latPart, 64)
+	if err != nil {
+		log.Debugf(ctx, "could not parse float lat: %s", err)
+		return
+	}
+	lng, err := strconv.ParseFloat(lngPart, 64)
+	if err != nil {
+		log.Debugf(ctx, "could not parse float lng: %s", err)
+		return
+	}
+	w.Header().Add("Content-Type", "application/json")
+	tokyo := loadGraphFromGs(ctx)
+	stations := nearest(tokyo, lat, lng)
+	if stations == nil {
+		w.WriteHeader(404)
+		fmt.Fprintf(w, "no stations found nearby")
+		return
+	}
+	output, err := json.Marshal(stations)
+	if err != nil {
+		log.Criticalf(ctx, "Could not marshal stations: %s", err)
+		w.WriteHeader(500)
+		return
+	}
+	w.WriteHeader(200)
+	w.Write(output)
 }
 
 func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
@@ -74,7 +106,7 @@ func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
 	}
 	output, err := json.Marshal(stations)
 	if err != nil {
-		log.Criticalf(ctx, "Could not marshal line: %s", err)
+		log.Criticalf(ctx, "Could not marshal stations: %s", err)
 		w.WriteHeader(500)
 		return
 	}

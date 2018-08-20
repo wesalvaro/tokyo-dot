@@ -107,6 +107,7 @@ type station struct {
 	NameEn     string `json:"e"`
 	NameJp     string `json:"n"`
 	Line       string `json:"b"`
+	Lat, Lng   float64
 	g          *trainGraph
 }
 
@@ -119,12 +120,24 @@ func (s *station) SetDOTID(id string) {
 }
 
 func (s *station) SetAttribute(attr encoding.Attribute) error {
-	if attr.Key == "label" {
+	switch attr.Key {
+	case "label":
 		re := regexp.MustCompile(`"{(?P<jp>.*?)\|(?P<en>.*?)}\|{(?P<line>.*?)\|.*?}"`)
 		s.NameEn = re.ReplaceAllString(attr.Value, "${en}")
 		s.NameJp = re.ReplaceAllString(attr.Value, "${jp}")
 		s.Line = re.ReplaceAllString(attr.Value, "${line}")
 		s.g.Lines[s.Line] = append(s.g.Lines[s.Line], s)
+	case "pos":
+		latLng := strings.Split(strings.Trim(attr.Value, "!\""), ",")
+		lat, err := strconv.ParseFloat(latLng[0], 64)
+		if err != nil {
+			return err
+		}
+		lng, err := strconv.ParseFloat(latLng[1], 64)
+		if err != nil {
+			return err
+		}
+		s.Lat, s.Lng = lat, lng
 	}
 	return nil
 }
