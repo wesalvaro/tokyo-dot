@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
@@ -48,7 +49,6 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	parts := strings.Split(r.URL.Path[1:], "/")
 	numParts := len(parts)
-	fmt.Fprintln(w, `<!DOCTYPE html><meta charset="UTF-8"><h1>Routing</h1>`)
 	log.Debugf(ctx, "PARTS: %s", parts)
 	if numParts == 0 {
 		fmt.Fprintf(w, "try a command")
@@ -61,18 +61,15 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		tokyo := loadGraphFromGs(ctx)
 		log.Debugf(ctx, "STATIONS: %d", len(tokyo.Nodes()))
 		route := findMultiRoute(tokyo, parts[1:]...)
-		for _, d := range parts[1 : len(parts)-1] {
-			fmt.Fprintf(w, "%s to ", d)
+		w.Header().Add("Content-Type", "application/json")
+		output, err := json.Marshal(route)
+		if err != nil {
+			log.Criticalf(ctx, "Could not marshal route: %s", err)
+			w.WriteHeader(500)
+			return
 		}
-		fmt.Fprint(w, parts[len(parts)-1])
-		fmt.Fprintf(w, "<div>Time: %.0f</div>", route.time)
-		fmt.Fprintf(w, "<ol>")
-		for i := 0; i < len(route.stations)-1; i++ {
-			f := route.stations[i]
-			t := route.stations[i+1]
-			fmt.Fprintf(w, "<li>%s -> %s</li>", f.nameEn, t.nameEn)
-		}
-		fmt.Fprintf(w, "</ol>")
+		w.WriteHeader(200)
+		w.Write(output)
 	} else {
 		fmt.Fprintf(w, "Bad command")
 	}

@@ -6,8 +6,8 @@ import (
 )
 
 type route struct {
-	stations []*station
-	time     float64
+	Stations []*station `json:"stations"`
+	Time     float64    `json:"time"`
 }
 
 func makeRoute(nodes []graph.Node, time float64) route {
@@ -33,12 +33,12 @@ func findMultiRoute(g *trainGraph, stations ...string) route {
 		route := findRoute(g, stations[i], stations[i+1])
 		var stations []*station
 		if i > 0 {
-			stations = route.stations[1:]
+			stations = route.Stations[1:]
 		} else {
-			stations = route.stations
+			stations = route.Stations
 		}
-		fullRoute.stations = append(fullRoute.stations, stations...)
-		fullRoute.time += route.time
+		fullRoute.Stations = append(fullRoute.Stations, stations...)
+		fullRoute.Time += route.Time
 	}
 	return fullRoute
 }
@@ -49,7 +49,7 @@ func exploreFrom(g *trainGraph, s string, min, lim float64) map[string]route {
 	for s := range g.Stations() {
 		route, time := shortest.To(s.ID())
 		if time >= min && time <= lim {
-			routes[s.StationID()] = makeRoute(route, time)
+			routes[s.StationID] = makeRoute(route, time)
 		}
 	}
 	return routes

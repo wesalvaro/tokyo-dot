@@ -27,7 +27,7 @@ type trainGraph struct {
 func (g *trainGraph) StationNode(sid string) *station {
 	for _, n := range g.DirectedGraph.Nodes() {
 		s := n.(*station)
-		if sid == s.StationID() {
+		if sid == s.StationID {
 			return s
 		}
 	}
@@ -98,31 +98,27 @@ func (e *edge) SetAttribute(attr encoding.Attribute) error {
 }
 
 type station struct {
-	graph.Node
-	stationID string
-	nameEn    string
-	nameJp    string
-	line      string
+	graph.Node `json:"-"`
+	StationID  string `json:"i"`
+	NameEn     string `json:"e"`
+	NameJp     string `json:"n"`
+	Line       string `json:"b"`
 }
 
 func (s *station) String() string {
-	return s.stationID + " " + s.nameEn
-}
-
-func (s *station) StationID() string {
-	return s.stationID
+	return s.StationID + " " + s.NameEn
 }
 
 func (s *station) SetDOTID(id string) {
-	s.stationID = id
+	s.StationID = id
 }
 
 func (s *station) SetAttribute(attr encoding.Attribute) error {
 	if attr.Key == "label" {
 		re := regexp.MustCompile(`"{(?P<jp>.*?)\|(?P<en>.*?)}\|{(?P<line>.*?)\|.*?}"`)
-		s.nameEn = re.ReplaceAllString(attr.Value, "${en}")
-		s.nameJp = re.ReplaceAllString(attr.Value, "${jp}")
-		s.line = re.ReplaceAllString(attr.Value, "${line}")
+		s.NameEn = re.ReplaceAllString(attr.Value, "${en}")
+		s.NameJp = re.ReplaceAllString(attr.Value, "${jp}")
+		s.Line = re.ReplaceAllString(attr.Value, "${line}")
 	}
 	return nil
 }

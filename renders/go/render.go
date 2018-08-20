@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+)
 
 var circleNums = []rune{
 	'⓪', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩',
@@ -8,9 +11,9 @@ var circleNums = []rune{
 }
 
 func render(g *trainGraph, r route) {
-	for i := 0; i < len(r.stations)-1; i++ {
-		s := r.stations[i]
-		d := r.stations[i+1]
+	for i := 0; i < len(r.Stations)-1; i++ {
+		s := r.Stations[i]
+		d := r.Stations[i+1]
 		edge := g.Edge(s.ID(), d.ID()).(*edge)
 		for i, c := range edge.cars {
 			comma := ""
@@ -24,5 +27,16 @@ func render(g *trainGraph, r route) {
 		}
 		fmt.Printf("\n%40s ➜ %s ➜ %-40s", s, string(circleNums[int(edge.time)]), d)
 	}
-	fmt.Printf("\nTotal time: %.0f\n", r.time)
+	fmt.Printf("\nTotal time: %.0f\n", r.Time)
+}
+
+func renderRouteHTML(w io.Writer, r route) {
+	fmt.Fprintf(w, "<div>Time: %.0f</div>", r.Time)
+	fmt.Fprintf(w, "<ol>")
+	for i := 0; i < len(r.Stations)-1; i++ {
+		f := r.Stations[i]
+		t := r.Stations[i+1]
+		fmt.Fprintf(w, "<li>%s -> %s</li>", f.NameEn, t.NameEn)
+	}
+	fmt.Fprintf(w, "</ol>")
 }
