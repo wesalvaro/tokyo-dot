@@ -4,21 +4,19 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
 
-	"google.golang.org/appengine/log"
-
 	"cloud.google.com/go/storage"
 	"google.golang.org/appengine"
-	"google.golang.org/appengine/file"
 )
 
 func checkErr(ctx context.Context, err error) {
 	if err != nil {
-		log.Errorf(ctx, "%v", err)
+		log.Panicf("%v", err)
 		panic(err.Error())
 	}
 }
@@ -27,18 +25,24 @@ func main() {
 	http.HandleFunc("/route/", handle)
 	http.HandleFunc("/explore/", handle)
 	http.HandleFunc("/near/", handle)
-	appengine.Main()
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
+	}
+
+	log.Printf("Listening on port %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func loadGraphFromGs(ctx context.Context) *trainGraph {
-	// `dev_appserver.py --default_gcs_bucket_name GCS_BUCKET_NAME`
-	bucketName, err := file.DefaultBucketName(ctx)
-	log.Debugf(ctx, "BUCKET: %s", bucketName)
-	checkErr(ctx, err)
 	client, err := storage.NewClient(ctx)
 	checkErr(ctx, err)
 	defer client.Close()
-	bucket := client.Bucket(bucketName)
+	bucket := client.Bucket("train-lines.appspot.com")
 	f, err := bucket.Object("graph.dot").NewReader(ctx)
 	checkErr(ctx, err)
 	defer f.Close()
@@ -51,7 +55,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	parts := strings.Split(r.URL.Path[1:], "/")
 	numParts := len(parts)
-	log.Debugf(ctx, "PARTS: %s", parts)
+	log.Printf("PARTS: %s", parts)
 	switch {
 	case numParts == 0:
 		fmt.Fprintf(w, "try a command")
@@ -69,12 +73,12 @@ func handle(w http.ResponseWriter, r *http.Request) {
 func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart string) {
 	lat, err := strconv.ParseFloat(latPart, 64)
 	if err != nil {
-		log.Debugf(ctx, "could not parse float lat: %s", err)
+		log.Printf("could not parse float lat: %s", err)
 		return
 	}
 	lng, err := strconv.ParseFloat(lngPart, 64)
 	if err != nil {
-		log.Debugf(ctx, "could not parse float lng: %s", err)
+		log.Printf("could not parse float lng: %s", err)
 		return
 	}
 	w.Header().Add("Content-Type", "application/json")
@@ -87,7 +91,7 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 	}
 	output, err := json.Marshal(stations)
 	if err != nil {
-		log.Criticalf(ctx, "Could not marshal stations: %s", err)
+		log.Fatalf("Could not marshal stations: %s", err)
 		w.WriteHeader(500)
 		return
 	}
@@ -106,7 +110,7 @@ func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
 	}
 	output, err := json.Marshal(stations)
 	if err != nil {
-		log.Criticalf(ctx, "Could not marshal stations: %s", err)
+		log.Fatalf("Could not marshal stations: %s", err)
 		w.WriteHeader(500)
 		return
 	}
@@ -122,11 +126,11 @@ func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
 		return
 	}
 	tokyo := loadGraphFromGs(ctx)
-	log.Debugf(ctx, "STATIONS: %d", len(tokyo.Nodes()))
+	log.Printf("STATIONS: %d", tokyo.Nodes().Len())
 	route := findMultiRoute(tokyo, ss...)
 	output, err := json.Marshal(route)
 	if err != nil {
-		log.Criticalf(ctx, "Could not marshal route: %s", err)
+		log.Fatalf("Could not marshal route: %s", err)
 		w.WriteHeader(500)
 		return
 	}

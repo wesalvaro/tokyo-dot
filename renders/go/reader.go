@@ -29,8 +29,9 @@ type trainGraph struct {
 }
 
 func (g *trainGraph) StationNode(sid string) *station {
-	for _, n := range g.DirectedGraph.Nodes() {
-		s := n.(*station)
+	nodes := g.DirectedGraph.Nodes()
+	for nodes.Next() {
+		s := nodes.Node().(*station)
 		if sid == s.StationID {
 			return s
 		}
@@ -41,8 +42,9 @@ func (g *trainGraph) StationNode(sid string) *station {
 func (g *trainGraph) Stations() chan *station {
 	ch := make(chan *station)
 	go func() {
-		for _, n := range g.Nodes() {
-			ch <- n.(*station)
+	  nodes := g.DirectedGraph.Nodes()
+		for nodes.Next() {
+			ch <- nodes.Node().(*station)
 		}
 		close(ch)
 	}()
@@ -66,7 +68,7 @@ func (g *trainGraph) NewEdge(from, to graph.Node) graph.Edge {
 }
 
 func (g *trainGraph) String() string {
-	return fmt.Sprintf("%d platforms", len(g.Nodes()))
+	return fmt.Sprintf("%d platforms", g.Nodes().Len())
 }
 
 var quotedLabel = regexp.MustCompile(`"(?P<content>.*?)"`)
@@ -148,9 +150,10 @@ func convertToTrainGraph(graph *ast.Graph) *trainGraph {
 	if err := edot.Unmarshal([]byte(graph.String()), dst); err != nil {
 		log.Fatal(err)
 	}
-	for _, e := range dst.Edges() {
+	edges := dst.Edges()
+	for edges.Next() {
 		// Make edges two-way unless specified individually:
-		if f := e.(*edge); !f.oneWay {
+		if f := edges.Edge().(*edge); !f.oneWay {
 			// Return edge already exists in graph:
 			if dst.HasEdgeFromTo(f.To().ID(), f.From().ID()) {
 				continue

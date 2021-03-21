@@ -1,4 +1,18 @@
+## Setup
+
 ```shell
-$ dev_appserver.py \
-    --default_gcs_bucket_name train-lines.appspot.com .
+$ gcloud components install app-engine-go
+```
+
+## Development Server
+
+```shell
+$ set -x GOOGLE_APPLICATION_CREDENTIALS ~/.cloud-credentials.json
+$ go build -o trainlines; and ./trainlines
+```
+
+## Deploy to AppEngine
+
+```shell
+$ gcloud app deploy
 ```

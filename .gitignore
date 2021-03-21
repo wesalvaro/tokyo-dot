@@ -1,4 +1,5 @@
 graphs/*.svg
-renders/go/go
 renders/go/graph.dot
+renders/go/trainlines
 .DS_store
+go.sum
