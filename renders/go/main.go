@@ -100,14 +100,7 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 		fmt.Fprintf(w, "no stations found nearby")
 		return
 	}
-	output, err := json.Marshal(stations)
-	if err != nil {
-		log.Fatalf("Could not marshal stations: %s", err)
-		w.WriteHeader(500)
-		return
-	}
-	w.WriteHeader(200)
-	w.Write(output)
+	respond(w, stations)
 }
 
 func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
@@ -119,14 +112,7 @@ func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
 		fmt.Fprintf(w, "line not found")
 		return
 	}
-	output, err := json.Marshal(stations)
-	if err != nil {
-		log.Fatalf("Could not marshal stations: %s", err)
-		w.WriteHeader(500)
-		return
-	}
-	w.WriteHeader(200)
-	w.Write(output)
+	respond(w, stations)
 }
 
 func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
@@ -138,10 +124,13 @@ func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
 	}
 	tokyo := loadGraph(ctx)
 	log.Printf("STATIONS: %d", tokyo.Nodes().Len())
-	route := findMultiRoute(tokyo, ss...)
-	output, err := json.Marshal(route)
+	respond(w, findMultiRoute(tokyo, ss...))
+}
+
+func respond(w http.ResponseWriter, response interface {}) {
+	output, err := json.Marshal(response)
 	if err != nil {
-		log.Fatalf("Could not marshal route: %s", err)
+		log.Fatalf("Could not marshal response: %s", err)
 		w.WriteHeader(500)
 		return
 	}
