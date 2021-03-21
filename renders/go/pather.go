@@ -12,6 +12,11 @@ type route struct {
 	Time     float64    `json:"time"`
 }
 
+type stationDistance struct {
+	Station  *station `json:"s"`
+	Distance int      `json:"m"`
+}
+
 func makeRoute(nodes []graph.Node, time float64) route {
 	var stations []*station
 	for _, s := range nodes {
@@ -20,8 +25,8 @@ func makeRoute(nodes []graph.Node, time float64) route {
 	return route{stations, time}
 }
 
-func nearest(g *trainGraph, lat, lng float64) []*station {
-	var stations []*station
+func nearest(g *trainGraph, lat, lng float64) []*stationDistance {
+	var stations []*stationDistance
 	for s := range g.Stations() {
 		φ1 := radians(lat)
 		φ2 := radians(s.Lat)
@@ -29,7 +34,7 @@ func nearest(g *trainGraph, lat, lng float64) []*station {
 		R := 6371e3 // gives d in metres
 		d := math.Acos(math.Sin(φ1)*math.Sin(φ2)+math.Cos(φ1)*math.Cos(φ2)*math.Cos(Δλ)) * R
 		if d < 2e3 {
-			stations = append(stations, s)
+			stations = append(stations, &stationDistance{s, int(d)})
 		}
 	}
 	return stations
