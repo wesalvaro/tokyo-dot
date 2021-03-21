@@ -28,21 +28,33 @@ type trainGraph struct {
 	Lines map[string][]*station
 }
 
-func (g *trainGraph) StationNode(sid string) *station {
+func (g *trainGraph) StationNode(sid string) (*station, error) {
 	nodes := g.DirectedGraph.Nodes()
 	for nodes.Next() {
 		s := nodes.Node().(*station)
 		if sid == s.StationID {
-			return s
+			return s, nil
 		}
 	}
-	return nil
+	return nil, fmt.Errorf("Station not found: %s", sid)
+}
+
+func (g *trainGraph) StationNodes(sid ...string) ([]*station, error) {
+	stations := make([]*station, len(sid))
+	for i, v := range sid {
+		s, err := g.StationNode(v)
+		if err != nil {
+			return nil, err
+		}
+		stations[i] = s
+	}
+	return stations, nil
 }
 
 func (g *trainGraph) Stations() chan *station {
 	ch := make(chan *station)
 	go func() {
-	  nodes := g.DirectedGraph.Nodes()
+		nodes := g.DirectedGraph.Nodes()
 		for nodes.Next() {
 			ch <- nodes.Node().(*station)
 		}

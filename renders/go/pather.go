@@ -44,16 +44,12 @@ func radians(d float64) float64 {
 	return float64(d) * (math.Pi / 180.0)
 }
 
-func findRoute(g *trainGraph, s, d string) route {
-	dest := g.StationNode(d)
-	shortest, _ := path.AStar(
-		g.StationNode(s),
-		dest,
-		g, nil)
-	return makeRoute(shortest.To(dest.ID()))
+func findRoute(g *trainGraph, s, d *station) route {
+	shortest, _ := path.AStar(s, d, g, nil)
+	return makeRoute(shortest.To(d.ID()))
 }
 
-func findMultiRoute(g *trainGraph, stations ...string) route {
+func findMultiRoute(g *trainGraph, stations ...*station) route {
 	var fullRoute route
 	for i := 0; i < len(stations)-1; i++ {
 		route := findRoute(g, stations[i], stations[i+1])
@@ -69,8 +65,8 @@ func findMultiRoute(g *trainGraph, stations ...string) route {
 	return fullRoute
 }
 
-func exploreFrom(g *trainGraph, s string, min, lim float64) map[string]route {
-	shortest := path.DijkstraFrom(g.StationNode(s), g)
+func exploreFrom(g *trainGraph, s *station, min, lim float64) map[string]route {
+	shortest := path.DijkstraFrom(s, g)
 	routes := make(map[string]route)
 	for s := range g.Stations() {
 		route, time := shortest.To(s.ID())

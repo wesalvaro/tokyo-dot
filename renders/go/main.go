@@ -63,7 +63,6 @@ func loadGraphFromGs(ctx context.Context) *trainGraph {
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
-	w.Header().Set("Content-Type", "text/html")
 	parts := strings.Split(r.URL.Path[1:], "/")
 	numParts := len(parts)
 	log.Printf("PARTS: %s", parts)
@@ -92,7 +91,6 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 		log.Printf("could not parse float lng: %s", err)
 		return
 	}
-	w.Header().Add("Content-Type", "application/json")
 	tokyo := loadGraph(ctx)
 	stations := nearest(tokyo, lat, lng)
 	if stations == nil {
@@ -103,8 +101,12 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 	respond(w, stations)
 }
 
+type errorResponse struct {
+	code    int
+	Message string `json:"message"`
+}
+
 func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
-	w.Header().Add("Content-Type", "application/json")
 	tokyo := loadGraph(ctx)
 	stations := tokyo.Lines[line]
 	if stations == nil {
@@ -116,38 +118,50 @@ func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
 }
 
 func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
-	w.Header().Add("Content-Type", "application/json")
 	if len(ss) < 2 {
 		w.WriteHeader(400)
 		fmt.Fprintf(w, "you need at least two stations")
 		return
 	}
 	tokyo := loadGraph(ctx)
+	stations, err := tokyo.StationNodes(ss...)
+	if err != nil {
+		respond(w, errorResponse{400, err.Error()})
+		return
+	}
 	log.Printf("STATIONS: %d", tokyo.Nodes().Len())
-	respond(w, findMultiRoute(tokyo, ss...))
+	respond(w, findMultiRoute(tokyo, stations...))
 }
 
-func respond(w http.ResponseWriter, response interface {}) {
-	output, err := json.Marshal(response)
-	if err != nil {
-		log.Fatalf("Could not marshal response: %s", err)
-		w.WriteHeader(500)
-		return
+func respond(w http.ResponseWriter, response interface{}) {
+	w.Header().Add("Content-Type", "application/json")
+	r, isError := response.(errorResponse)
+	if isError {
+		output, err := json.Marshal(r)
+		checkErr(err)
+		w.WriteHeader(r.code)
+		w.Write(output)
+	} else if response != nil {
+		output, err := json.Marshal(response)
+		if err != nil {
+			log.Fatalf("Could not marshal response: %s", err)
+			respond(w, nil)
+			return
+		}
+		w.WriteHeader(200)
+		w.Write(output)
+	} else {
+		respond(w, errorResponse{500, "No result."})
 	}
-	w.WriteHeader(200)
-	w.Write(output)
 }
 
-func cli() {
-	f, err := os.Open("graph.dot")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	tokyo := readGraph(f)
+func cli(ctx context.Context) {
+	tokyo := loadGraph(ctx)
 	fmt.Println(tokyo)
 	if os.Args[1] == "route" {
-		cliRoute(tokyo, os.Args[2:]...)
+		stations, err := tokyo.StationNodes(os.Args[2:]...)
+		checkErr(err)
+		cliRoute(tokyo, stations...)
 	} else if os.Args[1] == "explore" {
 		min, err := strconv.Atoi(os.Args[3])
 		if err != nil {
@@ -159,17 +173,19 @@ func cli() {
 			fmt.Println(err)
 			return
 		}
-		cliExplore(tokyo, os.Args[2], float64(min), float64(limit))
+		s, err := tokyo.StationNode(os.Args[2])
+		checkErr(err)
+		cliExplore(tokyo, s, float64(min), float64(limit))
 	}
 }
 
-func cliRoute(g *trainGraph, stations ...string) {
+func cliRoute(g *trainGraph, stations ...*station) {
 	fmt.Printf("Routing: %s\n", stations)
 	render(g, findMultiRoute(g, stations...))
 }
 
-func cliExplore(g *trainGraph, station string, min, limit float64) {
-	routes := exploreFrom(g, station, min, limit)
+func cliExplore(g *trainGraph, s *station, min, limit float64) {
+	routes := exploreFrom(g, s, min, limit)
 	for dest, route := range routes {
 		fmt.Println(dest)
 		render(g, route)
