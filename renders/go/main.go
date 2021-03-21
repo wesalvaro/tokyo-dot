@@ -14,7 +14,7 @@ import (
 	"google.golang.org/appengine"
 )
 
-func checkErr(ctx context.Context, err error) {
+func checkErr(err error) {
 	if err != nil {
 		log.Panicf("%v", err)
 		panic(err.Error())
@@ -40,13 +40,13 @@ func main() {
 
 func loadGraphFromGs(ctx context.Context) *trainGraph {
 	client, err := storage.NewClient(ctx)
-	checkErr(ctx, err)
+	checkErr(err)
 	defer client.Close()
 	bucket := client.Bucket("train-lines.appspot.com")
 	f, err := bucket.Object("graph.dot").NewReader(ctx)
-	checkErr(ctx, err)
+	checkErr(err)
 	defer f.Close()
-	checkErr(ctx, err)
+	checkErr(err)
 	return readGraph(f)
 }
 
