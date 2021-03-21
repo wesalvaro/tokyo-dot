@@ -38,6 +38,17 @@ func main() {
 	}
 }
 
+func loadGraph(ctx context.Context) *trainGraph {
+	graphPath := os.Getenv("GRAPH_PATH")
+	if graphPath != "" {
+		f, err := os.Open(graphPath)
+		checkErr(err)
+		return readGraph(f)
+	} else {
+		return loadGraphFromGs(ctx)
+	}
+}
+
 func loadGraphFromGs(ctx context.Context) *trainGraph {
 	client, err := storage.NewClient(ctx)
 	checkErr(err)
@@ -82,7 +93,7 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 		return
 	}
 	w.Header().Add("Content-Type", "application/json")
-	tokyo := loadGraphFromGs(ctx)
+	tokyo := loadGraph(ctx)
 	stations := nearest(tokyo, lat, lng)
 	if stations == nil {
 		w.WriteHeader(404)
@@ -101,7 +112,7 @@ func handlerNear(ctx context.Context, w http.ResponseWriter, latPart, lngPart st
 
 func handleExplore(ctx context.Context, w http.ResponseWriter, line string) {
 	w.Header().Add("Content-Type", "application/json")
-	tokyo := loadGraphFromGs(ctx)
+	tokyo := loadGraph(ctx)
 	stations := tokyo.Lines[line]
 	if stations == nil {
 		w.WriteHeader(404)
@@ -125,7 +136,7 @@ func handleRoute(ctx context.Context, w http.ResponseWriter, ss []string) {
 		fmt.Fprintf(w, "you need at least two stations")
 		return
 	}
-	tokyo := loadGraphFromGs(ctx)
+	tokyo := loadGraph(ctx)
 	log.Printf("STATIONS: %d", tokyo.Nodes().Len())
 	route := findMultiRoute(tokyo, ss...)
 	output, err := json.Marshal(route)
