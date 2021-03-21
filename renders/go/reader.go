@@ -125,7 +125,7 @@ func (s *station) SetDOTID(id string) {
 func (s *station) SetAttribute(attr encoding.Attribute) error {
 	switch attr.Key {
 	case "label":
-		re := regexp.MustCompile(`"{(?P<jp>.*?)\|(?P<en>.*?)}\|{(?P<line>.*?)\|.*?}"`)
+		re := regexp.MustCompile(`{(?P<jp>.*?)\|(?P<en>.*?)}\|{(?P<line>.*?)\|.*?}`)
 		s.NameEn = re.ReplaceAllString(attr.Value, "${en}")
 		s.NameJp = re.ReplaceAllString(attr.Value, "${jp}")
 		s.Line = re.ReplaceAllString(attr.Value, "${line}")
